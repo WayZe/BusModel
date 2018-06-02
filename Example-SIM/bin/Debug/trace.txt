@@ -3,2029 +3,661 @@
 ==============================================================
 	
 Параметры модели:	
-	
-Количество библиотекарей:	
-KBL = 2	
-	
-Интенсивность входного потока преподавателей (чел/мин):	
-LAMD[0] = 0,08333	
-	
-Интенсивность входного потока студентов (чел/мин):	
-LAMD[1] = 0,41667	
-	
-Границы области определения ЗРПВ времени перемещения библиотекаря в один конец от стола заказов до хранилища:	
-AP = 0,5	BP = 1,5	
-	
-Границы области определения ЗРПВ времени завершения процедуры выдачи книг:	
-AZ = 1	BZ = 3	
-	
-Максимальное число читателей, обслуживаемых библиотекарем за один поход в хранилище:	
-NMAX = 4	
-	
-Параметры НЗР времени на поиск книг:	
-MO = 3 * KK, SKO = 0.6 * KK	
-	
-Условие окончания прогона – заданное число обслуженных читателей:	
-KOP + KOS = 	200	
+Интенсивность потока пассажиров:	
+LAMBD = 0,2	
+Состояние автобуса:	
+SA = 0	
+Размер автобуса:	
+B = 10	
+Интервал времени прибытия автобуса:	
+T = 10	
+Погрешность прибытия автобуса:	
+A = 1	
+Время прогона:	
+TP = 200	
+Вариант модели:	
+NVAR = 1	
+Левая и правая границы числа пассажиров в автобусе:	
+ml = 1	
+mp = 8	
+Левая и правая границы времени высадки пассажира:	
+bcl = 0	
+bcp = 1	
+Левая и правая границы времени посадки пассажира:	
+pcl = 0	
+pcp = 1	
+Левая и правая границы количества выходящих пассажиров из автобуса:	
+VL = 1	
+VP = 7	
 	
 Начальное состояние модели:	
-KVP = 0	KVS = 0	KOP = 0	KOS = 0	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
+KVZ = 0 SA = 0 KPA = 0 KA = 0 VQ.Count = 0	
 	
 ==============================================================
 	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 1  NP = 1	
-+ 0	Event2_Librarian		K = 2    NBL = 1		
-+ 0	Event1_Enter		K = 1   NCH = 2    NP = 1		
-KVP = 1	KVS = 0	KOP = 0	KOS = 0	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 0,00	QVZP = [1; 0]	QVZS = [0; 0]	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 1  NP = 2	
-+ 0	Event2_Librarian		K = 2    NBL = 2		
-+ 0	Event1_Enter		K = 1   NCH = 2    NP = 2		
-KVP = 1	KVS = 1	KOP = 0	KOS = 0	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 0,00	QVZP = [1; 0]	QVZS = [0; 1]	
-0,000		 Event2_Librarian			K = 2    NBL = 1	
-+ 2,214	Event3_Finish		К = 3    NBL = 1    tвх = 0  NCH = 1 NP = 1		
-KVP = 1	KVS = 1	KOP = 0	KOS = 0	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 1]	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 2  NP = 1	
-+ 0	Event1_Enter		K = 1   NCH = 3    NP = 1		
-KVP = 2	KVS = 1	KOP = 0	KOS = 0	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 1]	
-0,000		 Event2_Librarian			K = 2    NBL = 2	
-+ 3,207	Event3_Finish		К = 3    NBL = 2    tвх = 0  NCH = 1 NP = 2		
-KVP = 2	KVS = 1	KOP = 0	KOS = 0	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 2  NP = 2	
-+ 0	Event1_Enter		K = 1   NCH = 3    NP = 2		
-KVP = 2	KVS = 2	KOP = 0	KOS = 0	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 3  NP = 1	
-+ 0	Event1_Enter		K = 1   NCH = 4    NP = 1		
-KVP = 3	KVS = 2	KOP = 0	KOS = 0	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 3  NP = 2	
-+ 1	Event1_Enter		K = 1   NCH = 4    NP = 2		
-KVP = 3	KVS = 3	KOP = 0	KOS = 0	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-0,000		 Event1_Enter			K = 1   tвх = 0,000   NCH = 4  NP = 1	
-+ 1	Event1_Enter		K = 1   NCH = 5    NP = 1		
-KVP = 4	KVS = 3	KOP = 0	KOS = 0	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 4  NP = 2	
-+ 2	Event1_Enter		K = 1   NCH = 5    NP = 2		
-KVP = 4	KVS = 4	KOP = 0	KOS = 0	LVQP = 3	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 5  NP = 1	
-+ 1	Event1_Enter		K = 1   NCH = 6    NP = 1		
-KVP = 5	KVS = 4	KOP = 0	KOS = 0	LVQP = 4	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 6  NP = 1	
-+ 1	Event1_Enter		K = 1   NCH = 7    NP = 1		
-KVP = 6	KVS = 4	KOP = 0	KOS = 0	LVQP = 5	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 7  NP = 1	
-+ 1	Event1_Enter		K = 1   NCH = 8    NP = 1		
-KVP = 7	KVS = 4	KOP = 0	KOS = 0	LVQP = 6	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 8  NP = 1	
-+ 1	Event1_Enter		K = 1   NCH = 9    NP = 1		
-KVP = 8	KVS = 4	KOP = 0	KOS = 0	LVQP = 7	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 9  NP = 1	
-+ 1	Event1_Enter		K = 1   NCH = 10    NP = 1		
-KVP = 9	KVS = 4	KOP = 0	KOS = 0	LVQP = 8	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-1,000		 Event1_Enter			K = 1   tвх = 1,000   NCH = 10  NP = 1	
-+ 2	Event1_Enter		K = 1   NCH = 11    NP = 1		
-KVP = 10	KVS = 4	KOP = 0	KOS = 0	LVQP = 9	LVQS = 3	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-2,000		 Event1_Enter			K = 1   tвх = 2,000   NCH = 5  NP = 2	
-+ 3	Event1_Enter		K = 1   NCH = 6    NP = 2		
-KVP = 10	KVS = 5	KOP = 0	KOS = 0	LVQP = 9	LVQS = 4	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-2,000		 Event1_Enter			K = 1   tвх = 2,000   NCH = 11  NP = 1	
-+ 2	Event1_Enter		K = 1   NCH = 12    NP = 1		
-KVP = 11	KVS = 5	KOP = 0	KOS = 0	LVQP = 10	LVQS = 4	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-2,000		 Event1_Enter			K = 1   tвх = 2,000   NCH = 12  NP = 1	
-+ 2	Event1_Enter		K = 1   NCH = 13    NP = 1		
-KVP = 12	KVS = 5	KOP = 0	KOS = 0	LVQP = 11	LVQS = 4	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-2,000		 Event1_Enter			K = 1   tвх = 2,000   NCH = 13  NP = 1	
-+ 3	Event1_Enter		K = 1   NCH = 14    NP = 1		
-KVP = 13	KVS = 5	KOP = 0	KOS = 0	LVQP = 12	LVQS = 4	LQBL = 0	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-+ 2,214	Event2_Librarian		K = 2    NBL = 1		
-KVP = 13	KVS = 5	KOP = 0	KOS = 0	LVQP = 8	LVQS = 4	LQBL = 0	TSPBL = 0,00	QVZP = [4; 0]	QVZS = [0; 0]	
-2,214		 Event2_Librarian			K = 2    NBL = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1    tвх = 0  NCH = 2 NP = 1		
-KVP = 13	KVS = 5	KOP = 0	KOS = 0	LVQP = 8	LVQS = 4	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-3,000		 Event1_Enter			K = 1   tвх = 3,000   NCH = 6  NP = 2	
-+ 4	Event1_Enter		K = 1   NCH = 7    NP = 2		
-KVP = 13	KVS = 6	KOP = 0	KOS = 0	LVQP = 8	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-3,000		 Event1_Enter			K = 1   tвх = 3,000   NCH = 14  NP = 1	
-+ 3	Event1_Enter		K = 1   NCH = 15    NP = 1		
-KVP = 14	KVS = 6	KOP = 0	KOS = 0	LVQP = 9	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-3,000		 Event1_Enter			K = 1   tвх = 3,000   NCH = 15  NP = 1	
-+ 3	Event1_Enter		K = 1   NCH = 16    NP = 1		
-KVP = 15	KVS = 6	KOP = 0	KOS = 0	LVQP = 10	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-3,000		 Event1_Enter			K = 1   tвх = 3,000   NCH = 16  NP = 1	
-+ 3	Event1_Enter		K = 1   NCH = 17    NP = 1		
-KVP = 16	KVS = 6	KOP = 0	KOS = 0	LVQP = 11	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-3,000		 Event1_Enter			K = 1   tвх = 3,000   NCH = 17  NP = 1	
-+ 3	Event1_Enter		K = 1   NCH = 18    NP = 1		
-KVP = 17	KVS = 6	KOP = 0	KOS = 0	LVQP = 12	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-3,000		 Event1_Enter			K = 1   tвх = 3,000   NCH = 18  NP = 1	
-+ 4	Event1_Enter		K = 1   NCH = 19    NP = 1		
-KVP = 18	KVS = 6	KOP = 0	KOS = 0	LVQP = 13	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 0]	QVZS = [0; 0]	
-+ 3,207	Event2_Librarian		K = 2    NBL = 2		
-KVP = 18	KVS = 6	KOP = 0	KOS = 0	LVQP = 9	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 4]	QVZS = [0; 0]	
-3,207		 Event2_Librarian			K = 2    NBL = 2	
-+ 4,778	Event3_Finish		К = 3    NBL = 2    tвх = 1  NCH = 6 NP = 1		
-KVP = 18	KVS = 6	KOP = 0	KOS = 0	LVQP = 9	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 7  NP = 2	
-+ 4	Event1_Enter		K = 1   NCH = 8    NP = 2		
-KVP = 18	KVS = 7	KOP = 0	KOS = 0	LVQP = 9	LVQS = 6	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 19  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 20    NP = 1		
-KVP = 19	KVS = 7	KOP = 0	KOS = 0	LVQP = 10	LVQS = 6	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 8  NP = 2	
-+ 4	Event1_Enter		K = 1   NCH = 9    NP = 2		
-KVP = 19	KVS = 8	KOP = 0	KOS = 0	LVQP = 10	LVQS = 7	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 9  NP = 2	
-+ 4	Event1_Enter		K = 1   NCH = 10    NP = 2		
-KVP = 19	KVS = 9	KOP = 0	KOS = 0	LVQP = 10	LVQS = 8	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 10  NP = 2	
-+ 4	Event1_Enter		K = 1   NCH = 11    NP = 2		
-KVP = 19	KVS = 10	KOP = 0	KOS = 0	LVQP = 10	LVQS = 9	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 11  NP = 2	
-+ 4	Event1_Enter		K = 1   NCH = 12    NP = 2		
-KVP = 19	KVS = 11	KOP = 0	KOS = 0	LVQP = 10	LVQS = 10	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,000		 Event1_Enter			K = 1   tвх = 4,000   NCH = 12  NP = 2	
-+ 5	Event1_Enter		K = 1   NCH = 13    NP = 2		
-KVP = 19	KVS = 12	KOP = 0	KOS = 0	LVQP = 10	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 0,000    NCH = 3 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 0   NCH = 4  NP = 1		
-KVP = 19	KVS = 12	KOP = 1	KOS = 0	LVQP = 10	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [2; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 0,000    NCH = 4 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 0   NCH = 5  NP = 1		
-KVP = 19	KVS = 12	KOP = 2	KOS = 0	LVQP = 10	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [1; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 1,000    NCH = 5 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 1   NCH = 6  NP = 1		
-+ 4,279	Event2_Librarian		K = 2    NBL = 1		
-KVP = 19	KVS = 12	KOP = 3	KOS = 0	LVQP = 6	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [4; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 1,000    NCH = 10 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 1   NCH = 11  NP = 1		
-KVP = 19	KVS = 12	KOP = 4	KOS = 0	LVQP = 6	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,279		 Event2_Librarian			K = 2    NBL = 1	
-+ 6,742	Event3_Finish		К = 3    NBL = 1    tвх = 2  NCH = 11 NP = 1		
-KVP = 19	KVS = 12	KOP = 4	KOS = 0	LVQP = 6	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [2; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 2,000    NCH = 12 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 2   NCH = 13  NP = 1		
-KVP = 19	KVS = 12	KOP = 5	KOS = 0	LVQP = 6	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [1; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 2,000    NCH = 13 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 2   NCH = 14  NP = 1		
-+ 4,279	Event2_Librarian		K = 2    NBL = 1		
-KVP = 19	KVS = 12	KOP = 6	KOS = 0	LVQP = 2	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [4; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 3,000    NCH = 14 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 3   NCH = 15  NP = 1		
-KVP = 19	KVS = 12	KOP = 7	KOS = 0	LVQP = 2	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [3; 3]	QVZS = [0; 0]	
-4,279		 Event2_Librarian			K = 2    NBL = 1	
-+ 6,803	Event3_Finish		К = 3    NBL = 1    tвх = 3  NCH = 15 NP = 1		
-KVP = 19	KVS = 12	KOP = 7	KOS = 0	LVQP = 2	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [2; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 3,000    NCH = 16 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 3   NCH = 17  NP = 1		
-KVP = 19	KVS = 12	KOP = 8	KOS = 0	LVQP = 2	LVQS = 11	LQBL = 0	TSPBL = 0,00	QVZP = [1; 3]	QVZS = [0; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 3,000    NCH = 17 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 3   NCH = 18  NP = 1		
-+ 4,279	Event2_Librarian		K = 2    NBL = 1		
-KVP = 19	KVS = 12	KOP = 9	KOS = 0	LVQP = 0	LVQS = 9	LQBL = 0	TSPBL = 0,00	QVZP = [2; 3]	QVZS = [2; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 3,000    NCH = 18 NP = 1	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 3   NCH = 19  NP = 1		
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 0,000    NCH = 2 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 0   NCH = 3  NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 1	LVQP = 0	LVQS = 9	LQBL = 0	TSPBL = 0,00	QVZP = [1; 3]	QVZS = [1; 0]	
-4,279		 Event2_Librarian			K = 2    NBL = 1	
-+ 7,626	Event3_Finish		К = 3    NBL = 1    tвх = 4  NCH = 19 NP = 1		
-+ 7,626	Event3_Finish		К = 3    NBL = 1    tвх = 0  NCH = 3 NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 1	LVQP = 0	LVQS = 9	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [0; 0]	
-+ 4,279	Event2_Librarian		K = 2    NBL = 1		
-KVP = 19	KVS = 12	KOP = 10	KOS = 1	LVQP = 0	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [4; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 1,000    NCH = 4 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 1   NCH = 5  NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 2	LVQP = 0	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [3; 0]	
-4,279		 Event2_Librarian			K = 2    NBL = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1    tвх = 2  NCH = 5 NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 2	LVQP = 0	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [2; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 3,000    NCH = 6 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 3   NCH = 7  NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 3	LVQP = 0	LVQS = 5	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [1; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 4,000    NCH = 7 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 4   NCH = 8  NP = 2		
-+ 4,279	Event2_Librarian		K = 2    NBL = 1		
-KVP = 19	KVS = 12	KOP = 10	KOS = 4	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [4; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 4,000    NCH = 8 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 4   NCH = 9  NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 5	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [3; 0]	
-4,279		 Event2_Librarian			K = 2    NBL = 1	
-+ 7,134	Event3_Finish		К = 3    NBL = 1    tвх = 4  NCH = 9 NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 5	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [2; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 4,000    NCH = 10 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 4   NCH = 11  NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 6	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [1; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 4,000    NCH = 11 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 4   NCH = 12  NP = 2		
-+ 4,279	Event2_Librarian		K = 2    NBL = 1		
-KVP = 19	KVS = 12	KOP = 10	KOS = 7	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [1; 0]	
-4,279		 Event3_Finish			К = 3    NBL = 1   tвх = 4,000    NCH = 12 NP = 2	
-+ 4,279	Event3_Finish		К = 3    NBL = 1   tвх = 4   NCH = 13  NP = 2		
-KVP = 19	KVS = 12	KOP = 10	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [0; 0]	
-4,279		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 19	KVS = 12	KOP = 10	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [0; 0]	
-KVP = 19	KVS = 12	KOP = 10	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 0,00	QVZP = [0; 3]	QVZS = [0; 0]	
-4,778		 Event3_Finish			К = 3    NBL = 2   tвх = 1,000    NCH = 7 NP = 1	
-+ 4,778	Event3_Finish		К = 3    NBL = 2   tвх = 1   NCH = 8  NP = 1		
-KVP = 19	KVS = 12	KOP = 11	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 0,00	QVZP = [0; 2]	QVZS = [0; 0]	
-4,778		 Event3_Finish			К = 3    NBL = 2   tвх = 1,000    NCH = 8 NP = 1	
-+ 4,778	Event3_Finish		К = 3    NBL = 2   tвх = 1   NCH = 9  NP = 1		
-KVP = 19	KVS = 12	KOP = 12	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 0,00	QVZP = [0; 1]	QVZS = [0; 0]	
-4,778		 Event3_Finish			К = 3    NBL = 2   tвх = 1,000    NCH = 9 NP = 1	
-+ 4,778	Event3_Finish		К = 3    NBL = 2   tвх = 1   NCH = 10  NP = 1		
-KVP = 19	KVS = 12	KOP = 13	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 19	KVS = 12	KOP = 13	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 0,00	QVZP = [0; 0]	QVZS = [0; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 20  NP = 1	
-+ 10	Event2_Librarian		K = 2    NBL = 1		
-+ 5	Event1_Enter		K = 1   NCH = 21    NP = 1		
-KVP = 20	KVS = 12	KOP = 13	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 0,72	QVZP = [1; 0]	QVZS = [0; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 13  NP = 2	
-+ 10	Event2_Librarian		K = 2    NBL = 1		
-+ 5	Event1_Enter		K = 1   NCH = 14    NP = 2		
-KVP = 20	KVS = 13	KOP = 13	KOS = 8	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 21  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 22    NP = 1		
-KVP = 21	KVS = 13	KOP = 13	KOS = 8	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 14  NP = 2	
-+ 5	Event1_Enter		K = 1   NCH = 15    NP = 2		
-KVP = 21	KVS = 14	KOP = 13	KOS = 8	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 22  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 23    NP = 1		
-KVP = 22	KVS = 14	KOP = 13	KOS = 8	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 15  NP = 2	
-+ 7	Event1_Enter		K = 1   NCH = 16    NP = 2		
-KVP = 22	KVS = 15	KOP = 13	KOS = 8	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 23  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 24    NP = 1		
-KVP = 23	KVS = 15	KOP = 13	KOS = 8	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 24  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 25    NP = 1		
-KVP = 24	KVS = 15	KOP = 13	KOS = 8	LVQP = 4	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 25  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 26    NP = 1		
-KVP = 25	KVS = 15	KOP = 13	KOS = 8	LVQP = 5	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 26  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 27    NP = 1		
-KVP = 26	KVS = 15	KOP = 13	KOS = 8	LVQP = 6	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 27  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 28    NP = 1		
-KVP = 27	KVS = 15	KOP = 13	KOS = 8	LVQP = 7	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 28  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 29    NP = 1		
-KVP = 28	KVS = 15	KOP = 13	KOS = 8	LVQP = 8	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 29  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 30    NP = 1		
-KVP = 29	KVS = 15	KOP = 13	KOS = 8	LVQP = 9	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 30  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 31    NP = 1		
-KVP = 30	KVS = 15	KOP = 13	KOS = 8	LVQP = 10	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 31  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 32    NP = 1		
-KVP = 31	KVS = 15	KOP = 13	KOS = 8	LVQP = 11	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 32  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 33    NP = 1		
-KVP = 32	KVS = 15	KOP = 13	KOS = 8	LVQP = 12	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 33  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 34    NP = 1		
-KVP = 33	KVS = 15	KOP = 13	KOS = 8	LVQP = 13	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 34  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 35    NP = 1		
-KVP = 34	KVS = 15	KOP = 13	KOS = 8	LVQP = 14	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 35  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 36    NP = 1		
-KVP = 35	KVS = 15	KOP = 13	KOS = 8	LVQP = 15	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 36  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 37    NP = 1		
-KVP = 36	KVS = 15	KOP = 13	KOS = 8	LVQP = 16	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 37  NP = 1	
-+ 5	Event1_Enter		K = 1   NCH = 38    NP = 1		
-KVP = 37	KVS = 15	KOP = 13	KOS = 8	LVQP = 17	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-5,000		 Event1_Enter			K = 1   tвх = 5,000   NCH = 38  NP = 1	
-+ 6	Event1_Enter		K = 1   NCH = 39    NP = 1		
-KVP = 38	KVS = 15	KOP = 13	KOS = 8	LVQP = 18	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-6,000		 Event1_Enter			K = 1   tвх = 6,000   NCH = 39  NP = 1	
-+ 6	Event1_Enter		K = 1   NCH = 40    NP = 1		
-KVP = 39	KVS = 15	KOP = 13	KOS = 8	LVQP = 19	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-6,000		 Event1_Enter			K = 1   tвх = 6,000   NCH = 40  NP = 1	
-+ 6	Event1_Enter		K = 1   NCH = 41    NP = 1		
-KVP = 40	KVS = 15	KOP = 13	KOS = 8	LVQP = 20	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-6,000		 Event1_Enter			K = 1   tвх = 6,000   NCH = 41  NP = 1	
-+ 7	Event1_Enter		K = 1   NCH = 42    NP = 1		
-KVP = 41	KVS = 15	KOP = 13	KOS = 8	LVQP = 21	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [1; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 20 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 21  NP = 1		
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 13 NP = 2	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 14  NP = 2		
-+ 6,554	Event2_Librarian		K = 2    NBL = 1		
-KVP = 41	KVS = 15	KOP = 14	KOS = 9	LVQP = 17	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [4; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 21 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 22  NP = 1		
-KVP = 41	KVS = 15	KOP = 15	KOS = 9	LVQP = 17	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [3; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 22 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 23  NP = 1		
-KVP = 41	KVS = 15	KOP = 16	KOS = 9	LVQP = 17	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [2; 0]	QVZS = [0; 0]	
-6,554		 Event2_Librarian			K = 2    NBL = 1	
-+ 9,832	Event3_Finish		К = 3    NBL = 1    tвх = 5  NCH = 23 NP = 1		
-KVP = 41	KVS = 15	KOP = 16	KOS = 9	LVQP = 17	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 24 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 25  NP = 1		
-+ 6,554	Event2_Librarian		K = 2    NBL = 1		
-KVP = 41	KVS = 15	KOP = 17	KOS = 9	LVQP = 13	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [4; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 25 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 26  NP = 1		
-KVP = 41	KVS = 15	KOP = 18	KOS = 9	LVQP = 13	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [3; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 26 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 27  NP = 1		
-KVP = 41	KVS = 15	KOP = 19	KOS = 9	LVQP = 13	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [2; 0]	QVZS = [0; 0]	
-6,554		 Event2_Librarian			K = 2    NBL = 1	
-+ 10,281	Event3_Finish		К = 3    NBL = 1    tвх = 5  NCH = 27 NP = 1		
-KVP = 41	KVS = 15	KOP = 19	KOS = 9	LVQP = 13	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 28 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 29  NP = 1		
-+ 6,554	Event2_Librarian		K = 2    NBL = 1		
-KVP = 41	KVS = 15	KOP = 20	KOS = 9	LVQP = 9	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [4; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 29 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 30  NP = 1		
-KVP = 41	KVS = 15	KOP = 21	KOS = 9	LVQP = 9	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [3; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 30 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 31  NP = 1		
-KVP = 41	KVS = 15	KOP = 22	KOS = 9	LVQP = 9	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [2; 0]	QVZS = [0; 0]	
-6,554		 Event2_Librarian			K = 2    NBL = 1	
-+ 8,885	Event3_Finish		К = 3    NBL = 1    tвх = 5  NCH = 31 NP = 1		
-KVP = 41	KVS = 15	KOP = 22	KOS = 9	LVQP = 9	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 32 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 33  NP = 1		
-+ 6,554	Event2_Librarian		K = 2    NBL = 1		
-KVP = 41	KVS = 15	KOP = 23	KOS = 9	LVQP = 5	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [4; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 33 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 34  NP = 1		
-KVP = 41	KVS = 15	KOP = 24	KOS = 9	LVQP = 5	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [3; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 34 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 35  NP = 1		
-KVP = 41	KVS = 15	KOP = 25	KOS = 9	LVQP = 5	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [2; 0]	QVZS = [0; 0]	
-6,554		 Event2_Librarian			K = 2    NBL = 1	
-+ 10,382	Event3_Finish		К = 3    NBL = 1    tвх = 5  NCH = 35 NP = 1		
-KVP = 41	KVS = 15	KOP = 25	KOS = 9	LVQP = 5	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 36 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 37  NP = 1		
-+ 6,554	Event2_Librarian		K = 2    NBL = 1		
-KVP = 41	KVS = 15	KOP = 26	KOS = 9	LVQP = 1	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [4; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 37 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 38  NP = 1		
-KVP = 41	KVS = 15	KOP = 27	KOS = 9	LVQP = 1	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [3; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 38 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 39  NP = 1		
-KVP = 41	KVS = 15	KOP = 28	KOS = 9	LVQP = 1	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [2; 0]	QVZS = [0; 0]	
-6,554		 Event2_Librarian			K = 2    NBL = 1	
-+ 8,616	Event3_Finish		К = 3    NBL = 1    tвх = 6  NCH = 39 NP = 1		
-KVP = 41	KVS = 15	KOP = 28	KOS = 9	LVQP = 1	LVQS = 2	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [0; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 6,000    NCH = 40 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 6   NCH = 41  NP = 1		
-+ 6,554	Event2_Librarian		K = 2    NBL = 1		
-KVP = 41	KVS = 15	KOP = 29	KOS = 9	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 1,44	QVZP = [1; 0]	QVZS = [2; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 6,000    NCH = 41 NP = 1	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 6   NCH = 42  NP = 1		
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 14 NP = 2	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 15  NP = 2		
-KVP = 41	KVS = 15	KOP = 30	KOS = 10	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [1; 0]	
-6,554		 Event3_Finish			К = 3    NBL = 1   tвх = 5,000    NCH = 15 NP = 2	
-+ 6,554	Event3_Finish		К = 3    NBL = 1   tвх = 5   NCH = 16  NP = 2		
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-6,554		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 41	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,44	QVZP = [0; 0]	QVZS = [0; 0]	
-7,000		 Event1_Enter			K = 1   tвх = 7,000   NCH = 42  NP = 1	
-+ 14	Event2_Librarian		K = 2    NBL = 1		
-+ 7	Event1_Enter		K = 1   NCH = 43    NP = 1		
-KVP = 42	KVS = 15	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 1,64	QVZP = [1; 0]	QVZS = [0; 0]	
-7,000		 Event1_Enter			K = 1   tвх = 7,000   NCH = 16  NP = 2	
-+ 14	Event2_Librarian		K = 2    NBL = 1		
-+ 8	Event1_Enter		K = 1   NCH = 17    NP = 2		
-KVP = 42	KVS = 16	KOP = 30	KOS = 11	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 1,84	QVZP = [1; 0]	QVZS = [1; 0]	
-7,000		 Event1_Enter			K = 1   tвх = 7,000   NCH = 43  NP = 1	
-+ 7	Event1_Enter		K = 1   NCH = 44    NP = 1		
-KVP = 43	KVS = 16	KOP = 30	KOS = 11	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 1,84	QVZP = [1; 0]	QVZS = [1; 0]	
-7,000		 Event1_Enter			K = 1   tвх = 7,000   NCH = 44  NP = 1	
-+ 9	Event1_Enter		K = 1   NCH = 45    NP = 1		
-KVP = 44	KVS = 16	KOP = 30	KOS = 11	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 1,84	QVZP = [1; 0]	QVZS = [1; 0]	
-7,134		 Event3_Finish			К = 3    NBL = 1   tвх = 7,000    NCH = 42 NP = 1	
-+ 7,134	Event3_Finish		К = 3    NBL = 1   tвх = 7   NCH = 43  NP = 1		
-7,134		 Event3_Finish			К = 3    NBL = 1   tвх = 7,000    NCH = 16 NP = 2	
-+ 7,134	Event3_Finish		К = 3    NBL = 1   tвх = 7   NCH = 17  NP = 2		
-+ 7,134	Event2_Librarian		K = 2    NBL = 1		
-KVP = 44	KVS = 16	KOP = 31	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 1,84	QVZP = [2; 0]	QVZS = [0; 0]	
-7,134		 Event3_Finish			К = 3    NBL = 1   tвх = 7,000    NCH = 43 NP = 1	
-+ 7,134	Event3_Finish		К = 3    NBL = 1   tвх = 7   NCH = 44  NP = 1		
-KVP = 44	KVS = 16	KOP = 32	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 1,84	QVZP = [1; 0]	QVZS = [0; 0]	
-7,134		 Event3_Finish			К = 3    NBL = 1   tвх = 7,000    NCH = 44 NP = 1	
-+ 7,134	Event3_Finish		К = 3    NBL = 1   tвх = 7   NCH = 45  NP = 1		
-KVP = 44	KVS = 16	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 1,84	QVZP = [0; 0]	QVZS = [0; 0]	
-7,134		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 44	KVS = 16	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 1,84	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 44	KVS = 16	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,84	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 44	KVS = 16	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,84	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 44	KVS = 16	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,84	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 44	KVS = 16	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 1,84	QVZP = [0; 0]	QVZS = [0; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 17  NP = 2	
-+ 16	Event2_Librarian		K = 2    NBL = 1		
-+ 8	Event1_Enter		K = 1   NCH = 18    NP = 2		
-KVP = 44	KVS = 17	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 2,21	QVZP = [0; 0]	QVZS = [1; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 18  NP = 2	
-+ 16	Event2_Librarian		K = 2    NBL = 1		
-+ 8	Event1_Enter		K = 1   NCH = 19    NP = 2		
-KVP = 44	KVS = 18	KOP = 33	KOS = 12	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 19  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 20    NP = 2		
-KVP = 44	KVS = 19	KOP = 33	KOS = 12	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 20  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 21    NP = 2		
-KVP = 44	KVS = 20	KOP = 33	KOS = 12	LVQP = 0	LVQS = 2	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 21  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 22    NP = 2		
-KVP = 44	KVS = 21	KOP = 33	KOS = 12	LVQP = 0	LVQS = 3	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 22  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 23    NP = 2		
-KVP = 44	KVS = 22	KOP = 33	KOS = 12	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 23  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 24    NP = 2		
-KVP = 44	KVS = 23	KOP = 33	KOS = 12	LVQP = 0	LVQS = 5	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 24  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 25    NP = 2		
-KVP = 44	KVS = 24	KOP = 33	KOS = 12	LVQP = 0	LVQS = 6	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 25  NP = 2	
-+ 8	Event1_Enter		K = 1   NCH = 26    NP = 2		
-KVP = 44	KVS = 25	KOP = 33	KOS = 12	LVQP = 0	LVQS = 7	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,000		 Event1_Enter			K = 1   tвх = 8,000   NCH = 26  NP = 2	
-+ 9	Event1_Enter		K = 1   NCH = 27    NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 12	LVQP = 0	LVQS = 8	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 17 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 18  NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 13	LVQP = 0	LVQS = 8	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [1; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 18 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 19  NP = 2		
-+ 8,616	Event2_Librarian		K = 2    NBL = 1		
-KVP = 44	KVS = 26	KOP = 33	KOS = 14	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [4; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 19 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 20  NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 15	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [3; 0]	
-8,616		 Event2_Librarian			K = 2    NBL = 1	
-+ 11,443	Event3_Finish		К = 3    NBL = 1    tвх = 8  NCH = 20 NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 15	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 21 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 22  NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 16	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [1; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 22 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 23  NP = 2		
-+ 8,616	Event2_Librarian		K = 2    NBL = 1		
-KVP = 44	KVS = 26	KOP = 33	KOS = 17	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [4; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 23 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 24  NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 18	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [3; 0]	
-8,616		 Event2_Librarian			K = 2    NBL = 1	
-+ 12,082	Event3_Finish		К = 3    NBL = 1    tвх = 8  NCH = 24 NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 18	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [2; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 25 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 26  NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 19	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [1; 0]	
-8,616		 Event3_Finish			К = 3    NBL = 1   tвх = 8,000    NCH = 26 NP = 2	
-+ 8,616	Event3_Finish		К = 3    NBL = 1   tвх = 8   NCH = 27  NP = 2		
-KVP = 44	KVS = 26	KOP = 33	KOS = 20	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 44	KVS = 26	KOP = 33	KOS = 20	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 44	KVS = 26	KOP = 33	KOS = 20	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 2,59	QVZP = [0; 0]	QVZS = [0; 0]	
-9,000		 Event1_Enter			K = 1   tвх = 9,000   NCH = 45  NP = 1	
-+ 18	Event2_Librarian		K = 2    NBL = 1		
-+ 9	Event1_Enter		K = 1   NCH = 46    NP = 1		
-KVP = 45	KVS = 26	KOP = 33	KOS = 20	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 2,70	QVZP = [1; 0]	QVZS = [0; 0]	
-9,000		 Event1_Enter			K = 1   tвх = 9,000   NCH = 27  NP = 2	
-+ 18	Event2_Librarian		K = 2    NBL = 1		
-+ 9	Event1_Enter		K = 1   NCH = 28    NP = 2		
-KVP = 45	KVS = 27	KOP = 33	KOS = 20	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,82	QVZP = [1; 0]	QVZS = [1; 0]	
-9,000		 Event1_Enter			K = 1   tвх = 9,000   NCH = 46  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 47    NP = 1		
-KVP = 46	KVS = 27	KOP = 33	KOS = 20	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 2,82	QVZP = [1; 0]	QVZS = [1; 0]	
-9,000		 Event1_Enter			K = 1   tвх = 9,000   NCH = 28  NP = 2	
-+ 10	Event1_Enter		K = 1   NCH = 29    NP = 2		
-KVP = 46	KVS = 28	KOP = 33	KOS = 20	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 2,82	QVZP = [1; 0]	QVZS = [1; 0]	
-9,832		 Event3_Finish			К = 3    NBL = 1   tвх = 9,000    NCH = 45 NP = 1	
-+ 9,832	Event3_Finish		К = 3    NBL = 1   tвх = 9   NCH = 46  NP = 1		
-9,832		 Event3_Finish			К = 3    NBL = 1   tвх = 9,000    NCH = 27 NP = 2	
-+ 9,832	Event3_Finish		К = 3    NBL = 1   tвх = 9   NCH = 28  NP = 2		
-+ 9,832	Event2_Librarian		K = 2    NBL = 1		
-KVP = 46	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,82	QVZP = [1; 0]	QVZS = [1; 0]	
-9,832		 Event2_Librarian			K = 2    NBL = 1	
-+ 13,401	Event3_Finish		К = 3    NBL = 1    tвх = 9  NCH = 46 NP = 1		
-+ 13,401	Event3_Finish		К = 3    NBL = 1    tвх = 9  NCH = 28 NP = 2		
-KVP = 46	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 2,82	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 46	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 2,82	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 46	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 2,82	QVZP = [0; 0]	QVZS = [0; 0]	
-10,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 46	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 2,82	QVZP = [0; 0]	QVZS = [0; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 47  NP = 1	
-+ 20	Event2_Librarian		K = 2    NBL = 1		
-+ 10	Event1_Enter		K = 1   NCH = 48    NP = 1		
-KVP = 47	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 2,98	QVZP = [1; 0]	QVZS = [0; 0]	
-10,000		 Event2_Librarian			K = 2    NBL = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1    tвх = 10  NCH = 47 NP = 1		
-KVP = 47	KVS = 28	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 2,98	QVZP = [0; 0]	QVZS = [0; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 29  NP = 2	
-+ 20	Event2_Librarian		K = 2    NBL = 1		
-+ 10	Event1_Enter		K = 1   NCH = 30    NP = 2		
-KVP = 47	KVS = 29	KOP = 34	KOS = 21	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 30  NP = 2	
-+ 10	Event1_Enter		K = 1   NCH = 31    NP = 2		
-KVP = 47	KVS = 30	KOP = 34	KOS = 21	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 48  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 49    NP = 1		
-KVP = 48	KVS = 30	KOP = 34	KOS = 21	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 49  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 50    NP = 1		
-KVP = 49	KVS = 30	KOP = 34	KOS = 21	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 31  NP = 2	
-+ 12	Event1_Enter		K = 1   NCH = 32    NP = 2		
-KVP = 49	KVS = 31	KOP = 34	KOS = 21	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 50  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 51    NP = 1		
-KVP = 50	KVS = 31	KOP = 34	KOS = 21	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 51  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 52    NP = 1		
-KVP = 51	KVS = 31	KOP = 34	KOS = 21	LVQP = 4	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 52  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 53    NP = 1		
-KVP = 52	KVS = 31	KOP = 34	KOS = 21	LVQP = 5	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 53  NP = 1	
-+ 10	Event1_Enter		K = 1   NCH = 54    NP = 1		
-KVP = 53	KVS = 31	KOP = 34	KOS = 21	LVQP = 6	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,000		 Event1_Enter			K = 1   tвх = 10,000   NCH = 54  NP = 1	
-+ 11	Event1_Enter		K = 1   NCH = 55    NP = 1		
-KVP = 54	KVS = 31	KOP = 34	KOS = 21	LVQP = 7	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,281		 Event3_Finish			К = 3    NBL = 1   tвх = 10,000    NCH = 29 NP = 2	
-+ 10,281	Event3_Finish		К = 3    NBL = 1   tвх = 10   NCH = 30  NP = 2		
-+ 10,281	Event2_Librarian		K = 2    NBL = 1		
-KVP = 54	KVS = 31	KOP = 34	KOS = 22	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [4; 0]	QVZS = [0; 0]	
-10,281		 Event2_Librarian			K = 2    NBL = 1	
-+ 14,181	Event3_Finish		К = 3    NBL = 1    tвх = 10  NCH = 48 NP = 1		
-KVP = 54	KVS = 31	KOP = 34	KOS = 22	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [3; 0]	QVZS = [0; 0]	
-10,281		 Event3_Finish			К = 3    NBL = 1   tвх = 10,000    NCH = 49 NP = 1	
-+ 10,281	Event3_Finish		К = 3    NBL = 1   tвх = 10   NCH = 50  NP = 1		
-KVP = 54	KVS = 31	KOP = 35	KOS = 22	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [2; 0]	QVZS = [0; 0]	
-10,281		 Event3_Finish			К = 3    NBL = 1   tвх = 10,000    NCH = 50 NP = 1	
-+ 10,281	Event3_Finish		К = 3    NBL = 1   tвх = 10   NCH = 51  NP = 1		
-KVP = 54	KVS = 31	KOP = 36	KOS = 22	LVQP = 3	LVQS = 2	LQBL = 0	TSPBL = 3,15	QVZP = [1; 0]	QVZS = [0; 0]	
-10,281		 Event3_Finish			К = 3    NBL = 1   tвх = 10,000    NCH = 51 NP = 1	
-+ 10,281	Event3_Finish		К = 3    NBL = 1   tвх = 10   NCH = 52  NP = 1		
-+ 10,281	Event2_Librarian		K = 2    NBL = 1		
-KVP = 54	KVS = 31	KOP = 37	KOS = 22	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 3,15	QVZP = [3; 0]	QVZS = [1; 0]	
-10,281		 Event2_Librarian			K = 2    NBL = 1	
-+ 13,989	Event3_Finish		К = 3    NBL = 1    tвх = 10  NCH = 52 NP = 1		
-+ 13,989	Event3_Finish		К = 3    NBL = 1    tвх = 10  NCH = 30 NP = 2		
-KVP = 54	KVS = 31	KOP = 37	KOS = 22	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 3,15	QVZP = [2; 0]	QVZS = [0; 0]	
-10,281		 Event3_Finish			К = 3    NBL = 1   tвх = 10,000    NCH = 53 NP = 1	
-+ 10,281	Event3_Finish		К = 3    NBL = 1   tвх = 10   NCH = 54  NP = 1		
-KVP = 54	KVS = 31	KOP = 38	KOS = 22	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 3,15	QVZP = [1; 0]	QVZS = [0; 0]	
-10,281		 Event3_Finish			К = 3    NBL = 1   tвх = 10,000    NCH = 54 NP = 1	
-+ 10,281	Event3_Finish		К = 3    NBL = 1   tвх = 10   NCH = 55  NP = 1		
-+ 10,281	Event2_Librarian		K = 2    NBL = 1		
-KVP = 54	KVS = 31	KOP = 39	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [1; 0]	
-10,281		 Event2_Librarian			K = 2    NBL = 1	
-+ 13,999	Event3_Finish		К = 3    NBL = 1    tвх = 10  NCH = 31 NP = 2		
-KVP = 54	KVS = 31	KOP = 39	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 54	KVS = 31	KOP = 39	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 54	KVS = 31	KOP = 39	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 3,15	QVZP = [0; 0]	QVZS = [0; 0]	
-11,000		 Event1_Enter			K = 1   tвх = 11,000   NCH = 55  NP = 1	
-+ 22	Event2_Librarian		K = 2    NBL = 1		
-+ 12	Event1_Enter		K = 1   NCH = 56    NP = 1		
-KVP = 55	KVS = 31	KOP = 39	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 3,77	QVZP = [1; 0]	QVZS = [0; 0]	
-11,443		 Event3_Finish			К = 3    NBL = 1   tвх = 11,000    NCH = 55 NP = 1	
-+ 11,443	Event3_Finish		К = 3    NBL = 1   tвх = 11   NCH = 56  NP = 1		
-KVP = 55	KVS = 31	KOP = 40	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 3,77	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 55	KVS = 31	KOP = 40	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 3,77	QVZP = [0; 0]	QVZS = [0; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 56  NP = 1	
-+ 24	Event2_Librarian		K = 2    NBL = 1		
-+ 12	Event1_Enter		K = 1   NCH = 57    NP = 1		
-KVP = 56	KVS = 31	KOP = 40	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 4,33	QVZP = [1; 0]	QVZS = [0; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 32  NP = 2	
-+ 24	Event2_Librarian		K = 2    NBL = 1		
-+ 12	Event1_Enter		K = 1   NCH = 33    NP = 2		
-KVP = 56	KVS = 32	KOP = 40	KOS = 22	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 33  NP = 2	
-+ 12	Event1_Enter		K = 1   NCH = 34    NP = 2		
-KVP = 56	KVS = 33	KOP = 40	KOS = 22	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 57  NP = 1	
-+ 12	Event1_Enter		K = 1   NCH = 58    NP = 1		
-KVP = 57	KVS = 33	KOP = 40	KOS = 22	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 58  NP = 1	
-+ 12	Event1_Enter		K = 1   NCH = 59    NP = 1		
-KVP = 58	KVS = 33	KOP = 40	KOS = 22	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 34  NP = 2	
-+ 12	Event1_Enter		K = 1   NCH = 35    NP = 2		
-KVP = 58	KVS = 34	KOP = 40	KOS = 22	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 35  NP = 2	
-+ 14	Event1_Enter		K = 1   NCH = 36    NP = 2		
-KVP = 58	KVS = 35	KOP = 40	KOS = 22	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 59  NP = 1	
-+ 12	Event1_Enter		K = 1   NCH = 60    NP = 1		
-KVP = 59	KVS = 35	KOP = 40	KOS = 22	LVQP = 3	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,000		 Event1_Enter			K = 1   tвх = 12,000   NCH = 60  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 61    NP = 1		
-KVP = 60	KVS = 35	KOP = 40	KOS = 22	LVQP = 4	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [1; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 56 NP = 1	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 57  NP = 1		
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 32 NP = 2	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 33  NP = 2		
-+ 12,082	Event2_Librarian		K = 2    NBL = 1		
-KVP = 60	KVS = 35	KOP = 41	KOS = 23	LVQP = 0	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [4; 0]	QVZS = [0; 0]	
-12,082		 Event2_Librarian			K = 2    NBL = 1	
-+ 15,746	Event3_Finish		К = 3    NBL = 1    tвх = 12  NCH = 57 NP = 1		
-KVP = 60	KVS = 35	KOP = 41	KOS = 23	LVQP = 0	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [3; 0]	QVZS = [0; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 58 NP = 1	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 59  NP = 1		
-KVP = 60	KVS = 35	KOP = 42	KOS = 23	LVQP = 0	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [2; 0]	QVZS = [0; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 59 NP = 1	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 60  NP = 1		
-KVP = 60	KVS = 35	KOP = 43	KOS = 23	LVQP = 0	LVQS = 3	LQBL = 0	TSPBL = 4,88	QVZP = [1; 0]	QVZS = [0; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 60 NP = 1	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 61  NP = 1		
-+ 12,082	Event2_Librarian		K = 2    NBL = 1		
-KVP = 60	KVS = 35	KOP = 44	KOS = 23	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [3; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 33 NP = 2	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 34  NP = 2		
-KVP = 60	KVS = 35	KOP = 44	KOS = 24	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [2; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 34 NP = 2	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 35  NP = 2		
-KVP = 60	KVS = 35	KOP = 44	KOS = 25	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [1; 0]	
-12,082		 Event3_Finish			К = 3    NBL = 1   tвх = 12,000    NCH = 35 NP = 2	
-+ 12,082	Event3_Finish		К = 3    NBL = 1   tвх = 12   NCH = 36  NP = 2		
-KVP = 60	KVS = 35	KOP = 44	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [0; 0]	
-12,082		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 60	KVS = 35	KOP = 44	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 60	KVS = 35	KOP = 44	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 60	KVS = 35	KOP = 44	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 4,88	QVZP = [0; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 61  NP = 1	
-+ 26	Event2_Librarian		K = 2    NBL = 1		
-+ 13	Event1_Enter		K = 1   NCH = 62    NP = 1		
-KVP = 61	KVS = 35	KOP = 44	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 5,80	QVZP = [1; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 62  NP = 1	
-+ 26	Event2_Librarian		K = 2    NBL = 1		
-+ 13	Event1_Enter		K = 1   NCH = 63    NP = 1		
-KVP = 62	KVS = 35	KOP = 44	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 63  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 64    NP = 1		
-KVP = 63	KVS = 35	KOP = 44	KOS = 26	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 64  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 65    NP = 1		
-KVP = 64	KVS = 35	KOP = 44	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 65  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 66    NP = 1		
-KVP = 65	KVS = 35	KOP = 44	KOS = 26	LVQP = 3	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 66  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 67    NP = 1		
-KVP = 66	KVS = 35	KOP = 44	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 67  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 68    NP = 1		
-KVP = 67	KVS = 35	KOP = 44	KOS = 26	LVQP = 5	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 68  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 69    NP = 1		
-KVP = 68	KVS = 35	KOP = 44	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 69  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 70    NP = 1		
-KVP = 69	KVS = 35	KOP = 44	KOS = 26	LVQP = 7	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 70  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 71    NP = 1		
-KVP = 70	KVS = 35	KOP = 44	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 71  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 72    NP = 1		
-KVP = 71	KVS = 35	KOP = 44	KOS = 26	LVQP = 9	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 72  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 73    NP = 1		
-KVP = 72	KVS = 35	KOP = 44	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 73  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 74    NP = 1		
-KVP = 73	KVS = 35	KOP = 44	KOS = 26	LVQP = 11	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 74  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 75    NP = 1		
-KVP = 74	KVS = 35	KOP = 44	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 75  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 76    NP = 1		
-KVP = 75	KVS = 35	KOP = 44	KOS = 26	LVQP = 13	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 76  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 77    NP = 1		
-KVP = 76	KVS = 35	KOP = 44	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 77  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 78    NP = 1		
-KVP = 77	KVS = 35	KOP = 44	KOS = 26	LVQP = 15	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 78  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 79    NP = 1		
-KVP = 78	KVS = 35	KOP = 44	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 79  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 80    NP = 1		
-KVP = 79	KVS = 35	KOP = 44	KOS = 26	LVQP = 17	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 80  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 81    NP = 1		
-KVP = 80	KVS = 35	KOP = 44	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 81  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 82    NP = 1		
-KVP = 81	KVS = 35	KOP = 44	KOS = 26	LVQP = 19	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 82  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 83    NP = 1		
-KVP = 82	KVS = 35	KOP = 44	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 83  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 84    NP = 1		
-KVP = 83	KVS = 35	KOP = 44	KOS = 26	LVQP = 21	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 84  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 85    NP = 1		
-KVP = 84	KVS = 35	KOP = 44	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 85  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 86    NP = 1		
-KVP = 85	KVS = 35	KOP = 44	KOS = 26	LVQP = 23	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 86  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 87    NP = 1		
-KVP = 86	KVS = 35	KOP = 44	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 87  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 88    NP = 1		
-KVP = 87	KVS = 35	KOP = 44	KOS = 26	LVQP = 25	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 88  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 89    NP = 1		
-KVP = 88	KVS = 35	KOP = 44	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 89  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 90    NP = 1		
-KVP = 89	KVS = 35	KOP = 44	KOS = 26	LVQP = 27	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 90  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 91    NP = 1		
-KVP = 90	KVS = 35	KOP = 44	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 91  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 92    NP = 1		
-KVP = 91	KVS = 35	KOP = 44	KOS = 26	LVQP = 29	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 92  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 93    NP = 1		
-KVP = 92	KVS = 35	KOP = 44	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 93  NP = 1	
-+ 13	Event1_Enter		K = 1   NCH = 94    NP = 1		
-KVP = 93	KVS = 35	KOP = 44	KOS = 26	LVQP = 31	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,000		 Event1_Enter			K = 1   tвх = 13,000   NCH = 94  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 95    NP = 1		
-KVP = 94	KVS = 35	KOP = 44	KOS = 26	LVQP = 32	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 61 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 62  NP = 1		
-KVP = 94	KVS = 35	KOP = 45	KOS = 26	LVQP = 32	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 62 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 63  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 46	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 16,422	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 63 NP = 1		
-KVP = 94	KVS = 35	KOP = 46	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 64 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 65  NP = 1		
-KVP = 94	KVS = 35	KOP = 47	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 65 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 66  NP = 1		
-KVP = 94	KVS = 35	KOP = 48	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 66 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 67  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 49	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 16,86	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 67 NP = 1		
-KVP = 94	KVS = 35	KOP = 49	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 68 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 69  NP = 1		
-KVP = 94	KVS = 35	KOP = 50	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 69 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 70  NP = 1		
-KVP = 94	KVS = 35	KOP = 51	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 70 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 71  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 52	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 71 NP = 1		
-KVP = 94	KVS = 35	KOP = 52	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 72 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 73  NP = 1		
-KVP = 94	KVS = 35	KOP = 53	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 73 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 74  NP = 1		
-KVP = 94	KVS = 35	KOP = 54	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 74 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 75  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 55	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 16,993	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 75 NP = 1		
-KVP = 94	KVS = 35	KOP = 55	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 76 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 77  NP = 1		
-KVP = 94	KVS = 35	KOP = 56	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 77 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 78  NP = 1		
-KVP = 94	KVS = 35	KOP = 57	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 78 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 79  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 58	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 15,898	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 79 NP = 1		
-KVP = 94	KVS = 35	KOP = 58	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 80 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 81  NP = 1		
-KVP = 94	KVS = 35	KOP = 59	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 81 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 82  NP = 1		
-KVP = 94	KVS = 35	KOP = 60	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 82 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 83  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 61	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 16,684	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 83 NP = 1		
-KVP = 94	KVS = 35	KOP = 61	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 84 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 85  NP = 1		
-KVP = 94	KVS = 35	KOP = 62	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 85 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 86  NP = 1		
-KVP = 94	KVS = 35	KOP = 63	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 86 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 87  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 64	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 15,99	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 87 NP = 1		
-KVP = 94	KVS = 35	KOP = 64	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 88 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 89  NP = 1		
-KVP = 94	KVS = 35	KOP = 65	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 89 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 90  NP = 1		
-KVP = 94	KVS = 35	KOP = 66	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 90 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 91  NP = 1		
-+ 13,174	Event2_Librarian		K = 2    NBL = 1		
-KVP = 94	KVS = 35	KOP = 67	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-13,174		 Event2_Librarian			K = 2    NBL = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1    tвх = 13  NCH = 91 NP = 1		
-KVP = 94	KVS = 35	KOP = 67	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 92 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 93  NP = 1		
-KVP = 94	KVS = 35	KOP = 68	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 93 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 94  NP = 1		
-KVP = 94	KVS = 35	KOP = 69	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-13,174		 Event3_Finish			К = 3    NBL = 1   tвх = 13,000    NCH = 94 NP = 1	
-+ 13,174	Event3_Finish		К = 3    NBL = 1   tвх = 13   NCH = 95  NP = 1		
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 94	KVS = 35	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 36  NP = 2	
-+ 28	Event2_Librarian		K = 2    NBL = 1		
-+ 15	Event1_Enter		K = 1   NCH = 37    NP = 2		
-KVP = 94	KVS = 36	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [1; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 95  NP = 1	
-+ 28	Event2_Librarian		K = 2    NBL = 1		
-+ 14	Event1_Enter		K = 1   NCH = 96    NP = 1		
-KVP = 95	KVS = 36	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [1; 0]	
-14,000		 Event2_Librarian			K = 2    NBL = 1	
-+ 16,77	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 95 NP = 1		
-+ 16,77	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 36 NP = 2		
-KVP = 95	KVS = 36	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 95	KVS = 36	KOP = 70	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 96  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 97    NP = 1		
-KVP = 96	KVS = 36	KOP = 70	KOS = 26	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 97  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 98    NP = 1		
-KVP = 97	KVS = 36	KOP = 70	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 98  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 99    NP = 1		
-KVP = 98	KVS = 36	KOP = 70	KOS = 26	LVQP = 3	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 99  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 100    NP = 1		
-KVP = 99	KVS = 36	KOP = 70	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 100  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 101    NP = 1		
-KVP = 100	KVS = 36	KOP = 70	KOS = 26	LVQP = 5	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 101  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 102    NP = 1		
-KVP = 101	KVS = 36	KOP = 70	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 102  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 103    NP = 1		
-KVP = 102	KVS = 36	KOP = 70	KOS = 26	LVQP = 7	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 103  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 104    NP = 1		
-KVP = 103	KVS = 36	KOP = 70	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 104  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 105    NP = 1		
-KVP = 104	KVS = 36	KOP = 70	KOS = 26	LVQP = 9	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 105  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 106    NP = 1		
-KVP = 105	KVS = 36	KOP = 70	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 106  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 107    NP = 1		
-KVP = 106	KVS = 36	KOP = 70	KOS = 26	LVQP = 11	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 107  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 108    NP = 1		
-KVP = 107	KVS = 36	KOP = 70	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 108  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 109    NP = 1		
-KVP = 108	KVS = 36	KOP = 70	KOS = 26	LVQP = 13	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 109  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 110    NP = 1		
-KVP = 109	KVS = 36	KOP = 70	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 110  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 111    NP = 1		
-KVP = 110	KVS = 36	KOP = 70	KOS = 26	LVQP = 15	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 111  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 112    NP = 1		
-KVP = 111	KVS = 36	KOP = 70	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 112  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 113    NP = 1		
-KVP = 112	KVS = 36	KOP = 70	KOS = 26	LVQP = 17	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 113  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 114    NP = 1		
-KVP = 113	KVS = 36	KOP = 70	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 114  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 115    NP = 1		
-KVP = 114	KVS = 36	KOP = 70	KOS = 26	LVQP = 19	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 115  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 116    NP = 1		
-KVP = 115	KVS = 36	KOP = 70	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 116  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 117    NP = 1		
-KVP = 116	KVS = 36	KOP = 70	KOS = 26	LVQP = 21	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 117  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 118    NP = 1		
-KVP = 117	KVS = 36	KOP = 70	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 118  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 119    NP = 1		
-KVP = 118	KVS = 36	KOP = 70	KOS = 26	LVQP = 23	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 119  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 120    NP = 1		
-KVP = 119	KVS = 36	KOP = 70	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 120  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 121    NP = 1		
-KVP = 120	KVS = 36	KOP = 70	KOS = 26	LVQP = 25	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 121  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 122    NP = 1		
-KVP = 121	KVS = 36	KOP = 70	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 122  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 123    NP = 1		
-KVP = 122	KVS = 36	KOP = 70	KOS = 26	LVQP = 27	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 123  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 124    NP = 1		
-KVP = 123	KVS = 36	KOP = 70	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 124  NP = 1	
-+ 14	Event1_Enter		K = 1   NCH = 125    NP = 1		
-KVP = 124	KVS = 36	KOP = 70	KOS = 26	LVQP = 29	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-14,000		 Event1_Enter			K = 1   tвх = 14,000   NCH = 125  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 126    NP = 1		
-KVP = 125	KVS = 36	KOP = 70	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-+ 14,181	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 36	KOP = 70	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-14,181		 Event2_Librarian			K = 2    NBL = 1	
-+ 17,163	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 96 NP = 1		
-KVP = 125	KVS = 36	KOP = 70	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,000		 Event1_Enter			K = 1   tвх = 15,000   NCH = 37  NP = 2	
-+ 16	Event1_Enter		K = 1   NCH = 38    NP = 2		
-KVP = 125	KVS = 37	KOP = 70	KOS = 26	LVQP = 26	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 97 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 98  NP = 1		
-KVP = 125	KVS = 37	KOP = 71	KOS = 26	LVQP = 26	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 98 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 99  NP = 1		
-KVP = 125	KVS = 37	KOP = 72	KOS = 26	LVQP = 26	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 99 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 100  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 73	KOS = 26	LVQP = 22	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,849	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 100 NP = 1		
-KVP = 125	KVS = 37	KOP = 73	KOS = 26	LVQP = 22	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 101 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 102  NP = 1		
-KVP = 125	KVS = 37	KOP = 74	KOS = 26	LVQP = 22	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 102 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 103  NP = 1		
-KVP = 125	KVS = 37	KOP = 75	KOS = 26	LVQP = 22	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 103 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 104  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 76	KOS = 26	LVQP = 18	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,902	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 104 NP = 1		
-KVP = 125	KVS = 37	KOP = 76	KOS = 26	LVQP = 18	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 105 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 106  NP = 1		
-KVP = 125	KVS = 37	KOP = 77	KOS = 26	LVQP = 18	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 106 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 107  NP = 1		
-KVP = 125	KVS = 37	KOP = 78	KOS = 26	LVQP = 18	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 107 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 108  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 79	KOS = 26	LVQP = 14	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,532	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 108 NP = 1		
-KVP = 125	KVS = 37	KOP = 79	KOS = 26	LVQP = 14	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 109 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 110  NP = 1		
-KVP = 125	KVS = 37	KOP = 80	KOS = 26	LVQP = 14	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 110 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 111  NP = 1		
-KVP = 125	KVS = 37	KOP = 81	KOS = 26	LVQP = 14	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 111 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 112  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 82	KOS = 26	LVQP = 10	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 17,855	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 112 NP = 1		
-KVP = 125	KVS = 37	KOP = 82	KOS = 26	LVQP = 10	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 113 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 114  NP = 1		
-KVP = 125	KVS = 37	KOP = 83	KOS = 26	LVQP = 10	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 114 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 115  NP = 1		
-KVP = 125	KVS = 37	KOP = 84	KOS = 26	LVQP = 10	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 115 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 116  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 85	KOS = 26	LVQP = 6	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 17,386	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 116 NP = 1		
-KVP = 125	KVS = 37	KOP = 85	KOS = 26	LVQP = 6	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 117 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 118  NP = 1		
-KVP = 125	KVS = 37	KOP = 86	KOS = 26	LVQP = 6	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 118 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 119  NP = 1		
-KVP = 125	KVS = 37	KOP = 87	KOS = 26	LVQP = 6	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 119 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 120  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 88	KOS = 26	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [4; 0]	QVZS = [0; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 17,62	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 120 NP = 1		
-KVP = 125	KVS = 37	KOP = 88	KOS = 26	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [3; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 121 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 122  NP = 1		
-KVP = 125	KVS = 37	KOP = 89	KOS = 26	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 122 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 123  NP = 1		
-KVP = 125	KVS = 37	KOP = 90	KOS = 26	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 123 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 124  NP = 1		
-+ 15,388	Event2_Librarian		K = 2    NBL = 1		
-KVP = 125	KVS = 37	KOP = 91	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [2; 0]	QVZS = [1; 0]	
-15,388		 Event2_Librarian			K = 2    NBL = 1	
-+ 17,325	Event3_Finish		К = 3    NBL = 1    tвх = 14  NCH = 124 NP = 1		
-+ 17,325	Event3_Finish		К = 3    NBL = 1    tвх = 15  NCH = 37 NP = 2		
-KVP = 125	KVS = 37	KOP = 91	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,72	QVZP = [1; 0]	QVZS = [0; 0]	
-15,388		 Event3_Finish			К = 3    NBL = 1   tвх = 14,000    NCH = 125 NP = 1	
-+ 15,388	Event3_Finish		К = 3    NBL = 1   tвх = 14   NCH = 126  NP = 1		
-KVP = 125	KVS = 37	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 125	KVS = 37	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 125	KVS = 37	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 125	KVS = 37	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 125	KVS = 37	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-16,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 125	KVS = 37	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,72	QVZP = [0; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 38  NP = 2	
-+ 32	Event2_Librarian		K = 2    NBL = 1		
-+ 17	Event1_Enter		K = 1   NCH = 39    NP = 2		
-KVP = 125	KVS = 38	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,73	QVZP = [0; 0]	QVZS = [1; 0]	
-16,000		 Event2_Librarian			K = 2    NBL = 1	
-+ 19,633	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 38 NP = 2		
-KVP = 125	KVS = 38	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,73	QVZP = [0; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 126  NP = 1	
-+ 32	Event2_Librarian		K = 2    NBL = 1		
-+ 16	Event1_Enter		K = 1   NCH = 127    NP = 1		
-KVP = 126	KVS = 38	KOP = 92	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 127  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 128    NP = 1		
-KVP = 127	KVS = 38	KOP = 92	KOS = 26	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 128  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 129    NP = 1		
-KVP = 128	KVS = 38	KOP = 92	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 129  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 130    NP = 1		
-KVP = 129	KVS = 38	KOP = 92	KOS = 26	LVQP = 3	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 130  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 131    NP = 1		
-KVP = 130	KVS = 38	KOP = 92	KOS = 26	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 131  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 132    NP = 1		
-KVP = 131	KVS = 38	KOP = 92	KOS = 26	LVQP = 5	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 132  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 133    NP = 1		
-KVP = 132	KVS = 38	KOP = 92	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 133  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 134    NP = 1		
-KVP = 133	KVS = 38	KOP = 92	KOS = 26	LVQP = 7	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 134  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 135    NP = 1		
-KVP = 134	KVS = 38	KOP = 92	KOS = 26	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 135  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 136    NP = 1		
-KVP = 135	KVS = 38	KOP = 92	KOS = 26	LVQP = 9	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 136  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 137    NP = 1		
-KVP = 136	KVS = 38	KOP = 92	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 137  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 138    NP = 1		
-KVP = 137	KVS = 38	KOP = 92	KOS = 26	LVQP = 11	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 138  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 139    NP = 1		
-KVP = 138	KVS = 38	KOP = 92	KOS = 26	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 139  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 140    NP = 1		
-KVP = 139	KVS = 38	KOP = 92	KOS = 26	LVQP = 13	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 140  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 141    NP = 1		
-KVP = 140	KVS = 38	KOP = 92	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 141  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 142    NP = 1		
-KVP = 141	KVS = 38	KOP = 92	KOS = 26	LVQP = 15	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 142  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 143    NP = 1		
-KVP = 142	KVS = 38	KOP = 92	KOS = 26	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 143  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 144    NP = 1		
-KVP = 143	KVS = 38	KOP = 92	KOS = 26	LVQP = 17	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 144  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 145    NP = 1		
-KVP = 144	KVS = 38	KOP = 92	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 145  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 146    NP = 1		
-KVP = 145	KVS = 38	KOP = 92	KOS = 26	LVQP = 19	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 146  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 147    NP = 1		
-KVP = 146	KVS = 38	KOP = 92	KOS = 26	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 147  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 148    NP = 1		
-KVP = 147	KVS = 38	KOP = 92	KOS = 26	LVQP = 21	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 148  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 149    NP = 1		
-KVP = 148	KVS = 38	KOP = 92	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 149  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 150    NP = 1		
-KVP = 149	KVS = 38	KOP = 92	KOS = 26	LVQP = 23	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 150  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 151    NP = 1		
-KVP = 150	KVS = 38	KOP = 92	KOS = 26	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 151  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 152    NP = 1		
-KVP = 151	KVS = 38	KOP = 92	KOS = 26	LVQP = 25	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 152  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 153    NP = 1		
-KVP = 152	KVS = 38	KOP = 92	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 153  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 154    NP = 1		
-KVP = 153	KVS = 38	KOP = 92	KOS = 26	LVQP = 27	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 154  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 155    NP = 1		
-KVP = 154	KVS = 38	KOP = 92	KOS = 26	LVQP = 28	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 155  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 156    NP = 1		
-KVP = 155	KVS = 38	KOP = 92	KOS = 26	LVQP = 29	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 156  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 157    NP = 1		
-KVP = 156	KVS = 38	KOP = 92	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 157  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 158    NP = 1		
-KVP = 157	KVS = 38	KOP = 92	KOS = 26	LVQP = 31	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 158  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 159    NP = 1		
-KVP = 158	KVS = 38	KOP = 92	KOS = 26	LVQP = 32	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 159  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 160    NP = 1		
-KVP = 159	KVS = 38	KOP = 92	KOS = 26	LVQP = 33	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 160  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 161    NP = 1		
-KVP = 160	KVS = 38	KOP = 92	KOS = 26	LVQP = 34	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 161  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 162    NP = 1		
-KVP = 161	KVS = 38	KOP = 92	KOS = 26	LVQP = 35	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 162  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 163    NP = 1		
-KVP = 162	KVS = 38	KOP = 92	KOS = 26	LVQP = 36	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 163  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 164    NP = 1		
-KVP = 163	KVS = 38	KOP = 92	KOS = 26	LVQP = 37	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 164  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 165    NP = 1		
-KVP = 164	KVS = 38	KOP = 92	KOS = 26	LVQP = 38	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 165  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 166    NP = 1		
-KVP = 165	KVS = 38	KOP = 92	KOS = 26	LVQP = 39	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 166  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 167    NP = 1		
-KVP = 166	KVS = 38	KOP = 92	KOS = 26	LVQP = 40	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 167  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 168    NP = 1		
-KVP = 167	KVS = 38	KOP = 92	KOS = 26	LVQP = 41	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 168  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 169    NP = 1		
-KVP = 168	KVS = 38	KOP = 92	KOS = 26	LVQP = 42	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 169  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 170    NP = 1		
-KVP = 169	KVS = 38	KOP = 92	KOS = 26	LVQP = 43	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 170  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 171    NP = 1		
-KVP = 170	KVS = 38	KOP = 92	KOS = 26	LVQP = 44	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 171  NP = 1	
-+ 16	Event1_Enter		K = 1   NCH = 172    NP = 1		
-KVP = 171	KVS = 38	KOP = 92	KOS = 26	LVQP = 45	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,000		 Event1_Enter			K = 1   tвх = 16,000   NCH = 172  NP = 1	
-+ 17	Event1_Enter		K = 1   NCH = 173    NP = 1		
-KVP = 172	KVS = 38	KOP = 92	KOS = 26	LVQP = 46	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 126 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 127  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 93	KOS = 26	LVQP = 42	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,549	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 127 NP = 1		
-KVP = 172	KVS = 38	KOP = 93	KOS = 26	LVQP = 42	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 128 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 129  NP = 1		
-KVP = 172	KVS = 38	KOP = 94	KOS = 26	LVQP = 42	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 129 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 130  NP = 1		
-KVP = 172	KVS = 38	KOP = 95	KOS = 26	LVQP = 42	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 130 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 131  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 96	KOS = 26	LVQP = 38	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 19,373	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 131 NP = 1		
-KVP = 172	KVS = 38	KOP = 96	KOS = 26	LVQP = 38	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 132 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 133  NP = 1		
-KVP = 172	KVS = 38	KOP = 97	KOS = 26	LVQP = 38	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 133 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 134  NP = 1		
-KVP = 172	KVS = 38	KOP = 98	KOS = 26	LVQP = 38	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 134 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 135  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 99	KOS = 26	LVQP = 34	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 17,964	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 135 NP = 1		
-KVP = 172	KVS = 38	KOP = 99	KOS = 26	LVQP = 34	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 136 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 137  NP = 1		
-KVP = 172	KVS = 38	KOP = 100	KOS = 26	LVQP = 34	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 137 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 138  NP = 1		
-KVP = 172	KVS = 38	KOP = 101	KOS = 26	LVQP = 34	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 138 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 139  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 102	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 139 NP = 1		
-KVP = 172	KVS = 38	KOP = 102	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 140 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 141  NP = 1		
-KVP = 172	KVS = 38	KOP = 103	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 141 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 142  NP = 1		
-KVP = 172	KVS = 38	KOP = 104	KOS = 26	LVQP = 30	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 142 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 143  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 105	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 20,118	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 143 NP = 1		
-KVP = 172	KVS = 38	KOP = 105	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 144 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 145  NP = 1		
-KVP = 172	KVS = 38	KOP = 106	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 145 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 146  NP = 1		
-KVP = 172	KVS = 38	KOP = 107	KOS = 26	LVQP = 26	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 146 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 147  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 108	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 19,692	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 147 NP = 1		
-KVP = 172	KVS = 38	KOP = 108	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 148 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 149  NP = 1		
-KVP = 172	KVS = 38	KOP = 109	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 149 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 150  NP = 1		
-KVP = 172	KVS = 38	KOP = 110	KOS = 26	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 150 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 151  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 111	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,244	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 151 NP = 1		
-KVP = 172	KVS = 38	KOP = 111	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 152 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 153  NP = 1		
-KVP = 172	KVS = 38	KOP = 112	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 153 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 154  NP = 1		
-KVP = 172	KVS = 38	KOP = 113	KOS = 26	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 154 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 155  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 114	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,639	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 155 NP = 1		
-KVP = 172	KVS = 38	KOP = 114	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 156 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 157  NP = 1		
-KVP = 172	KVS = 38	KOP = 115	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 157 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 158  NP = 1		
-KVP = 172	KVS = 38	KOP = 116	KOS = 26	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 158 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 159  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 117	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,343	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 159 NP = 1		
-KVP = 172	KVS = 38	KOP = 117	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 160 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 161  NP = 1		
-KVP = 172	KVS = 38	KOP = 118	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 161 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 162  NP = 1		
-KVP = 172	KVS = 38	KOP = 119	KOS = 26	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 162 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 163  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 120	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 19,619	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 163 NP = 1		
-KVP = 172	KVS = 38	KOP = 120	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 164 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 165  NP = 1		
-KVP = 172	KVS = 38	KOP = 121	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 165 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 166  NP = 1		
-KVP = 172	KVS = 38	KOP = 122	KOS = 26	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 166 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 167  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 123	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [4; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 18,66	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 167 NP = 1		
-KVP = 172	KVS = 38	KOP = 123	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [3; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 168 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 169  NP = 1		
-KVP = 172	KVS = 38	KOP = 124	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 169 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 170  NP = 1		
-KVP = 172	KVS = 38	KOP = 125	KOS = 26	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 170 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 171  NP = 1		
-+ 16,115	Event2_Librarian		K = 2    NBL = 1		
-KVP = 172	KVS = 38	KOP = 126	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [2; 0]	QVZS = [0; 0]	
-16,115		 Event2_Librarian			K = 2    NBL = 1	
-+ 20,306	Event3_Finish		К = 3    NBL = 1    tвх = 16  NCH = 171 NP = 1		
-KVP = 172	KVS = 38	KOP = 126	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,74	QVZP = [1; 0]	QVZS = [0; 0]	
-16,115		 Event3_Finish			К = 3    NBL = 1   tвх = 16,000    NCH = 172 NP = 1	
-+ 16,115	Event3_Finish		К = 3    NBL = 1   tвх = 16   NCH = 173  NP = 1		
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 172	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,74	QVZP = [0; 0]	QVZS = [0; 0]	
-17,000		 Event1_Enter			K = 1   tвх = 17,000   NCH = 173  NP = 1	
-+ 34	Event2_Librarian		K = 2    NBL = 1		
-+ 17	Event1_Enter		K = 1   NCH = 174    NP = 1		
-KVP = 173	KVS = 38	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,75	QVZP = [1; 0]	QVZS = [0; 0]	
-17,000		 Event1_Enter			K = 1   tвх = 17,000   NCH = 39  NP = 2	
-+ 34	Event2_Librarian		K = 2    NBL = 1		
-+ 17	Event1_Enter		K = 1   NCH = 40    NP = 2		
-KVP = 173	KVS = 39	KOP = 127	KOS = 26	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,76	QVZP = [1; 0]	QVZS = [1; 0]	
-17,000		 Event1_Enter			K = 1   tвх = 17,000   NCH = 40  NP = 2	
-+ 17	Event1_Enter		K = 1   NCH = 41    NP = 2		
-KVP = 173	KVS = 40	KOP = 127	KOS = 26	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 6,76	QVZP = [1; 0]	QVZS = [1; 0]	
-17,000		 Event1_Enter			K = 1   tвх = 17,000   NCH = 174  NP = 1	
-+ 17	Event1_Enter		K = 1   NCH = 175    NP = 1		
-KVP = 174	KVS = 40	KOP = 127	KOS = 26	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 6,76	QVZP = [1; 0]	QVZS = [1; 0]	
-17,000		 Event1_Enter			K = 1   tвх = 17,000   NCH = 175  NP = 1	
-+ 18	Event1_Enter		K = 1   NCH = 176    NP = 1		
-KVP = 175	KVS = 40	KOP = 127	KOS = 26	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 6,76	QVZP = [1; 0]	QVZS = [1; 0]	
-17,000		 Event1_Enter			K = 1   tвх = 17,000   NCH = 41  NP = 2	
-+ 18	Event1_Enter		K = 1   NCH = 42    NP = 2		
-KVP = 175	KVS = 41	KOP = 127	KOS = 26	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 6,76	QVZP = [1; 0]	QVZS = [1; 0]	
-17,163		 Event3_Finish			К = 3    NBL = 1   tвх = 17,000    NCH = 173 NP = 1	
-+ 17,163	Event3_Finish		К = 3    NBL = 1   tвх = 17   NCH = 174  NP = 1		
-17,163		 Event3_Finish			К = 3    NBL = 1   tвх = 17,000    NCH = 39 NP = 2	
-+ 17,163	Event3_Finish		К = 3    NBL = 1   tвх = 17   NCH = 40  NP = 2		
-+ 17,163	Event2_Librarian		K = 2    NBL = 1		
-KVP = 175	KVS = 41	KOP = 128	KOS = 27	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,76	QVZP = [2; 0]	QVZS = [2; 0]	
-17,163		 Event2_Librarian			K = 2    NBL = 1	
-+ 19,657	Event3_Finish		К = 3    NBL = 1    tвх = 17  NCH = 174 NP = 1		
-+ 19,657	Event3_Finish		К = 3    NBL = 1    tвх = 17  NCH = 40 NP = 2		
-KVP = 175	KVS = 41	KOP = 128	KOS = 27	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,76	QVZP = [1; 0]	QVZS = [1; 0]	
-17,163		 Event3_Finish			К = 3    NBL = 1   tвх = 17,000    NCH = 175 NP = 1	
-+ 17,163	Event3_Finish		К = 3    NBL = 1   tвх = 17   NCH = 176  NP = 1		
-17,163		 Event3_Finish			К = 3    NBL = 1   tвх = 17,000    NCH = 41 NP = 2	
-+ 17,163	Event3_Finish		К = 3    NBL = 1   tвх = 17   NCH = 42  NP = 2		
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-18,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-18,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 175	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,76	QVZP = [0; 0]	QVZS = [0; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 176  NP = 1	
-+ 36	Event2_Librarian		K = 2    NBL = 1		
-+ 19	Event1_Enter		K = 1   NCH = 177    NP = 1		
-KVP = 176	KVS = 41	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,79	QVZP = [1; 0]	QVZS = [0; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 42  NP = 2	
-+ 36	Event2_Librarian		K = 2    NBL = 1		
-+ 18	Event1_Enter		K = 1   NCH = 43    NP = 2		
-KVP = 176	KVS = 42	KOP = 129	KOS = 28	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 43  NP = 2	
-+ 18	Event1_Enter		K = 1   NCH = 44    NP = 2		
-KVP = 176	KVS = 43	KOP = 129	KOS = 28	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 44  NP = 2	
-+ 18	Event1_Enter		K = 1   NCH = 45    NP = 2		
-KVP = 176	KVS = 44	KOP = 129	KOS = 28	LVQP = 0	LVQS = 2	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 45  NP = 2	
-+ 18	Event1_Enter		K = 1   NCH = 46    NP = 2		
-KVP = 176	KVS = 45	KOP = 129	KOS = 28	LVQP = 0	LVQS = 3	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 46  NP = 2	
-+ 18	Event1_Enter		K = 1   NCH = 47    NP = 2		
-KVP = 176	KVS = 46	KOP = 129	KOS = 28	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 47  NP = 2	
-+ 18	Event1_Enter		K = 1   NCH = 48    NP = 2		
-KVP = 176	KVS = 47	KOP = 129	KOS = 28	LVQP = 0	LVQS = 5	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,000		 Event1_Enter			K = 1   tвх = 18,000   NCH = 48  NP = 2	
-+ 19	Event1_Enter		K = 1   NCH = 49    NP = 2		
-KVP = 176	KVS = 48	KOP = 129	KOS = 28	LVQP = 0	LVQS = 6	LQBL = 0	TSPBL = 6,83	QVZP = [1; 0]	QVZS = [1; 0]	
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 176 NP = 1	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 177  NP = 1		
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 42 NP = 2	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 43  NP = 2		
-+ 18,244	Event2_Librarian		K = 2    NBL = 1		
-KVP = 176	KVS = 48	KOP = 130	KOS = 29	LVQP = 0	LVQS = 2	LQBL = 0	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [4; 0]	
-18,244		 Event2_Librarian			K = 2    NBL = 1	
-+ 21,268	Event3_Finish		К = 3    NBL = 1    tвх = 18  NCH = 43 NP = 2		
-KVP = 176	KVS = 48	KOP = 130	KOS = 29	LVQP = 0	LVQS = 2	LQBL = 0	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [3; 0]	
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 44 NP = 2	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 45  NP = 2		
-KVP = 176	KVS = 48	KOP = 130	KOS = 30	LVQP = 0	LVQS = 2	LQBL = 0	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [2; 0]	
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 45 NP = 2	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 46  NP = 2		
-KVP = 176	KVS = 48	KOP = 130	KOS = 31	LVQP = 0	LVQS = 2	LQBL = 0	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [1; 0]	
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 46 NP = 2	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 47  NP = 2		
-+ 18,244	Event2_Librarian		K = 2    NBL = 1		
-KVP = 176	KVS = 48	KOP = 130	KOS = 32	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [2; 0]	
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 47 NP = 2	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 48  NP = 2		
-KVP = 176	KVS = 48	KOP = 130	KOS = 33	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [1; 0]	
-18,244		 Event3_Finish			К = 3    NBL = 1   tвх = 18,000    NCH = 48 NP = 2	
-+ 18,244	Event3_Finish		К = 3    NBL = 1   tвх = 18   NCH = 49  NP = 2		
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-18,244		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 176	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 6,83	QVZP = [0; 0]	QVZS = [0; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 177  NP = 1	
-+ 38	Event2_Librarian		K = 2    NBL = 1		
-+ 19	Event1_Enter		K = 1   NCH = 178    NP = 1		
-KVP = 177	KVS = 48	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 6,92	QVZP = [1; 0]	QVZS = [0; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 49  NP = 2	
-+ 38	Event2_Librarian		K = 2    NBL = 1		
-+ 19	Event1_Enter		K = 1   NCH = 50    NP = 2		
-KVP = 177	KVS = 49	KOP = 130	KOS = 34	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 50  NP = 2	
-+ 19	Event1_Enter		K = 1   NCH = 51    NP = 2		
-KVP = 177	KVS = 50	KOP = 130	KOS = 34	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 178  NP = 1	
-+ 19	Event1_Enter		K = 1   NCH = 179    NP = 1		
-KVP = 178	KVS = 50	KOP = 130	KOS = 34	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 179  NP = 1	
-+ 19	Event1_Enter		K = 1   NCH = 180    NP = 1		
-KVP = 179	KVS = 50	KOP = 130	KOS = 34	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 51  NP = 2	
-+ 19	Event1_Enter		K = 1   NCH = 52    NP = 2		
-KVP = 179	KVS = 51	KOP = 130	KOS = 34	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 52  NP = 2	
-+ 19	Event1_Enter		K = 1   NCH = 53    NP = 2		
-KVP = 179	KVS = 52	KOP = 130	KOS = 34	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 180  NP = 1	
-+ 19	Event1_Enter		K = 1   NCH = 181    NP = 1		
-KVP = 180	KVS = 52	KOP = 130	KOS = 34	LVQP = 3	LVQS = 3	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 181  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 182    NP = 1		
-KVP = 181	KVS = 52	KOP = 130	KOS = 34	LVQP = 4	LVQS = 3	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,000		 Event1_Enter			K = 1   tвх = 19,000   NCH = 53  NP = 2	
-+ 20	Event1_Enter		K = 1   NCH = 54    NP = 2		
-KVP = 181	KVS = 53	KOP = 130	KOS = 34	LVQP = 4	LVQS = 4	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [1; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 177 NP = 1	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 178  NP = 1		
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 49 NP = 2	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 50  NP = 2		
-+ 19,373	Event2_Librarian		K = 2    NBL = 1		
-KVP = 181	KVS = 53	KOP = 131	KOS = 35	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 7,02	QVZP = [4; 0]	QVZS = [0; 0]	
-19,373		 Event2_Librarian			K = 2    NBL = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1    tвх = 19  NCH = 178 NP = 1		
-KVP = 181	KVS = 53	KOP = 131	KOS = 35	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 7,02	QVZP = [3; 0]	QVZS = [0; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 179 NP = 1	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 180  NP = 1		
-KVP = 181	KVS = 53	KOP = 132	KOS = 35	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 7,02	QVZP = [2; 0]	QVZS = [0; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 180 NP = 1	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 181  NP = 1		
-KVP = 181	KVS = 53	KOP = 133	KOS = 35	LVQP = 0	LVQS = 4	LQBL = 0	TSPBL = 7,02	QVZP = [1; 0]	QVZS = [0; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 181 NP = 1	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 182  NP = 1		
-+ 19,373	Event2_Librarian		K = 2    NBL = 1		
-KVP = 181	KVS = 53	KOP = 134	KOS = 35	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [4; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 50 NP = 2	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 51  NP = 2		
-KVP = 181	KVS = 53	KOP = 134	KOS = 36	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [3; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 51 NP = 2	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 52  NP = 2		
-KVP = 181	KVS = 53	KOP = 134	KOS = 37	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [2; 0]	
-19,373		 Event3_Finish			К = 3    NBL = 1   tвх = 19,000    NCH = 52 NP = 2	
-+ 19,373	Event3_Finish		К = 3    NBL = 1   tвх = 19   NCH = 53  NP = 2		
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [1; 0]	
-19,373		 Event2_Librarian			K = 2    NBL = 1	
-+ 21,971	Event3_Finish		К = 3    NBL = 1    tвх = 19  NCH = 53 NP = 2		
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 181	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,02	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 182  NP = 1	
-+ 40	Event2_Librarian		K = 2    NBL = 1		
-+ 20	Event1_Enter		K = 1   NCH = 183    NP = 1		
-KVP = 182	KVS = 53	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 7,33	QVZP = [1; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 54  NP = 2	
-+ 40	Event2_Librarian		K = 2    NBL = 1		
-+ 20	Event1_Enter		K = 1   NCH = 55    NP = 2		
-KVP = 182	KVS = 54	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,64	QVZP = [1; 0]	QVZS = [1; 0]	
-20,000		 Event2_Librarian			K = 2    NBL = 1	
-+ 22,591	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 182 NP = 1		
-+ 22,591	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 54 NP = 2		
-KVP = 182	KVS = 54	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 182	KVS = 54	KOP = 134	KOS = 38	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 55  NP = 2	
-+ 20	Event1_Enter		K = 1   NCH = 56    NP = 2		
-KVP = 182	KVS = 55	KOP = 134	KOS = 38	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 183  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 184    NP = 1		
-KVP = 183	KVS = 55	KOP = 134	KOS = 38	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 184  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 185    NP = 1		
-KVP = 184	KVS = 55	KOP = 134	KOS = 38	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 56  NP = 2	
-+ 20	Event1_Enter		K = 1   NCH = 57    NP = 2		
-KVP = 184	KVS = 56	KOP = 134	KOS = 38	LVQP = 2	LVQS = 2	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 57  NP = 2	
-+ 21	Event1_Enter		K = 1   NCH = 58    NP = 2		
-KVP = 184	KVS = 57	KOP = 134	KOS = 38	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 185  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 186    NP = 1		
-KVP = 185	KVS = 57	KOP = 134	KOS = 38	LVQP = 3	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 186  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 187    NP = 1		
-KVP = 186	KVS = 57	KOP = 134	KOS = 38	LVQP = 4	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 187  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 188    NP = 1		
-KVP = 187	KVS = 57	KOP = 134	KOS = 38	LVQP = 5	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 188  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 189    NP = 1		
-KVP = 188	KVS = 57	KOP = 134	KOS = 38	LVQP = 6	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 189  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 190    NP = 1		
-KVP = 189	KVS = 57	KOP = 134	KOS = 38	LVQP = 7	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 190  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 191    NP = 1		
-KVP = 190	KVS = 57	KOP = 134	KOS = 38	LVQP = 8	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 191  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 192    NP = 1		
-KVP = 191	KVS = 57	KOP = 134	KOS = 38	LVQP = 9	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 192  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 193    NP = 1		
-KVP = 192	KVS = 57	KOP = 134	KOS = 38	LVQP = 10	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 193  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 194    NP = 1		
-KVP = 193	KVS = 57	KOP = 134	KOS = 38	LVQP = 11	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 194  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 195    NP = 1		
-KVP = 194	KVS = 57	KOP = 134	KOS = 38	LVQP = 12	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 195  NP = 1	
-+ 20	Event1_Enter		K = 1   NCH = 196    NP = 1		
-KVP = 195	KVS = 57	KOP = 134	KOS = 38	LVQP = 13	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-20,000		 Event1_Enter			K = 1   tвх = 20,000   NCH = 196  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 197    NP = 1		
-KVP = 196	KVS = 57	KOP = 134	KOS = 38	LVQP = 14	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-+ 20,118	Event2_Librarian		K = 2    NBL = 1		
-KVP = 196	KVS = 57	KOP = 134	KOS = 38	LVQP = 10	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [4; 0]	QVZS = [0; 0]	
-20,118		 Event2_Librarian			K = 2    NBL = 1	
-+ 22,498	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 183 NP = 1		
-KVP = 196	KVS = 57	KOP = 134	KOS = 38	LVQP = 10	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [3; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 184 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 185  NP = 1		
-KVP = 196	KVS = 57	KOP = 135	KOS = 38	LVQP = 10	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [2; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 185 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 186  NP = 1		
-KVP = 196	KVS = 57	KOP = 136	KOS = 38	LVQP = 10	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [1; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 186 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 187  NP = 1		
-+ 20,164	Event2_Librarian		K = 2    NBL = 1		
-KVP = 196	KVS = 57	KOP = 137	KOS = 38	LVQP = 6	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [4; 0]	QVZS = [0; 0]	
-20,164		 Event2_Librarian			K = 2    NBL = 1	
-+ 22,853	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 187 NP = 1		
-KVP = 196	KVS = 57	KOP = 137	KOS = 38	LVQP = 6	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [3; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 188 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 189  NP = 1		
-KVP = 196	KVS = 57	KOP = 138	KOS = 38	LVQP = 6	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [2; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 189 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 190  NP = 1		
-KVP = 196	KVS = 57	KOP = 139	KOS = 38	LVQP = 6	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [1; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 190 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 191  NP = 1		
-+ 20,164	Event2_Librarian		K = 2    NBL = 1		
-KVP = 196	KVS = 57	KOP = 140	KOS = 38	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [4; 0]	QVZS = [0; 0]	
-20,164		 Event2_Librarian			K = 2    NBL = 1	
-+ 23,526	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 191 NP = 1		
-KVP = 196	KVS = 57	KOP = 140	KOS = 38	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [3; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 192 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 193  NP = 1		
-KVP = 196	KVS = 57	KOP = 141	KOS = 38	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [2; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 193 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 194  NP = 1		
-KVP = 196	KVS = 57	KOP = 142	KOS = 38	LVQP = 2	LVQS = 3	LQBL = 0	TSPBL = 7,64	QVZP = [1; 0]	QVZS = [0; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 194 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 195  NP = 1		
-+ 20,164	Event2_Librarian		K = 2    NBL = 1		
-KVP = 196	KVS = 57	KOP = 143	KOS = 38	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 7,64	QVZP = [2; 0]	QVZS = [2; 0]	
-20,164		 Event2_Librarian			K = 2    NBL = 1	
-+ 23,441	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 195 NP = 1		
-+ 23,441	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 55 NP = 2		
-KVP = 196	KVS = 57	KOP = 143	KOS = 38	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 7,64	QVZP = [1; 0]	QVZS = [1; 0]	
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 196 NP = 1	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 197  NP = 1		
-20,164		 Event3_Finish			К = 3    NBL = 1   tвх = 20,000    NCH = 56 NP = 2	
-+ 20,164	Event3_Finish		К = 3    NBL = 1   tвх = 20   NCH = 57  NP = 2		
-+ 20,164	Event2_Librarian		K = 2    NBL = 1		
-KVP = 196	KVS = 57	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [1; 0]	
-20,164		 Event2_Librarian			K = 2    NBL = 1	
-+ 23,948	Event3_Finish		К = 3    NBL = 1    tвх = 20  NCH = 57 NP = 2		
-KVP = 196	KVS = 57	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 196	KVS = 57	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 196	KVS = 57	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 196	KVS = 57	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 7,64	QVZP = [0; 0]	QVZS = [0; 0]	
-21,000		 Event1_Enter			K = 1   tвх = 21,000   NCH = 58  NP = 2	
-+ 42	Event2_Librarian		K = 2    NBL = 1		
-+ 21	Event1_Enter		K = 1   NCH = 59    NP = 2		
-KVP = 196	KVS = 58	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 8,33	QVZP = [0; 0]	QVZS = [1; 0]	
-21,000		 Event1_Enter			K = 1   tвх = 21,000   NCH = 59  NP = 2	
-+ 42	Event2_Librarian		K = 2    NBL = 1		
-+ 21	Event1_Enter		K = 1   NCH = 60    NP = 2		
-KVP = 196	KVS = 59	KOP = 144	KOS = 39	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [2; 0]	
-21,000		 Event1_Enter			K = 1   tвх = 21,000   NCH = 60  NP = 2	
-+ 22	Event1_Enter		K = 1   NCH = 61    NP = 2		
-KVP = 196	KVS = 60	KOP = 144	KOS = 39	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [2; 0]	
-21,268		 Event3_Finish			К = 3    NBL = 1   tвх = 21,000    NCH = 58 NP = 2	
-+ 21,268	Event3_Finish		К = 3    NBL = 1   tвх = 21   NCH = 59  NP = 2		
-KVP = 196	KVS = 60	KOP = 144	KOS = 40	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [1; 0]	
-21,268		 Event3_Finish			К = 3    NBL = 1   tвх = 21,000    NCH = 59 NP = 2	
-+ 21,268	Event3_Finish		К = 3    NBL = 1   tвх = 21   NCH = 60  NP = 2		
-+ 21,268	Event2_Librarian		K = 2    NBL = 1		
-KVP = 196	KVS = 60	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [1; 0]	
-21,268		 Event2_Librarian			K = 2    NBL = 1	
-+ 24,238	Event3_Finish		К = 3    NBL = 1    tвх = 21  NCH = 60 NP = 2		
-KVP = 196	KVS = 60	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 196	KVS = 60	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 196	KVS = 60	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [0; 0]	
-22,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 196	KVS = 60	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,03	QVZP = [0; 0]	QVZS = [0; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 197  NP = 1	
-+ 44	Event2_Librarian		K = 2    NBL = 1		
-+ 22	Event1_Enter		K = 1   NCH = 198    NP = 1		
-KVP = 197	KVS = 60	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 9,06	QVZP = [1; 0]	QVZS = [0; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 61  NP = 2	
-+ 44	Event2_Librarian		K = 2    NBL = 1		
-+ 22	Event1_Enter		K = 1   NCH = 62    NP = 2		
-KVP = 197	KVS = 61	KOP = 144	KOS = 41	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 62  NP = 2	
-+ 23	Event1_Enter		K = 1   NCH = 63    NP = 2		
-KVP = 197	KVS = 62	KOP = 144	KOS = 41	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 198  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 199    NP = 1		
-KVP = 198	KVS = 62	KOP = 144	KOS = 41	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 199  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 200    NP = 1		
-KVP = 199	KVS = 62	KOP = 144	KOS = 41	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 200  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 201    NP = 1		
-KVP = 200	KVS = 62	KOP = 144	KOS = 41	LVQP = 3	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 201  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 202    NP = 1		
-KVP = 201	KVS = 62	KOP = 144	KOS = 41	LVQP = 4	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 202  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 203    NP = 1		
-KVP = 202	KVS = 62	KOP = 144	KOS = 41	LVQP = 5	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 203  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 204    NP = 1		
-KVP = 203	KVS = 62	KOP = 144	KOS = 41	LVQP = 6	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 204  NP = 1	
-+ 22	Event1_Enter		K = 1   NCH = 205    NP = 1		
-KVP = 204	KVS = 62	KOP = 144	KOS = 41	LVQP = 7	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,000		 Event1_Enter			K = 1   tвх = 22,000   NCH = 205  NP = 1	
-+ 23	Event1_Enter		K = 1   NCH = 206    NP = 1		
-KVP = 205	KVS = 62	KOP = 144	KOS = 41	LVQP = 8	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [1; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 197 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 198  NP = 1		
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 61 NP = 2	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 62  NP = 2		
-+ 22,119	Event2_Librarian		K = 2    NBL = 1		
-KVP = 205	KVS = 62	KOP = 145	KOS = 42	LVQP = 4	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [4; 0]	QVZS = [0; 0]	
-22,119		 Event2_Librarian			K = 2    NBL = 1	
-+ 25,904	Event3_Finish		К = 3    NBL = 1    tвх = 22  NCH = 198 NP = 1		
-KVP = 205	KVS = 62	KOP = 145	KOS = 42	LVQP = 4	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [3; 0]	QVZS = [0; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 199 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 200  NP = 1		
-KVP = 205	KVS = 62	KOP = 146	KOS = 42	LVQP = 4	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [2; 0]	QVZS = [0; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 200 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 201  NP = 1		
-KVP = 205	KVS = 62	KOP = 147	KOS = 42	LVQP = 4	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [0; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 201 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 202  NP = 1		
-+ 22,119	Event2_Librarian		K = 2    NBL = 1		
-KVP = 205	KVS = 62	KOP = 148	KOS = 42	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [4; 0]	QVZS = [0; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 202 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 203  NP = 1		
-KVP = 205	KVS = 62	KOP = 149	KOS = 42	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [3; 0]	QVZS = [0; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 203 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 204  NP = 1		
-KVP = 205	KVS = 62	KOP = 150	KOS = 42	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [2; 0]	QVZS = [0; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 204 NP = 1	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 205  NP = 1		
-KVP = 205	KVS = 62	KOP = 151	KOS = 42	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [1; 0]	QVZS = [0; 0]	
-22,119		 Event2_Librarian			K = 2    NBL = 1	
-+ 26,106	Event3_Finish		К = 3    NBL = 1    tвх = 22  NCH = 205 NP = 1		
-KVP = 205	KVS = 62	KOP = 151	KOS = 42	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-+ 22,119	Event2_Librarian		K = 2    NBL = 1		
-KVP = 205	KVS = 62	KOP = 151	KOS = 42	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [1; 0]	
-22,119		 Event3_Finish			К = 3    NBL = 1   tвх = 22,000    NCH = 62 NP = 2	
-+ 22,119	Event3_Finish		К = 3    NBL = 1   tвх = 22   NCH = 63  NP = 2		
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-22,119		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 205	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,09	QVZP = [0; 0]	QVZS = [0; 0]	
-23,000		 Event1_Enter			K = 1   tвх = 23,000   NCH = 206  NP = 1	
-+ 46	Event2_Librarian		K = 2    NBL = 1		
-+ 23	Event1_Enter		K = 1   NCH = 207    NP = 1		
-KVP = 206	KVS = 62	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 9,23	QVZP = [1; 0]	QVZS = [0; 0]	
-23,000		 Event1_Enter			K = 1   tвх = 23,000   NCH = 63  NP = 2	
-+ 46	Event2_Librarian		K = 2    NBL = 1		
-+ 23	Event1_Enter		K = 1   NCH = 64    NP = 2		
-KVP = 206	KVS = 63	KOP = 151	KOS = 43	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,38	QVZP = [1; 0]	QVZS = [1; 0]	
-23,000		 Event1_Enter			K = 1   tвх = 23,000   NCH = 64  NP = 2	
-+ 24	Event1_Enter		K = 1   NCH = 65    NP = 2		
-KVP = 206	KVS = 64	KOP = 151	KOS = 43	LVQP = 0	LVQS = 1	LQBL = 0	TSPBL = 9,38	QVZP = [1; 0]	QVZS = [1; 0]	
-23,000		 Event1_Enter			K = 1   tвх = 23,000   NCH = 207  NP = 1	
-+ 23	Event1_Enter		K = 1   NCH = 208    NP = 1		
-KVP = 207	KVS = 64	KOP = 151	KOS = 43	LVQP = 1	LVQS = 1	LQBL = 0	TSPBL = 9,38	QVZP = [1; 0]	QVZS = [1; 0]	
-23,000		 Event1_Enter			K = 1   tвх = 23,000   NCH = 208  NP = 1	
-+ 23	Event1_Enter		K = 1   NCH = 209    NP = 1		
-KVP = 208	KVS = 64	KOP = 151	KOS = 43	LVQP = 2	LVQS = 1	LQBL = 0	TSPBL = 9,38	QVZP = [1; 0]	QVZS = [1; 0]	
-23,000		 Event1_Enter			K = 1   tвх = 23,000   NCH = 209  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 210    NP = 1		
-KVP = 209	KVS = 64	KOP = 151	KOS = 43	LVQP = 3	LVQS = 1	LQBL = 0	TSPBL = 9,38	QVZP = [1; 0]	QVZS = [1; 0]	
-23,441		 Event3_Finish			К = 3    NBL = 1   tвх = 23,000    NCH = 206 NP = 1	
-+ 23,441	Event3_Finish		К = 3    NBL = 1   tвх = 23   NCH = 207  NP = 1		
-23,441		 Event3_Finish			К = 3    NBL = 1   tвх = 23,000    NCH = 63 NP = 2	
-+ 23,441	Event3_Finish		К = 3    NBL = 1   tвх = 23   NCH = 64  NP = 2		
-+ 23,441	Event2_Librarian		K = 2    NBL = 1		
-KVP = 209	KVS = 64	KOP = 152	KOS = 44	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,38	QVZP = [3; 0]	QVZS = [1; 0]	
-23,441		 Event3_Finish			К = 3    NBL = 1   tвх = 23,000    NCH = 207 NP = 1	
-+ 23,441	Event3_Finish		К = 3    NBL = 1   tвх = 23   NCH = 208  NP = 1		
-23,441		 Event3_Finish			К = 3    NBL = 1   tвх = 23,000    NCH = 64 NP = 2	
-+ 23,441	Event3_Finish		К = 3    NBL = 1   tвх = 23   NCH = 65  NP = 2		
-KVP = 209	KVS = 64	KOP = 153	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,38	QVZP = [2; 0]	QVZS = [0; 0]	
-23,441		 Event3_Finish			К = 3    NBL = 1   tвх = 23,000    NCH = 208 NP = 1	
-+ 23,441	Event3_Finish		К = 3    NBL = 1   tвх = 23   NCH = 209  NP = 1		
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,38	QVZP = [1; 0]	QVZS = [0; 0]	
-23,441		 Event2_Librarian			K = 2    NBL = 1	
-+ 26,778	Event3_Finish		К = 3    NBL = 1    tвх = 23  NCH = 209 NP = 1		
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event2_Librarian			K = 2    NBL = 1	
-KVP = 209	KVS = 64	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 2	TSPBL = 9,38	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 65  NP = 2	
-+ 48	Event2_Librarian		K = 2    NBL = 1		
-+ 25	Event1_Enter		K = 1   NCH = 66    NP = 2		
-KVP = 209	KVS = 65	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 1	TSPBL = 9,43	QVZP = [0; 0]	QVZS = [1; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 210  NP = 1	
-+ 48	Event2_Librarian		K = 2    NBL = 1		
-+ 24	Event1_Enter		K = 1   NCH = 211    NP = 1		
-KVP = 210	KVS = 65	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [1; 0]	QVZS = [1; 0]	
-24,000		 Event2_Librarian			K = 2    NBL = 1	
-+ 27,837	Event3_Finish		К = 3    NBL = 1    tвх = 24  NCH = 210 NP = 1		
-+ 27,837	Event3_Finish		К = 3    NBL = 1    tвх = 24  NCH = 65 NP = 2		
-KVP = 210	KVS = 65	KOP = 154	KOS = 45	LVQP = 0	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 211  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 212    NP = 1		
-KVP = 211	KVS = 65	KOP = 154	KOS = 45	LVQP = 1	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 212  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 213    NP = 1		
-KVP = 212	KVS = 65	KOP = 154	KOS = 45	LVQP = 2	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 213  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 214    NP = 1		
-KVP = 213	KVS = 65	KOP = 154	KOS = 45	LVQP = 3	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 214  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 215    NP = 1		
-KVP = 214	KVS = 65	KOP = 154	KOS = 45	LVQP = 4	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 215  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 216    NP = 1		
-KVP = 215	KVS = 65	KOP = 154	KOS = 45	LVQP = 5	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 216  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 217    NP = 1		
-KVP = 216	KVS = 65	KOP = 154	KOS = 45	LVQP = 6	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 217  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 218    NP = 1		
-KVP = 217	KVS = 65	KOP = 154	KOS = 45	LVQP = 7	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 218  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 219    NP = 1		
-KVP = 218	KVS = 65	KOP = 154	KOS = 45	LVQP = 8	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 219  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 220    NP = 1		
-KVP = 219	KVS = 65	KOP = 154	KOS = 45	LVQP = 9	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 220  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 221    NP = 1		
-KVP = 220	KVS = 65	KOP = 154	KOS = 45	LVQP = 10	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 221  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 222    NP = 1		
-KVP = 221	KVS = 65	KOP = 154	KOS = 45	LVQP = 11	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 222  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 223    NP = 1		
-KVP = 222	KVS = 65	KOP = 154	KOS = 45	LVQP = 12	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 223  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 224    NP = 1		
-KVP = 223	KVS = 65	KOP = 154	KOS = 45	LVQP = 13	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 224  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 225    NP = 1		
-KVP = 224	KVS = 65	KOP = 154	KOS = 45	LVQP = 14	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 225  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 226    NP = 1		
-KVP = 225	KVS = 65	KOP = 154	KOS = 45	LVQP = 15	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 226  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 227    NP = 1		
-KVP = 226	KVS = 65	KOP = 154	KOS = 45	LVQP = 16	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 227  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 228    NP = 1		
-KVP = 227	KVS = 65	KOP = 154	KOS = 45	LVQP = 17	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 228  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 229    NP = 1		
-KVP = 228	KVS = 65	KOP = 154	KOS = 45	LVQP = 18	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 229  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 230    NP = 1		
-KVP = 229	KVS = 65	KOP = 154	KOS = 45	LVQP = 19	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 230  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 231    NP = 1		
-KVP = 230	KVS = 65	KOP = 154	KOS = 45	LVQP = 20	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 231  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 232    NP = 1		
-KVP = 231	KVS = 65	KOP = 154	KOS = 45	LVQP = 21	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 232  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 233    NP = 1		
-KVP = 232	KVS = 65	KOP = 154	KOS = 45	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 233  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 234    NP = 1		
-KVP = 233	KVS = 65	KOP = 154	KOS = 45	LVQP = 23	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 234  NP = 1	
-+ 24	Event1_Enter		K = 1   NCH = 235    NP = 1		
-KVP = 234	KVS = 65	KOP = 154	KOS = 45	LVQP = 24	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-24,000		 Event1_Enter			K = 1   tвх = 24,000   NCH = 235  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 236    NP = 1		
-KVP = 235	KVS = 65	KOP = 154	KOS = 45	LVQP = 25	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [0; 0]	QVZS = [0; 0]	
-+ 24,238	Event2_Librarian		K = 2    NBL = 1		
-KVP = 235	KVS = 65	KOP = 154	KOS = 45	LVQP = 21	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [4; 0]	QVZS = [0; 0]	
-24,238		 Event2_Librarian			K = 2    NBL = 1	
-+ 27,235	Event3_Finish		К = 3    NBL = 1    tвх = 24  NCH = 211 NP = 1		
-KVP = 235	KVS = 65	KOP = 154	KOS = 45	LVQP = 21	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 236  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 237    NP = 1		
-KVP = 236	KVS = 65	KOP = 154	KOS = 45	LVQP = 22	LVQS = 0	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 66  NP = 2	
-+ 25	Event1_Enter		K = 1   NCH = 67    NP = 2		
-KVP = 236	KVS = 66	KOP = 154	KOS = 45	LVQP = 22	LVQS = 1	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 67  NP = 2	
-+ 25	Event1_Enter		K = 1   NCH = 68    NP = 2		
-KVP = 236	KVS = 67	KOP = 154	KOS = 45	LVQP = 22	LVQS = 2	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 237  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 238    NP = 1		
-KVP = 237	KVS = 67	KOP = 154	KOS = 45	LVQP = 23	LVQS = 2	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 238  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 239    NP = 1		
-KVP = 238	KVS = 67	KOP = 154	KOS = 45	LVQP = 24	LVQS = 2	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 68  NP = 2	
-+ 25	Event1_Enter		K = 1   NCH = 69    NP = 2		
-KVP = 238	KVS = 68	KOP = 154	KOS = 45	LVQP = 24	LVQS = 3	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 69  NP = 2	
-+ 25	Event1_Enter		K = 1   NCH = 70    NP = 2		
-KVP = 238	KVS = 69	KOP = 154	KOS = 45	LVQP = 24	LVQS = 4	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 239  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 240    NP = 1		
-KVP = 239	KVS = 69	KOP = 154	KOS = 45	LVQP = 25	LVQS = 4	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 240  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 241    NP = 1		
-KVP = 240	KVS = 69	KOP = 154	KOS = 45	LVQP = 26	LVQS = 4	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 70  NP = 2	
-+ 25	Event1_Enter		K = 1   NCH = 71    NP = 2		
-KVP = 240	KVS = 70	KOP = 154	KOS = 45	LVQP = 26	LVQS = 5	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 71  NP = 2	
-+ 25	Event1_Enter		K = 1   NCH = 72    NP = 2		
-KVP = 240	KVS = 71	KOP = 154	KOS = 45	LVQP = 26	LVQS = 6	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 241  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 242    NP = 1		
-KVP = 241	KVS = 71	KOP = 154	KOS = 45	LVQP = 27	LVQS = 6	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 242  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 243    NP = 1		
-KVP = 242	KVS = 71	KOP = 154	KOS = 45	LVQP = 28	LVQS = 6	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 72  NP = 2	
-+ 26	Event1_Enter		K = 1   NCH = 73    NP = 2		
-KVP = 242	KVS = 72	KOP = 154	KOS = 45	LVQP = 28	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 243  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 244    NP = 1		
-KVP = 243	KVS = 72	KOP = 154	KOS = 45	LVQP = 29	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 244  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 245    NP = 1		
-KVP = 244	KVS = 72	KOP = 154	KOS = 45	LVQP = 30	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 245  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 246    NP = 1		
-KVP = 245	KVS = 72	KOP = 154	KOS = 45	LVQP = 31	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 246  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 247    NP = 1		
-KVP = 246	KVS = 72	KOP = 154	KOS = 45	LVQP = 32	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 247  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 248    NP = 1		
-KVP = 247	KVS = 72	KOP = 154	KOS = 45	LVQP = 33	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 248  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 249    NP = 1		
-KVP = 248	KVS = 72	KOP = 154	KOS = 45	LVQP = 34	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 249  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 250    NP = 1		
-KVP = 249	KVS = 72	KOP = 154	KOS = 45	LVQP = 35	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 250  NP = 1	
-+ 25	Event1_Enter		K = 1   NCH = 251    NP = 1		
-KVP = 250	KVS = 72	KOP = 154	KOS = 45	LVQP = 36	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,000		 Event1_Enter			K = 1   tвх = 25,000   NCH = 251  NP = 1	
-+ 26	Event1_Enter		K = 1   NCH = 252    NP = 1		
-KVP = 251	KVS = 72	KOP = 154	KOS = 45	LVQP = 37	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [3; 0]	QVZS = [0; 0]	
-25,904		 Event3_Finish			К = 3    NBL = 1   tвх = 24,000    NCH = 212 NP = 1	
-+ 25,904	Event3_Finish		К = 3    NBL = 1   tвх = 24   NCH = 213  NP = 1		
-KVP = 251	KVS = 72	KOP = 155	KOS = 45	LVQP = 37	LVQS = 7	LQBL = 0	TSPBL = 9,48	QVZP = [2; 0]	QVZS = [0; 0]	
+0,000		 K1			NZ = 1	
++ 2,824	K1		
+	
+KVZ = 1 SA = 0 KPA = 4 KA = 0 VQ.Count = 1	
+	
+2,824		 K1			NZ = 2	
++ 4,659	K1		
+	
+KVZ = 2 SA = 0 KPA = 4 KA = 0 VQ.Count = 2	
+	
+4,659		 K1			NZ = 3	
++ 5,54	K1		
+	
+KVZ = 3 SA = 0 KPA = 4 KA = 0 VQ.Count = 3	
+	
+5,540		 K1			NZ = 4	
++ 6,904	K1		
+	
+KVZ = 4 SA = 0 KPA = 4 KA = 0 VQ.Count = 4	
+	
+6,904		 K1			NZ = 5	
++ 10,884	K1		
+	
+KVZ = 5 SA = 0 KPA = 4 KA = 0 VQ.Count = 5	
+	
+10,411		 K2			NB = 1	 KPA = 4	
++ 11,655	K4		
++ 19,652	K2		
+	
+KVZ = 5 SA = 1 KPA = 3 KA = 1 VQ.Count = 5	
+	
+10,884		 K1			NZ = 6	
++ 19,089	K1		
+	
+KVZ = 6 SA = 1 KPA = 3 KA = 1 VQ.Count = 6	
+	
+11,655		 K4			
++ 11,929	K4		
+	
+KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 5	
+	
+11,929		 K4			
++ 12,763	K4		
+	
+KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 4	
+	
+12,763		 K4			
++ 13,189	K4		
+	
+KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 3	
+	
+13,189		 K4			
++ 13,194	K4		
+	
+KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 2	
+	
+13,194		 K4			
++ 13,254	K4		
+	
+KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 1	
+	
+13,254		 K4			
++ 14,022	K4		
+	
+KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 0	
+	
+14,022		 K4			
+	
+KVZ = 6 SA = 0 KPA = 3 KA = 1 VQ.Count = 0	
+	
+19,089		 K1			NZ = 7	
++ 20,526	K1		
+	
+KVZ = 7 SA = 0 KPA = 3 KA = 1 VQ.Count = 1	
+	
+19,652		 K2			NB = 2	 KPA = 3	
++ 21,533	K4		
++ 29,779	K2		
+	
+KVZ = 7 SA = 1 KPA = 3 KA = 2 VQ.Count = 1	
+	
+20,526		 K1			NZ = 8	
++ 21,86	K1		
+	
+KVZ = 8 SA = 1 KPA = 3 KA = 2 VQ.Count = 2	
+	
+21,533		 K4			
++ 22,508	K4		
+	
+KVZ = 8 SA = 2 KPA = 3 KA = 2 VQ.Count = 1	
+	
+21,860		 K1			NZ = 9	
++ 25,258	K1		
+	
+KVZ = 9 SA = 2 KPA = 3 KA = 2 VQ.Count = 2	
+	
+22,508		 K4			
++ 22,972	K4		
+	
+KVZ = 9 SA = 2 KPA = 3 KA = 2 VQ.Count = 1	
+	
+22,972		 K4			
++ 23,513	K4		
+	
+KVZ = 9 SA = 2 KPA = 3 KA = 2 VQ.Count = 0	
+	
+23,513		 K4			
+	
+KVZ = 9 SA = 0 KPA = 3 KA = 2 VQ.Count = 0	
+	
+25,258		 K1			NZ = 10	
++ 28,131	K1		
+	
+KVZ = 10 SA = 0 KPA = 3 KA = 2 VQ.Count = 1	
+	
+28,131		 K1			NZ = 11	
++ 28,572	K1		
+	
+KVZ = 11 SA = 0 KPA = 3 KA = 2 VQ.Count = 2	
+	
+28,572		 K1			NZ = 12	
++ 30,163	K1		
+	
+KVZ = 12 SA = 0 KPA = 3 KA = 2 VQ.Count = 3	
+	
+29,779		 K2			NB = 3	 KPA = 3	
++ 31,671	K4		
++ 39,292	K2		
+	
+KVZ = 12 SA = 1 KPA = 6 KA = 3 VQ.Count = 3	
+	
+30,163		 K1			NZ = 13	
++ 32,732	K1		
+	
+KVZ = 13 SA = 1 KPA = 6 KA = 3 VQ.Count = 4	
+	
+31,671		 K4			
++ 32,197	K4		
+	
+KVZ = 13 SA = 2 KPA = 6 KA = 3 VQ.Count = 3	
+	
+32,197		 K4			
++ 32,393	K4		
+	
+KVZ = 13 SA = 2 KPA = 6 KA = 3 VQ.Count = 2	
+	
+32,393		 K4			
++ 32,872	K4		
+	
+KVZ = 13 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+	
+32,732		 K1			NZ = 14	
++ 33,299	K1		
+	
+KVZ = 14 SA = 2 KPA = 6 KA = 3 VQ.Count = 2	
+	
+32,872		 K4			
++ 33,57	K4		
+	
+KVZ = 14 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+	
+33,299		 K1			NZ = 15	
++ 33,829	K1		
+	
+KVZ = 15 SA = 2 KPA = 6 KA = 3 VQ.Count = 2	
+	
+33,570		 K4			
++ 33,749	K4		
+	
+KVZ = 15 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+	
+33,749		 K4			
++ 33,953	K4		
+	
+KVZ = 15 SA = 2 KPA = 6 KA = 3 VQ.Count = 0	
+	
+33,829		 K1			NZ = 16	
++ 42,502	K1		
+	
+KVZ = 16 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+	
+33,953		 K4			
++ 34,133	K4		
+	
+KVZ = 16 SA = 2 KPA = 6 KA = 3 VQ.Count = 0	
+	
+34,133		 K4			
+	
+KVZ = 16 SA = 0 KPA = 6 KA = 3 VQ.Count = 0	
+	
+39,292		 K2			NB = 4	 KPA = 6	
++ 43,744	K4		
++ 50,007	K2		
+	
+KVZ = 16 SA = 1 KPA = 2 KA = 4 VQ.Count = 0	
+	
+42,502		 K1			NZ = 17	
++ 47,212	K1		
+	
+KVZ = 17 SA = 1 KPA = 2 KA = 4 VQ.Count = 1	
+	
+43,744		 K4			
++ 43,754	K4		
+	
+KVZ = 17 SA = 2 KPA = 2 KA = 4 VQ.Count = 0	
+	
+43,754		 K4			
+	
+KVZ = 17 SA = 0 KPA = 2 KA = 4 VQ.Count = 0	
+	
+47,212		 K1			NZ = 18	
++ 50,947	K1		
+	
+KVZ = 18 SA = 0 KPA = 2 KA = 4 VQ.Count = 1	
+	
+50,007		 K2			NB = 5	 KPA = 2	
++ 51,277	K4		
++ 59,493	K2		
+	
+KVZ = 18 SA = 1 KPA = 2 KA = 5 VQ.Count = 1	
+	
+50,947		 K1			NZ = 19	
++ 54,969	K1		
+	
+KVZ = 19 SA = 1 KPA = 2 KA = 5 VQ.Count = 2	
+	
+51,277		 K4			
++ 51,283	K4		
+	
+KVZ = 19 SA = 2 KPA = 2 KA = 5 VQ.Count = 1	
+	
+51,283		 K4			
++ 51,458	K4		
+	
+KVZ = 19 SA = 2 KPA = 2 KA = 5 VQ.Count = 0	
+	
+51,458		 K4			
+	
+KVZ = 19 SA = 0 KPA = 2 KA = 5 VQ.Count = 0	
+	
+54,969		 K1			NZ = 20	
++ 65,097	K1		
+	
+KVZ = 20 SA = 0 KPA = 2 KA = 5 VQ.Count = 1	
+	
+59,493		 K2			NB = 6	 KPA = 2	
++ 60,469	K4		
++ 69,626	K2		
+	
+KVZ = 20 SA = 1 KPA = 7 KA = 6 VQ.Count = 1	
+	
+60,469		 K4			
++ 61,293	K4		
+	
+KVZ = 20 SA = 2 KPA = 7 KA = 6 VQ.Count = 0	
+	
+61,293		 K4			
+	
+KVZ = 20 SA = 0 KPA = 7 KA = 6 VQ.Count = 0	
+	
+65,097		 K1			NZ = 21	
++ 78,761	K1		
+	
+KVZ = 21 SA = 0 KPA = 7 KA = 6 VQ.Count = 1	
+	
+69,626		 K2			NB = 7	 KPA = 7	
++ 70,161	K4		
++ 80,422	K2		
+	
+KVZ = 21 SA = 1 KPA = 7 KA = 7 VQ.Count = 1	
+	
+70,161		 K4			
++ 70,871	K4		
+	
+KVZ = 21 SA = 2 KPA = 7 KA = 7 VQ.Count = 0	
+	
+70,871		 K4			
+	
+KVZ = 21 SA = 0 KPA = 7 KA = 7 VQ.Count = 0	
+	
+78,761		 K1			NZ = 22	
++ 79,602	K1		
+	
+KVZ = 22 SA = 0 KPA = 7 KA = 7 VQ.Count = 1	
+	
+79,602		 K1			NZ = 23	
++ 79,634	K1		
+	
+KVZ = 23 SA = 0 KPA = 7 KA = 7 VQ.Count = 2	
+	
+79,634		 K1			NZ = 24	
++ 85,513	K1		
+	
+KVZ = 24 SA = 0 KPA = 7 KA = 7 VQ.Count = 3	
+	
+80,422		 K2			NB = 8	 KPA = 7	
++ 83,975	K4		
++ 89,815	K2		
+	
+KVZ = 24 SA = 1 KPA = 2 KA = 8 VQ.Count = 3	
+	
+83,975		 K4			
++ 84,292	K4		
+	
+KVZ = 24 SA = 2 KPA = 2 KA = 8 VQ.Count = 2	
+	
+84,292		 K4			
++ 84,9	K4		
+	
+KVZ = 24 SA = 2 KPA = 2 KA = 8 VQ.Count = 1	
+	
+84,900		 K4			
++ 85,466	K4		
+	
+KVZ = 24 SA = 2 KPA = 2 KA = 8 VQ.Count = 0	
+	
+85,466		 K4			
+	
+KVZ = 24 SA = 0 KPA = 2 KA = 8 VQ.Count = 0	
+	
+85,513		 K1			NZ = 25	
++ 85,964	K1		
+	
+KVZ = 25 SA = 0 KPA = 2 KA = 8 VQ.Count = 1	
+	
+85,964		 K1			NZ = 26	
++ 89,203	K1		
+	
+KVZ = 26 SA = 0 KPA = 2 KA = 8 VQ.Count = 2	
+	
+89,203		 K1			NZ = 27	
++ 91,666	K1		
+	
+KVZ = 27 SA = 0 KPA = 2 KA = 8 VQ.Count = 3	
+	
+89,815		 K2			NB = 9	 KPA = 2	
++ 91,303	K4		
++ 99,891	K2		
+	
+KVZ = 27 SA = 1 KPA = 2 KA = 9 VQ.Count = 3	
+	
+91,303		 K4			
++ 91,492	K4		
+	
+KVZ = 27 SA = 2 KPA = 2 KA = 9 VQ.Count = 2	
+	
+91,492		 K4			
++ 92,191	K4		
+	
+KVZ = 27 SA = 2 KPA = 2 KA = 9 VQ.Count = 1	
+	
+91,666		 K1			NZ = 28	
++ 91,765	K1		
+	
+KVZ = 28 SA = 2 KPA = 2 KA = 9 VQ.Count = 2	
+	
+91,765		 K1			NZ = 29	
++ 99,143	K1		
+	
+KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 3	
+	
+92,191		 K4			
++ 93,01	K4		
+	
+KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 2	
+	
+93,010		 K4			
++ 93,852	K4		
+	
+KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 1	
+	
+93,852		 K4			
++ 94,657	K4		
+	
+KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 0	
+	
+94,657		 K4			
+	
+KVZ = 29 SA = 0 KPA = 2 KA = 9 VQ.Count = 0	
+	
+99,143		 K1			NZ = 30	
++ 103,042	K1		
+	
+KVZ = 30 SA = 0 KPA = 2 KA = 9 VQ.Count = 1	
+	
+99,891		 K2			NB = 10	 KPA = 2	
++ 102,148	K4		
++ 110,43	K2		
+	
+KVZ = 30 SA = 1 KPA = 7 KA = 10 VQ.Count = 1	
+	
+102,148		 K4			
++ 102,839	K4		
+	
+KVZ = 30 SA = 2 KPA = 7 KA = 10 VQ.Count = 0	
+	
+102,839		 K4			
+	
+KVZ = 30 SA = 0 KPA = 7 KA = 10 VQ.Count = 0	
+	
+103,042		 K1			NZ = 31	
++ 103,319	K1		
+	
+KVZ = 31 SA = 0 KPA = 7 KA = 10 VQ.Count = 1	
+	
+103,319		 K1			NZ = 32	
++ 114,985	K1		
+	
+KVZ = 32 SA = 0 KPA = 7 KA = 10 VQ.Count = 2	
+	
+110,430		 K2			NB = 11	 KPA = 7	
++ 111,87	K4		
++ 119,887	K2		
+	
+KVZ = 32 SA = 1 KPA = 7 KA = 11 VQ.Count = 2	
+	
+111,870		 K4			
++ 111,884	K4		
+	
+KVZ = 32 SA = 2 KPA = 7 KA = 11 VQ.Count = 1	
+	
+111,884		 K4			
++ 112,025	K4		
+	
+KVZ = 32 SA = 2 KPA = 7 KA = 11 VQ.Count = 0	
+	
+112,025		 K4			
+	
+KVZ = 32 SA = 0 KPA = 7 KA = 11 VQ.Count = 0	
+	
+114,985		 K1			NZ = 33	
++ 116,12	K1		
+	
+KVZ = 33 SA = 0 KPA = 7 KA = 11 VQ.Count = 1	
+	
+116,120		 K1			NZ = 34	
++ 127,418	K1		
+	
+KVZ = 34 SA = 0 KPA = 7 KA = 11 VQ.Count = 2	
+	
+119,887		 K2			NB = 12	 KPA = 7	
++ 122,803	K4		
++ 129,55	K2		
+	
+KVZ = 34 SA = 1 KPA = 5 KA = 12 VQ.Count = 2	
+	
+122,803		 K4			
++ 123,432	K4		
+	
+KVZ = 34 SA = 2 KPA = 5 KA = 12 VQ.Count = 1	
+	
+123,432		 K4			
++ 123,464	K4		
+	
+KVZ = 34 SA = 2 KPA = 5 KA = 12 VQ.Count = 0	
+	
+123,464		 K4			
+	
+KVZ = 34 SA = 0 KPA = 5 KA = 12 VQ.Count = 0	
+	
+127,418		 K1			NZ = 35	
++ 133,623	K1		
+	
+KVZ = 35 SA = 0 KPA = 5 KA = 12 VQ.Count = 1	
+	
+129,550		 K2			NB = 13	 KPA = 5	
++ 132,465	K4		
++ 138,717	K2		
+	
+KVZ = 35 SA = 1 KPA = 5 KA = 13 VQ.Count = 1	
+	
+132,465		 K4			
++ 132,747	K4		
+	
+KVZ = 35 SA = 2 KPA = 5 KA = 13 VQ.Count = 0	
+	
+132,747		 K4			
+	
+KVZ = 35 SA = 0 KPA = 5 KA = 13 VQ.Count = 0	
+	
+133,623		 K1			NZ = 36	
++ 146,083	K1		
+	
+KVZ = 36 SA = 0 KPA = 5 KA = 13 VQ.Count = 1	
+	
+138,717		 K2			NB = 14	 KPA = 5	
++ 141,52	K4		
++ 149,255	K2		
+	
+KVZ = 36 SA = 1 KPA = 5 KA = 14 VQ.Count = 1	
+	
+141,520		 K4			
++ 142,025	K4		
+	
+KVZ = 36 SA = 2 KPA = 5 KA = 14 VQ.Count = 0	
+	
+142,025		 K4			
+	
+KVZ = 36 SA = 0 KPA = 5 KA = 14 VQ.Count = 0	
+	
+146,083		 K1			NZ = 37	
++ 161,3	K1		
+	
+KVZ = 37 SA = 0 KPA = 5 KA = 14 VQ.Count = 1	
+	
+149,255		 K2			NB = 15	 KPA = 5	
++ 151,399	K4		
++ 159,279	K2		
+	
+KVZ = 37 SA = 1 KPA = 5 KA = 15 VQ.Count = 1	
+	
+151,399		 K4			
++ 151,805	K4		
+	
+KVZ = 37 SA = 2 KPA = 5 KA = 15 VQ.Count = 0	
+	
+151,805		 K4			
+	
+KVZ = 37 SA = 0 KPA = 5 KA = 15 VQ.Count = 0	
+	
+159,279		 K2			NB = 16	 KPA = 5	
++ 161,18	K4		
++ 169,886	K2		
+	
+KVZ = 37 SA = 1 KPA = 1 KA = 16 VQ.Count = 0	
+	
+161,180		 K4			
+	
+KVZ = 37 SA = 0 KPA = 1 KA = 16 VQ.Count = 0	
+	
+161,300		 K1			NZ = 38	
++ 162,569	K1		
+	
+KVZ = 38 SA = 0 KPA = 1 KA = 16 VQ.Count = 1	
+	
+162,569		 K1			NZ = 39	
++ 164,592	K1		
+	
+KVZ = 39 SA = 0 KPA = 1 KA = 16 VQ.Count = 2	
+	
+164,592		 K1			NZ = 40	
++ 168,09	K1		
+	
+KVZ = 40 SA = 0 KPA = 1 KA = 16 VQ.Count = 3	
+	
+168,090		 K1			NZ = 41	
++ 189,601	K1		
+	
+KVZ = 41 SA = 0 KPA = 1 KA = 16 VQ.Count = 4	
+	
+169,886		 K2			NB = 17	 KPA = 1	
++ 171,532	K4		
++ 179,21	K2		
+	
+KVZ = 41 SA = 1 KPA = 1 KA = 17 VQ.Count = 4	
+	
+171,532		 K4			
++ 172,345	K4		
+	
+KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 3	
+	
+172,345		 K4			
++ 172,465	K4		
+	
+KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 2	
+	
+172,465		 K4			
++ 172,732	K4		
+	
+KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 1	
+	
+172,732		 K4			
++ 173,679	K4		
+	
+KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 0	
+	
+173,679		 K4			
+	
+KVZ = 41 SA = 0 KPA = 1 KA = 17 VQ.Count = 0	
+	
+179,210		 K2			NB = 18	 KPA = 1	
++ 180,187	K4		
++ 188,74	K2		
+	
+KVZ = 41 SA = 1 KPA = 1 KA = 18 VQ.Count = 0	
+	
+180,187		 K4			
+	
+KVZ = 41 SA = 0 KPA = 1 KA = 18 VQ.Count = 0	
+	
+188,740		 K2			NB = 19	 KPA = 1	
++ 189,99	K4		
++ 198,927	K2		
+	
+KVZ = 41 SA = 1 KPA = 1 KA = 19 VQ.Count = 0	
+	
+189,601		 K1			NZ = 42	
++ 215,355	K1		
+	
+KVZ = 42 SA = 1 KPA = 1 KA = 19 VQ.Count = 1	
+	
+189,990		 K4			
++ 190,368	K4		
+	
+KVZ = 42 SA = 2 KPA = 1 KA = 19 VQ.Count = 0	
+	
+190,368		 K4			
+	
+KVZ = 42 SA = 0 KPA = 1 KA = 19 VQ.Count = 0	
+	
+198,927		 K2			NB = 20	 KPA = 1	
++ 200,488	K4		
++ 208,25	K2		
+	
+KVZ = 42 SA = 1 KPA = 6 KA = 20 VQ.Count = 0	
+	
+200,488		 K4			
+	
+KVZ = 42 SA = 0 KPA = 6 KA = 20 VQ.Count = 0	
+	
 	
 ==============================================================
 ============Статистические результаты моделирования===========
 ==============================================================
 	
-Время моделирования: 25,90
-Количество вошедших читателей : 323
-МО времени нахождения преподавателей в системе : 0,50
-МО времени нахождения студентов в системе : 0,42
-МО числа читателей, обслуживаемых библиотекарями за один заход : 1,38678
-Вероятность занятости библиотекарей : 0,81693
+Время моделирования: 200,49

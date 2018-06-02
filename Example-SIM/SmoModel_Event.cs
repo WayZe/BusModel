@@ -19,14 +19,21 @@ namespace Model_Lab
             // алгоритм обработки события            
             protected override void HandleEvent(ModelEventArgs args)
             {
+                Model.KVZ += 1;
+                Model.Tracer.EventTrace(this, "NZ = " + ZP.NZ);
                 var rec = new PassRec();                            //новая запись 
                 rec.Z = ZP;                                         //передаём в созданный объект, объект заявки
                 Model.VQ.Add(rec);                                  //добавляем в очередь
 
                 var ev1 = new K1();                                 // создание объекта события
+                ZP.NZ += 1;
                 ev1.ZP = ZP;                                        // передача библиотекаря в событие
                 double dt1 = Model.GenPassAppear.GenerateValue();
                 Model.PlanEvent(ev1, dt1);                          // планирование события 3
+                Model.Tracer.PlanEventTrace(ev1);
+                Model.Tracer.AnyTrace("");
+                Model.TraceModel();
+                Model.Tracer.AnyTrace("");
             }
         }
 
@@ -40,51 +47,63 @@ namespace Model_Lab
             // алгоритм обработки события            
             protected override void HandleEvent(ModelEventArgs args)
             {
+                
+                Model.KA += 1;
+                Model.Tracer.EventTrace(this, "NB = " + ZB.NB, " KPA = " + ZB.KPA);
                 Model.SA = 1;
 				Random rnd = new Random();
 				int KolPassOut = rnd.Next(Model.VL, Model.VP);
 				if (KolPassOut > ZB.KPA)
 					KolPassOut = ZB.KPA;
 
+
+                // ВЫСАДКА ПАССАЖИРОВ
 				double dt3 = 0;
 				for (int i = 0; i <= KolPassOut; i++)
 					dt3 += Model.GenPassOut.GenerateValue();
 
                 var ev3 = new K4();                                 // создание объекта события
-                double dt1 = Model.GenPassAppear.GenerateValue();
                 Model.PlanEvent(ev3, dt3);                          // планирование события 3
+                Model.Tracer.PlanEventTrace(ev3);
                 
 				var ev2 = new K2();                                 // создание объекта события
-				ev2.ZB.NB = this.ZB.NB + 1;
-				ev2.ZB.KPA -= KolPassOut;
+                Bus Z = new Bus();
+                Z.NB = this.ZB.NB + 1;
+                Model.KPA = rnd.Next(Model.ml, Model.mp);
+                Z.KPA = Model.KPA;
+                ev2.ZB = Z;
 				double dt2 = Model.T + Model.GenBusAppear.GenerateValue();
                 Model.PlanEvent(ev2, dt2);                          // планирование события 3
+                Model.Tracer.PlanEventTrace(ev2);
+                Model.Tracer.AnyTrace("");
+                Model.TraceModel();
+                Model.Tracer.AnyTrace("");
             }
         }
 
-		// класс для события 2 - приход автобуса на остановку
-        public class K3 : TimeModelEvent<SmoModel>
-        {
-            #region Атрибуты события
-            #endregion
+		//// класс для события 2 - приход автобуса на остановку
+  //      public class K3 : TimeModelEvent<SmoModel>
+  //      {
+  //          #region Атрибуты события
+  //          #endregion
 
-            // алгоритм обработки события            
-            protected override void HandleEvent(ModelEventArgs args)
-            {
-				if (Model.VQ.Count != 0)
-				{
-					Model.SA = 2;
-					Model.VQ.RemoveAt(0);
-					double dt4 = Model.GenPassIn.GenerateValue();
-					var ev4 = new K4();                                 // создание объекта события
-                    Model.PlanEvent(ev4, dt4);                          // планирование события 3
-				}
-				else
-				{
-					Model.SA = 0;
-				}
-            }
-        }
+  //          // алгоритм обработки события            
+  //          protected override void HandleEvent(ModelEventArgs args)
+  //          {
+		//		if (Model.VQ.Count != 0)
+		//		{
+		//			Model.SA = 2;
+		//			Model.VQ.RemoveAt(0);
+		//			double dt4 = Model.GenPassIn.GenerateValue();
+		//			var ev4 = new K4();                                 // создание объекта события
+  //                  Model.PlanEvent(ev4, dt4);                          // планирование события 3
+		//		}
+		//		else
+		//		{
+		//			Model.SA = 0;
+		//		}
+  //          }
+  //      }
 
 		// класс для события 4 - приход автобуса на остановку
         public class K4 : TimeModelEvent<SmoModel>
@@ -95,7 +114,9 @@ namespace Model_Lab
             // алгоритм обработки события            
             protected override void HandleEvent(ModelEventArgs args)
             {
-				if (Model.VQ.Count != 0)
+                Model.Tracer.EventTrace(this);
+
+                if (Model.VQ.Count.Value != 0)
                 {
 					if (Model.B - Model.KPA > 0)
 					{
@@ -104,7 +125,8 @@ namespace Model_Lab
 						double dt4 = Model.GenPassIn.GenerateValue();
 						var ev4 = new K4();                                 // создание объекта события
 						Model.PlanEvent(ev4, dt4);                          // планирование события 3
-					}
+                        Model.Tracer.PlanEventTrace(ev4);
+                    }
 					else 
 					{
 						Model.SA = 0;
@@ -116,6 +138,9 @@ namespace Model_Lab
                 {
                     Model.SA = 0;
                 }
+                Model.Tracer.AnyTrace("");
+                Model.TraceModel();
+                Model.Tracer.AnyTrace("");
             }
         }
 

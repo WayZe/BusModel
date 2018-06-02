@@ -32,92 +32,50 @@ namespace Model_Lab
         public override void SetNextVariant(int variantCount)
         {
             #region Параметры модели
-            LAMBD = 1.0 / 2;
+            LAMBD = 1.0 / 5;
             SA = 0;
 			B = 10;
 			T = 10.0;
 			A = 1.0;
+            TP = 200;
+            NVAR = 1;
+            ml = 1;
+            mp = 8;
+            bcl = 0.0;
+            bcp = 1.0;
+            pcl = 0.0;
+            pcp = 1.0;
+            VL = 1;
+            VP = 7;
             #endregion
 
             #region Установка параметров законов распределения
 
             (GenPassAppear.BPN as GeneratedBaseRandomStream).Seed = 1;
-            //(GenKolPassOut.BPN as GeneratedBaseRandomStream).Seed = 2;
-			(GenBusAppear.BPN as GeneratedBaseRandomStream).Seed = 3;
+            (GenPassOut.BPN as GeneratedBaseRandomStream).Seed = 2;
+            (GenBusAppear.BPN as GeneratedBaseRandomStream).Seed = 3;
+            (GenPassIn.BPN as GeneratedBaseRandomStream).Seed = 4;
 
             GenPassAppear.Lyambda = LAMBD;
-            //GenKolPassOut.Table = new Dictionary<int, double>();
-            //for (int i = VL; i <= VP; i++)
-              //  GenKolPassOut.Table.Add(i, 1.0/(VP-VL+1));
 
-			GenBusAppear.A = -A;
+            GenPassOut.A = bcl;
+            GenPassOut.B = bcp;
+
+            GenPassIn.A = pcl;
+            GenPassIn.B = pcp;
+
+            GenBusAppear.A = -A;
 			GenBusAppear.B = A;
-            /*
-         
-            BL_Perem_Uniform_Generator.A = AP;
-            BL_Perem_Uniform_Generator.B = BP;
 
-            BL_Vydacha_Uniform_Generator.A = AZ;
-            BL_Vydacha_Uniform_Generator.B = BZ;
-
-            BL_poisk_Normal_Generator.Mx = MO;
-            BL_poisk_Normal_Generator.Sigma = SKO;
-            */
             #endregion
         }
 
         public override void StartModelling(int variantCount, int runCount)
         {
             #region Задание начальных значений модельных переменных и объектов
-
-            KVP = 0;                        // количество вошедших преподавателей
-            KVS = 0;                        // количество вошедших студентов
-            KOP = 0;                        // количество обслуженных преподавателей
-            KOS = 0;                        // количество обслуженных студентов
-
-            LVQP = VQ[0].Count;             // длина входной очереди преподавателей
-            LVQS = VQ[1].Count;             // длина входной очереди студентов
-            LQBL = KBL;                     // длина очереди свободных библиотекарей
-
-            TNS[0].Value = 0.0;             // время нахождения преподавателей в системе
-            TNS[1].Value = 0.0;             // время нахождения студентов в системе
-
-            TSPBL = 0.0;                    // суммарное время простоя библиотекарей
-
-            for (int i = 0; i < QUEUE; i++)
-            {
-                VQ[i].Clear();
-            }
-
-            for (int i = 0; i < KBL; i++)
-            {
-                Librarian libr = new Librarian();
-                libr.NBL = i;
-                libr.time_osv = 0.0;
-
-                var QueueRecord = new LibrarianRec();           // создание объекта элемента очереди
-                QueueRecord.L = libr;                           // передача в созданный объект объекта читателя
-                QBL.Add(QueueRecord);                           // добавление элемента в очередь
-
-                QVZP[i].Clear();
-                QVZS[i].Clear();
-
-                KZS[i].Value = 0;
-            }
-
             #endregion
 
             #region Cброс сборщиков статистики
-
-            for (int i = 0; i < QUEUE; i++)
-            {
-                Variance_TNS[i].ResetCollector();
-            }
-
-            for (int i = 0; i < KBL; i++)
-            {
-                Variance_KZS[i].ResetCollector();
-            }
 
             #endregion
 
@@ -126,13 +84,20 @@ namespace Model_Lab
 
             #region Планирование начальных событий
 
-			var ev1 = new K1();                                 // создание объекта события
-			ev1.ZP.NZ = 1;                                        // передача библиотекаря в событие
+            var ev1 = new K1();                                 // создание объекта события
+            Pass Z1 = new Pass();
+            Z1.NZ = 1;
+            ev1.ZP = Z1;                                        // передача библиотекаря в событие
             PlanEvent(ev1, 0.0);                          // планирование события 3
-
-			var ev2 = new K2();                                 // создание объекта события
-			ev2.ZB.NZ = 1;                                        // передача библиотекаря в событие
-            PlanEvent(ev1, 0.0);                          // планирование события 3
+            Random rnd = new Random();
+            var ev2 = new K2();                                 // создание объекта события
+            Bus Z2 = new Bus();
+            Z2.NB = 1;
+            KPA = rnd.Next(1, B);
+            Z2.KPA = KPA;
+            ev2.ZB = Z2;                                      // передача библиотекаря в событие
+            double dt2 = T + GenBusAppear.GenerateValue();
+            PlanEvent(ev2, dt2);                          // планирование события 3
 
             #endregion
         }
@@ -146,6 +111,9 @@ namespace Model_Lab
             Tracer.TraceOut("==============================================================");
             Tracer.AnyTrace("");
             Tracer.TraceOut("Время моделирования: " + string.Format("{0:0.00}", Time));
+
+            //Tracer.TraceOut(VQ);
+
         }
 
         //Печать заголовка
@@ -157,24 +125,37 @@ namespace Model_Lab
             //вывод заголовка трассировки
             Tracer.AnyTrace("");
             Tracer.AnyTrace("Параметры модели:");
+            Tracer.AnyTrace("Интенсивность потока пассажиров:");
+            Tracer.AnyTrace("LAMBD = " + LAMBD );
+            Tracer.AnyTrace("Состояние автобуса:");
+            Tracer.AnyTrace("SA = " + SA    );
+            Tracer.AnyTrace("Размер автобуса:");
+            Tracer.AnyTrace("B = " + B     );
+            Tracer.AnyTrace("Интервал времени прибытия автобуса:");
+            Tracer.AnyTrace("T = " + T     );
+            Tracer.AnyTrace("Погрешность прибытия автобуса:");
+            Tracer.AnyTrace("A = " + A     );
+            Tracer.AnyTrace("Время прогона:");
+            Tracer.AnyTrace("TP = " + TP    );
+            Tracer.AnyTrace("Вариант модели:");
+            Tracer.AnyTrace("NVAR = " + NVAR  );
+            Tracer.AnyTrace("Левая и правая границы числа пассажиров в автобусе:");
+            Tracer.AnyTrace("ml = " + ml    );
+            Tracer.AnyTrace("mp = " + mp    );
+            Tracer.AnyTrace("Левая и правая границы времени высадки пассажира:");
+            Tracer.AnyTrace("bcl = " + bcl   );
+            Tracer.AnyTrace("bcp = " + bcp   );
+            Tracer.AnyTrace("Левая и правая границы времени посадки пассажира:");
+            Tracer.AnyTrace("pcl = " + pcl   );
+            Tracer.AnyTrace("pcp = " + pcp);
+            Tracer.AnyTrace("Левая и правая границы количества выходящих пассажиров из автобуса:");
+            Tracer.AnyTrace("VL = " + VL);
+            Tracer.AnyTrace("VP = " + VP);
+            Tracer.AnyTrace("");
 
             Tracer.AnyTrace("Начальное состояние модели:");
-
-            // для 1 библиотекаря
-            //Tracer.AnyTrace("KVP = " + KVP, "KVS = " + KVS, "KOP = " + KOP, "KOS = " + KOS,
-            //    "LVQP = " + VQ[0].Count.Value, "LVQS = " + VQ[1].Count.Value, "LQBL = " + QBL.Count.Value, "TSPBL = " + string.Format("{0:0.00}", TSPBL),
-            //    "QVZP = [" + QVZP[0].Count.Value + "]", "QVZS = [" + QVZS[0].Count.Value + "]"); Tracer.AnyTrace("");
-
-            // для 2 библиотекарей
-            Tracer.AnyTrace("KVP = " + KVP, "KVS = " + KVS, "KOP = " + KOP, "KOS = " + KOS,
-                "LVQP = " + VQ[0].Count.Value, "LVQS = " + VQ[1].Count.Value, "LQBL = " + QBL.Count.Value, "TSPBL = " + string.Format("{0:0.00}", TSPBL),
-                "QVZP = [" + QVZP[0].Count.Value + "; " + QVZP[1].Count.Value + "]", "QVZS = [" + QVZS[0].Count.Value + "; " + QVZS[1].Count.Value + "]"); Tracer.AnyTrace("");
-
-            // для 5 библиотекарей
-            //Tracer.AnyTrace("KVP = " + KVP, "KVS = " + KVS, "KOP = " + KOP, "KOS = " + KOS,
-            //    "LVQP = " + VQ[0].Count.Value, "LVQS = " + VQ[1].Count.Value, "LQBL = " + QBL.Count.Value, "TSPBL = " + string.Format("{0:0.00}", TSPBL),
-            //    "QVZP = [" + QVZP[0].Count.Value + "; " + QVZP[1].Count.Value + "; " + QVZP[2].Count.Value + "; " + QVZP[3].Count.Value + "; " + QVZP[4].Count.Value + "]",
-            //    "QVZS = [" + QVZS[0].Count.Value + "; " + QVZS[1].Count.Value + "; " + QVZS[2].Count.Value + "; " + QVZS[3].Count.Value + "; " + QVZS[4].Count.Value + "]"); 
+            TraceModel();
+            Tracer.AnyTrace("");
 
             Tracer.TraceOut("==============================================================");
             Tracer.AnyTrace("");
@@ -183,21 +164,7 @@ namespace Model_Lab
         //Печать строки состояния
         void TraceModel()
         {
-            // для 1 библиотекаря
-            //Tracer.AnyTrace("KVP = " + KVP, "KVS = " + KVS, "KOP = " + KOP, "KOS = " + KOS,
-            //    "LVQP = " + VQ[0].Count.Value, "LVQS = " + VQ[1].Count.Value, "LQBL = " + QBL.Count.Value, "TSPBL = " + string.Format("{0:0.00}", TSPBL),
-            //    "QVZP = [" + QVZP[0].Count.Value + "]", "QVZS = [" + QVZS[0].Count.Value + "]"); Tracer.AnyTrace("");
-
-            // для 2 библиотекарей
-            Tracer.AnyTrace("KVP = " + KVP, "KVS = " + KVS, "KOP = " + KOP, "KOS = " + KOS,
-                "LVQP = " + VQ[0].Count.Value, "LVQS = " + VQ[1].Count.Value, "LQBL = " + QBL.Count.Value, "TSPBL = " + string.Format("{0:0.00}", TSPBL),
-                "QVZP = [" + QVZP[0].Count.Value + "; " + QVZP[1].Count.Value + "]", "QVZS = [" + QVZS[0].Count.Value + "; " + QVZS[1].Count.Value + "]");
-
-            // для 5 библиотекарей
-            //Tracer.AnyTrace("KVP = " + KVP, "KVS = " + KVS, "KOP = " + KOP, "KOS = " + KOS,
-            //    "LVQP = " + VQ[0].Count.Value, "LVQS = " + VQ[1].Count.Value, "LQBL = " + QBL.Count.Value, "TSPBL = " + string.Format("{0:0.00}", TSPBL),
-            //    "QVZP = [" + QVZP[0].Count.Value + "; " + QVZP[1].Count.Value + "; " + QVZP[2].Count.Value + "; " + QVZP[3].Count.Value + "; " + QVZP[4].Count.Value + "]",
-            //    "QVZS = [" + QVZS[0].Count.Value + "; " + QVZS[1].Count.Value + "; " + QVZS[2].Count.Value + "; " + QVZS[3].Count.Value + "; " + QVZS[4].Count.Value + "]"); 
+            Tracer.AnyTrace("KVZ = " + KVZ + " SA = " + SA + " KPA = " + KPA + " KA = " + KA + " VQ.Count = " + VQ.Count.Value);
         }
 
     }

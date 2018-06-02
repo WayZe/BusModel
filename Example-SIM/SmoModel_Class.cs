@@ -111,7 +111,7 @@ namespace Model_Lab
         // Генератор времени посадки пассажира
         UniformStream GenPassIn;
         // Генератор числа выходящих пассажиров
-        DiscreteStream<int> GenKolPassOut;
+        // DiscreteStream<int> GenKolPassOut;
 
         #endregion
 
@@ -120,35 +120,11 @@ namespace Model_Lab
         public SmoModel(Model parent, string name)
             : base(parent, name)
         {
-           // TNS = InitModelObjectArray<TRealVar>(QUEUE, "время нахождения читателя в системе");
-          //  KZS = InitModelObjectArray<TRealVar>(KBL, "количество читателей, обслуживаемых библиотекарем за один заход");
-
             VQ = InitModelObject<SimpleModelList<PassRec>>();
             GenPassAppear = InitModelObject<ExpStream>("Генератор времени появления пассажиров");
             GenBusAppear = InitModelObject<UniformStream>("Генератор времени прибытия автобуса на остановку");
             GenPassOut = InitModelObject<UniformStream>("Генератор времени высадки пассажира");
             GenPassIn = InitModelObject<UniformStream>("Генератор времени посадки пассажира");
-            GenKolPassOut = InitModelObject<DiscreteStream<int>>("Генератор количества выходящих пассажиров");
-            //  QVZS = InitModelObjectArray<SimpleModelList<ReaderRec>>(KBL, "очередь на выдачу заказов студентам");
-            //   QBL = InitModelObject<SimpleModelList<LibrarianRec>>("очередь свободных библиотекарей");
-
-            //??????????????????????   Variance_INTC = InitModelObjectArray<Variance<double>>(KZ , "•	Интенсивность числа полных циклов");
-            // Variance_KZS = InitModelObjectArray<Variance<double>>(KBL, "МО и дисперсия KZS[]");
-            //  Stud_vhod_Puason_Generator = InitModelObject<PoissonStream>("генератор потока 'время между соседними читателями в потоке студентов'");
-            //  BL_Perem_Uniform_Generator = InitModelObject<UniformStream>("генератор потока 'время перемещения библиотекаря в один конец от стола заказов до хранилища'");
-            //   BL_Vydacha_Uniform_Generator = InitModelObject<UniformStream>("генератор потока 'время завершения процедуры выдачи книг'");
-            //   BL_poisk_Normal_Generator = InitModelObject<NormalStream>("генератор потока 'время поиска книг'");
-            /*
-               for (int i = 0; i <KZ; i++)
-               {
-                   Variance_INTC[i].ConnectOnSet(TNS[i]);
-               }
-
-               for (int i = 0; i < KBL; i++)
-               {
-                   Variance_KZS[i].ConnectOnSet(KZS[i]);
-               }
-               */
         }
 
         #endregion
