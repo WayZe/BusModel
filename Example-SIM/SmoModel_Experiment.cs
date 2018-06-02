@@ -34,18 +34,24 @@ namespace Model_Lab
             #region Параметры модели
             LAMBD = 1.0 / 2;
             SA = 0;
+			B = 10;
+			T = 10.0;
+			A = 1.0;
             #endregion
 
             #region Установка параметров законов распределения
 
             (GenPassAppear.BPN as GeneratedBaseRandomStream).Seed = 1;
-            (GenKolPassOut.BPN as GeneratedBaseRandomStream).Seed = 2;
+            //(GenKolPassOut.BPN as GeneratedBaseRandomStream).Seed = 2;
+			(GenBusAppear.BPN as GeneratedBaseRandomStream).Seed = 3;
 
             GenPassAppear.Lyambda = LAMBD;
-            GenKolPassOut.Table = new Dictionary<int, double>();
-            for (int i = VL; i <= VP; i++)
-                GenKolPassOut.Table.Add(i, 1.0/(VP-VL+1));
+            //GenKolPassOut.Table = new Dictionary<int, double>();
+            //for (int i = VL; i <= VP; i++)
+              //  GenKolPassOut.Table.Add(i, 1.0/(VP-VL+1));
 
+			GenBusAppear.A = -A;
+			GenBusAppear.B = A;
             /*
          
             BL_Perem_Uniform_Generator.A = AP;
@@ -120,19 +126,13 @@ namespace Model_Lab
 
             #region Планирование начальных событий
 
-            Reader Prep = new Reader();
-            Prep.NCH = 1;
-            Prep.NP = 0;
-            var start_event_Prep = new Event1_Enter();
-            start_event_Prep.R = Prep;
-            PlanEvent(start_event_Prep, 0.0);
+			var ev1 = new K1();                                 // создание объекта события
+			ev1.ZP.NZ = 1;                                        // передача библиотекаря в событие
+            PlanEvent(ev1, 0.0);                          // планирование события 3
 
-            Reader Stud = new Reader();
-            Stud.NCH = 1;
-            Stud.NP = 1;
-            var start_event_Stud = new Event1_Enter();
-            start_event_Stud.R = Stud;
-            PlanEvent(start_event_Stud, 0.0);
+			var ev2 = new K2();                                 // создание объекта события
+			ev2.ZB.NZ = 1;                                        // передача библиотекаря в событие
+            PlanEvent(ev1, 0.0);                          // планирование события 3
 
             #endregion
         }

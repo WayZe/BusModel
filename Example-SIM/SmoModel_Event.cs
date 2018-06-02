@@ -13,7 +13,7 @@ namespace Model_Lab
         public class K1 : TimeModelEvent<SmoModel>
         {
             #region Атрибуты события
-            Pass ZP;
+            public Pass ZP;
             #endregion
 
             // алгоритм обработки события            
@@ -34,19 +34,88 @@ namespace Model_Lab
         public class K2 : TimeModelEvent<SmoModel>
         {
             #region Атрибуты события
-            Pass ZB;
+			public Bus ZB;
             #endregion
 
             // алгоритм обработки события            
             protected override void HandleEvent(ModelEventArgs args)
             {
                 Model.SA = 1;
-                int KolPassOut = Model.GenKolPassOut.GenerateValue();
+				Random rnd = new Random();
+				int KolPassOut = rnd.Next(Model.VL, Model.VP);
+				if (KolPassOut > ZB.KPA)
+					KolPassOut = ZB.KPA;
 
-                var ev1 = new K1();                                 // создание объекта события
-                ev1.ZP = ZP;                                        // передача библиотекаря в событие
+				double dt3 = 0;
+				for (int i = 0; i <= KolPassOut; i++)
+					dt3 += Model.GenPassOut.GenerateValue();
+
+                var ev3 = new K4();                                 // создание объекта события
                 double dt1 = Model.GenPassAppear.GenerateValue();
-                Model.PlanEvent(ev1, dt1);                          // планирование события 3
+                Model.PlanEvent(ev3, dt3);                          // планирование события 3
+                
+				var ev2 = new K2();                                 // создание объекта события
+				ev2.ZB.NB = this.ZB.NB + 1;
+				ev2.ZB.KPA -= KolPassOut;
+				double dt2 = Model.T + Model.GenBusAppear.GenerateValue();
+                Model.PlanEvent(ev2, dt2);                          // планирование события 3
+            }
+        }
+
+		// класс для события 2 - приход автобуса на остановку
+        public class K3 : TimeModelEvent<SmoModel>
+        {
+            #region Атрибуты события
+            #endregion
+
+            // алгоритм обработки события            
+            protected override void HandleEvent(ModelEventArgs args)
+            {
+				if (Model.VQ.Count != 0)
+				{
+					Model.SA = 2;
+					Model.VQ.RemoveAt(0);
+					double dt4 = Model.GenPassIn.GenerateValue();
+					var ev4 = new K4();                                 // создание объекта события
+                    Model.PlanEvent(ev4, dt4);                          // планирование события 3
+				}
+				else
+				{
+					Model.SA = 0;
+				}
+            }
+        }
+
+		// класс для события 4 - приход автобуса на остановку
+        public class K4 : TimeModelEvent<SmoModel>
+        {
+            #region Атрибуты события
+            #endregion
+
+            // алгоритм обработки события            
+            protected override void HandleEvent(ModelEventArgs args)
+            {
+				if (Model.VQ.Count != 0)
+                {
+					if (Model.B - Model.KPA > 0)
+					{
+						Model.SA = 2;
+						Model.VQ.RemoveAt(0);
+						double dt4 = Model.GenPassIn.GenerateValue();
+						var ev4 = new K4();                                 // создание объекта события
+						Model.PlanEvent(ev4, dt4);                          // планирование события 3
+					}
+					else 
+					{
+						Model.SA = 0;
+						if (Model.NVAR == 2)
+							Model.VQ.Clear();
+					}
+                }
+                else
+                {
+                    Model.SA = 0;
+                }
             }
         }
 
