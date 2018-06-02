@@ -1,0 +1,57 @@
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM\Example-SIM\bin\Debug\Example-SIM.exe.config
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM\Example-SIM\bin\Debug\Example-SIM.exe
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM\Example-SIM\bin\Debug\Example-SIM.pdb
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM\Example-SIM\bin\Debug\PSS.dll
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM\Example-SIM\obj\Debug\Example-SIM.exe
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM\Example-SIM\obj\Debug\Example-SIM.pdb
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.exe.config
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.exe
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.pdb
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.exe
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.pdb
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\bin\Debug\PSS.dll
+C:\Users\derevyankindenis\Desktop\123\Пример для ЛР\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.csprojResolveAssemblyReference.cache
+E:\ЛР по КМС\Пример для ЛР\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.exe.config
+E:\ЛР по КМС\Пример для ЛР\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.exe
+E:\ЛР по КМС\Пример для ЛР\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.pdb
+C:\Users\derevyankindenis\Desktop\ЛР КМС\src\examples\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.exe.config
+C:\Users\derevyankindenis\Desktop\ЛР КМС\src\examples\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.exe
+C:\Users\derevyankindenis\Desktop\ЛР КМС\src\examples\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.pdb
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.exe.config
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.exe
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.pdb
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.exe
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\bin\Debug\Example-SIM.pdb
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\bin\Debug\PSS.dll
+D:\Институт\5 семестр\Компьютерное моделирование систем\LR_KMS\src\examples\Example-SIM (консоль)\Example-SIM\obj\Debug\Example-SIM.csprojResolveAssemblyReference.cache
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe.config
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.exe
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.pdb
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.pdb
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\PSS.dll
+D:\Институт\5 семестр\Компьютерное моделирование систем\КР_КМС\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csprojResolveAssemblyReference.cache
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe.config
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.pdb
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\PSS.dll
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csprojResolveAssemblyReference.cache
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csproj.CoreCompileInputs.cache
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.exe
+C:\Users\Serg\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.pdb
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe.config
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.exe
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.pdb
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.pdb
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\PSS.dll
+C:\Users\HomeUser\Downloads\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csprojResolveAssemblyReference.cache
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe.config
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.exe
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\Example-SIM.pdb
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\bin\Debug\PSS.dll
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csprojResolveAssemblyReference.cache
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csproj.CoreCompileInputs.cache
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.csproj.CopyComplete
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.exe
+D:\ИНСТ\КМС\drey\Example-SIM (консоль) — библиотека\Example-SIM\obj\Debug\Example-SIM.pdb
