@@ -4,7 +4,7 @@
 	
 Параметры модели:	
 Интенсивность потока пассажиров:	
-LAMBD = 0,2	
+LAMBD = 1	
 Состояние автобуса:	
 SA = 0	
 Размер автобуса:	
@@ -31,633 +31,1791 @@ VL = 1
 VP = 7	
 	
 Начальное состояние модели:	
-KVZ = 0 SA = 0 KPA = 0 KA = 0 VQ.Count = 0	
+KVZ = 0 SA = 0 KPA = 0 KA = 0 LQ = 0	
 	
 ==============================================================
 	
++ 0	K1		
++ 10,411	K2		
 0,000		 K1			NZ = 1	
-+ 2,824	K1		
++ 0,565	K1		
 	
-KVZ = 1 SA = 0 KPA = 4 KA = 0 VQ.Count = 1	
+KVZ = 1 SA = 0 KPA = 0 KA = 0 LQ = 1	
 	
-2,824		 K1			NZ = 2	
-+ 4,659	K1		
+0,565		 K1			NZ = 2	
++ 0,932	K1		
 	
-KVZ = 2 SA = 0 KPA = 4 KA = 0 VQ.Count = 2	
+KVZ = 2 SA = 0 KPA = 0 KA = 0 LQ = 2	
 	
-4,659		 K1			NZ = 3	
-+ 5,54	K1		
+0,932		 K1			NZ = 3	
++ 1,108	K1		
 	
-KVZ = 3 SA = 0 KPA = 4 KA = 0 VQ.Count = 3	
+KVZ = 3 SA = 0 KPA = 0 KA = 0 LQ = 3	
 	
-5,540		 K1			NZ = 4	
-+ 6,904	K1		
+1,108		 K1			NZ = 4	
++ 1,381	K1		
 	
-KVZ = 4 SA = 0 KPA = 4 KA = 0 VQ.Count = 4	
+KVZ = 4 SA = 0 KPA = 0 KA = 0 LQ = 4	
 	
-6,904		 K1			NZ = 5	
-+ 10,884	K1		
+1,381		 K1			NZ = 5	
++ 2,177	K1		
 	
-KVZ = 5 SA = 0 KPA = 4 KA = 0 VQ.Count = 5	
+KVZ = 5 SA = 0 KPA = 0 KA = 0 LQ = 5	
 	
-10,411		 K2			NB = 1	 KPA = 4	
-+ 11,655	K4		
+2,177		 K1			NZ = 6	
++ 3,818	K1		
+	
+KVZ = 6 SA = 0 KPA = 0 KA = 0 LQ = 6	
+	
+3,818		 K1			NZ = 7	
++ 4,105	K1		
+	
+KVZ = 7 SA = 0 KPA = 0 KA = 0 LQ = 7	
+	
+4,105		 K1			NZ = 8	
++ 4,372	K1		
+	
+KVZ = 8 SA = 0 KPA = 0 KA = 0 LQ = 8	
+	
+4,372		 K1			NZ = 9	
++ 5,052	K1		
+	
+KVZ = 9 SA = 0 KPA = 0 KA = 0 LQ = 9	
+	
+5,052		 K1			NZ = 10	
++ 5,626	K1		
+	
+KVZ = 10 SA = 0 KPA = 0 KA = 0 LQ = 10	
+	
+5,626		 K1			NZ = 11	
++ 5,714	K1		
+	
+KVZ = 11 SA = 0 KPA = 0 KA = 0 LQ = 11	
+	
+5,714		 K1			NZ = 12	
++ 6,033	K1		
+	
+KVZ = 12 SA = 0 KPA = 0 KA = 0 LQ = 12	
+	
+6,033		 K1			NZ = 13	
++ 6,546	K1		
+	
+KVZ = 13 SA = 0 KPA = 0 KA = 0 LQ = 13	
+	
+6,546		 K1			NZ = 14	
++ 6,66	K1		
+	
+KVZ = 14 SA = 0 KPA = 0 KA = 0 LQ = 14	
+	
+6,660		 K1			NZ = 15	
++ 6,766	K1		
+	
+KVZ = 15 SA = 0 KPA = 0 KA = 0 LQ = 15	
+	
+6,766		 K1			NZ = 16	
++ 8,5	K1		
+	
+KVZ = 16 SA = 0 KPA = 0 KA = 0 LQ = 16	
+	
+8,500		 K1			NZ = 17	
++ 9,442	K1		
+	
+KVZ = 17 SA = 0 KPA = 0 KA = 0 LQ = 17	
+	
+9,442		 K1			NZ = 18	
++ 10,189	K1		
+	
+KVZ = 18 SA = 0 KPA = 0 KA = 0 LQ = 18	
+	
+10,189		 K1			NZ = 19	
++ 10,994	K1		
+	
+KVZ = 19 SA = 0 KPA = 0 KA = 0 LQ = 19	
+	
+10,411		 K2			NB = 1	 KPA = 7	
++ 10,547	K4		
 + 19,652	K2		
 	
-KVZ = 5 SA = 1 KPA = 3 KA = 1 VQ.Count = 5	
+KVZ = 19 SA = 1 KPA = 7 KA = 1 LQ = 19	
 	
-10,884		 K1			NZ = 6	
-+ 19,089	K1		
+10,547		 K4			7	
++ 10,821	K4		
 	
-KVZ = 6 SA = 1 KPA = 3 KA = 1 VQ.Count = 6	
+KVZ = 19 SA = 2 KPA = 8 KA = 1 LQ = 18	
 	
-11,655		 K4			
-+ 11,929	K4		
+10,821		 K4			8	
++ 11,656	K4		
 	
-KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 5	
+KVZ = 19 SA = 2 KPA = 9 KA = 1 LQ = 17	
 	
-11,929		 K4			
-+ 12,763	K4		
+10,994		 K1			NZ = 20	
++ 13,019	K1		
 	
-KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 4	
+KVZ = 20 SA = 2 KPA = 9 KA = 1 LQ = 18	
 	
-12,763		 K4			
-+ 13,189	K4		
+11,656		 K4			9	
++ 12,082	K4		
 	
-KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 3	
+KVZ = 20 SA = 2 KPA = 10 KA = 1 LQ = 17	
 	
-13,189		 K4			
-+ 13,194	K4		
+12,082		 K4			10	
 	
-KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 2	
+KVZ = 20 SA = 0 KPA = 10 KA = 1 LQ = 17	
 	
-13,194		 K4			
-+ 13,254	K4		
+13,019		 K1			NZ = 21	
++ 15,752	K1		
 	
-KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 1	
+KVZ = 21 SA = 0 KPA = 10 KA = 1 LQ = 18	
 	
-13,254		 K4			
-+ 14,022	K4		
+15,752		 K1			NZ = 22	
++ 15,92	K1		
 	
-KVZ = 6 SA = 2 KPA = 3 KA = 1 VQ.Count = 0	
+KVZ = 22 SA = 0 KPA = 10 KA = 1 LQ = 19	
 	
-14,022		 K4			
+15,920		 K1			NZ = 23	
++ 15,927	K1		
 	
-KVZ = 6 SA = 0 KPA = 3 KA = 1 VQ.Count = 0	
+KVZ = 23 SA = 0 KPA = 10 KA = 1 LQ = 20	
 	
-19,089		 K1			NZ = 7	
-+ 20,526	K1		
+15,927		 K1			NZ = 24	
++ 17,103	K1		
 	
-KVZ = 7 SA = 0 KPA = 3 KA = 1 VQ.Count = 1	
+KVZ = 24 SA = 0 KPA = 10 KA = 1 LQ = 21	
 	
-19,652		 K2			NB = 2	 KPA = 3	
-+ 21,533	K4		
+17,103		 K1			NZ = 25	
++ 17,193	K1		
+	
+KVZ = 25 SA = 0 KPA = 10 KA = 1 LQ = 22	
+	
+17,193		 K1			NZ = 26	
++ 17,841	K1		
+	
+KVZ = 26 SA = 0 KPA = 10 KA = 1 LQ = 23	
+	
+17,841		 K1			NZ = 27	
++ 18,333	K1		
+	
+KVZ = 27 SA = 0 KPA = 10 KA = 1 LQ = 24	
+	
+18,333		 K1			NZ = 28	
++ 18,353	K1		
+	
+KVZ = 28 SA = 0 KPA = 10 KA = 1 LQ = 25	
+	
+18,353		 K1			NZ = 29	
++ 19,829	K1		
+	
+KVZ = 29 SA = 0 KPA = 10 KA = 1 LQ = 26	
+	
+19,652		 K2			NB = 2	 KPA = 7	
++ 21,268	K4		
 + 29,779	K2		
 	
-KVZ = 7 SA = 1 KPA = 3 KA = 2 VQ.Count = 1	
+KVZ = 29 SA = 1 KPA = 7 KA = 2 LQ = 26	
 	
-20,526		 K1			NZ = 8	
-+ 21,86	K1		
+19,829		 K1			NZ = 30	
++ 20,608	K1		
 	
-KVZ = 8 SA = 1 KPA = 3 KA = 2 VQ.Count = 2	
+KVZ = 30 SA = 1 KPA = 7 KA = 2 LQ = 27	
 	
-21,533		 K4			
-+ 22,508	K4		
+20,608		 K1			NZ = 31	
++ 20,664	K1		
 	
-KVZ = 8 SA = 2 KPA = 3 KA = 2 VQ.Count = 1	
+KVZ = 31 SA = 1 KPA = 7 KA = 2 LQ = 28	
 	
-21,860		 K1			NZ = 9	
-+ 25,258	K1		
+20,664		 K1			NZ = 32	
++ 22,997	K1		
 	
-KVZ = 9 SA = 2 KPA = 3 KA = 2 VQ.Count = 2	
+KVZ = 32 SA = 1 KPA = 7 KA = 2 LQ = 29	
 	
-22,508		 K4			
-+ 22,972	K4		
+21,268		 K4			7	
++ 21,273	K4		
 	
-KVZ = 9 SA = 2 KPA = 3 KA = 2 VQ.Count = 1	
+KVZ = 32 SA = 2 KPA = 8 KA = 2 LQ = 28	
 	
-22,972		 K4			
-+ 23,513	K4		
+21,273		 K4			8	
++ 21,333	K4		
 	
-KVZ = 9 SA = 2 KPA = 3 KA = 2 VQ.Count = 0	
+KVZ = 32 SA = 2 KPA = 9 KA = 2 LQ = 27	
 	
-23,513		 K4			
+21,333		 K4			9	
++ 22,101	K4		
 	
-KVZ = 9 SA = 0 KPA = 3 KA = 2 VQ.Count = 0	
+KVZ = 32 SA = 2 KPA = 10 KA = 2 LQ = 26	
 	
-25,258		 K1			NZ = 10	
-+ 28,131	K1		
+22,101		 K4			10	
 	
-KVZ = 10 SA = 0 KPA = 3 KA = 2 VQ.Count = 1	
+KVZ = 32 SA = 0 KPA = 10 KA = 2 LQ = 26	
 	
-28,131		 K1			NZ = 11	
-+ 28,572	K1		
+22,997		 K1			NZ = 33	
++ 23,224	K1		
 	
-KVZ = 11 SA = 0 KPA = 3 KA = 2 VQ.Count = 2	
+KVZ = 33 SA = 0 KPA = 10 KA = 2 LQ = 27	
 	
-28,572		 K1			NZ = 12	
-+ 30,163	K1		
+23,224		 K1			NZ = 34	
++ 25,484	K1		
 	
-KVZ = 12 SA = 0 KPA = 3 KA = 2 VQ.Count = 3	
+KVZ = 34 SA = 0 KPA = 10 KA = 2 LQ = 28	
+	
+25,484		 K1			NZ = 35	
++ 26,725	K1		
+	
+KVZ = 35 SA = 0 KPA = 10 KA = 2 LQ = 29	
+	
+26,725		 K1			NZ = 36	
++ 29,217	K1		
+	
+KVZ = 36 SA = 0 KPA = 10 KA = 2 LQ = 30	
+	
+29,217		 K1			NZ = 37	
++ 32,26	K1		
+	
+KVZ = 37 SA = 0 KPA = 10 KA = 2 LQ = 31	
 	
 29,779		 K2			NB = 3	 KPA = 3	
-+ 31,671	K4		
++ 33,386	K4		
 + 39,292	K2		
 	
-KVZ = 12 SA = 1 KPA = 6 KA = 3 VQ.Count = 3	
+KVZ = 37 SA = 1 KPA = 3 KA = 3 LQ = 31	
 	
-30,163		 K1			NZ = 13	
-+ 32,732	K1		
+32,260		 K1			NZ = 38	
++ 32,514	K1		
 	
-KVZ = 13 SA = 1 KPA = 6 KA = 3 VQ.Count = 4	
+KVZ = 38 SA = 1 KPA = 3 KA = 3 LQ = 32	
 	
-31,671		 K4			
-+ 32,197	K4		
+32,514		 K1			NZ = 39	
++ 32,918	K1		
 	
-KVZ = 13 SA = 2 KPA = 6 KA = 3 VQ.Count = 3	
+KVZ = 39 SA = 1 KPA = 3 KA = 3 LQ = 33	
 	
-32,197		 K4			
-+ 32,393	K4		
+32,918		 K1			NZ = 40	
++ 33,618	K1		
 	
-KVZ = 13 SA = 2 KPA = 6 KA = 3 VQ.Count = 2	
+KVZ = 40 SA = 1 KPA = 3 KA = 3 LQ = 34	
 	
-32,393		 K4			
-+ 32,872	K4		
+33,386		 K4			3	
++ 34,361	K4		
 	
-KVZ = 13 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+KVZ = 40 SA = 2 KPA = 4 KA = 3 LQ = 33	
 	
-32,732		 K1			NZ = 14	
-+ 33,299	K1		
+33,618		 K1			NZ = 41	
++ 37,92	K1		
 	
-KVZ = 14 SA = 2 KPA = 6 KA = 3 VQ.Count = 2	
+KVZ = 41 SA = 2 KPA = 4 KA = 3 LQ = 34	
 	
-32,872		 K4			
-+ 33,57	K4		
+34,361		 K4			4	
++ 34,825	K4		
 	
-KVZ = 14 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+KVZ = 41 SA = 2 KPA = 5 KA = 3 LQ = 33	
 	
-33,299		 K1			NZ = 15	
-+ 33,829	K1		
+34,825		 K4			5	
++ 35,366	K4		
 	
-KVZ = 15 SA = 2 KPA = 6 KA = 3 VQ.Count = 2	
+KVZ = 41 SA = 2 KPA = 6 KA = 3 LQ = 32	
 	
-33,570		 K4			
-+ 33,749	K4		
+35,366		 K4			6	
++ 35,892	K4		
 	
-KVZ = 15 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+KVZ = 41 SA = 2 KPA = 7 KA = 3 LQ = 31	
 	
-33,749		 K4			
-+ 33,953	K4		
+35,892		 K4			7	
++ 36,088	K4		
 	
-KVZ = 15 SA = 2 KPA = 6 KA = 3 VQ.Count = 0	
+KVZ = 41 SA = 2 KPA = 8 KA = 3 LQ = 30	
 	
-33,829		 K1			NZ = 16	
-+ 42,502	K1		
+36,088		 K4			8	
++ 36,568	K4		
 	
-KVZ = 16 SA = 2 KPA = 6 KA = 3 VQ.Count = 1	
+KVZ = 41 SA = 2 KPA = 9 KA = 3 LQ = 29	
 	
-33,953		 K4			
-+ 34,133	K4		
+36,568		 K4			9	
++ 37,265	K4		
 	
-KVZ = 16 SA = 2 KPA = 6 KA = 3 VQ.Count = 0	
+KVZ = 41 SA = 2 KPA = 10 KA = 3 LQ = 28	
 	
-34,133		 K4			
+37,265		 K4			10	
 	
-KVZ = 16 SA = 0 KPA = 6 KA = 3 VQ.Count = 0	
+KVZ = 41 SA = 0 KPA = 10 KA = 3 LQ = 28	
 	
-39,292		 K2			NB = 4	 KPA = 6	
-+ 43,744	K4		
+37,920		 K1			NZ = 42	
++ 43,071	K1		
+	
+KVZ = 42 SA = 0 KPA = 10 KA = 3 LQ = 29	
+	
+39,292		 K2			NB = 4	 KPA = 7	
++ 42,558	K4		
 + 50,007	K2		
 	
-KVZ = 16 SA = 1 KPA = 2 KA = 4 VQ.Count = 0	
+KVZ = 42 SA = 1 KPA = 7 KA = 4 LQ = 29	
 	
-42,502		 K1			NZ = 17	
-+ 47,212	K1		
+42,558		 K4			7	
++ 42,736	K4		
 	
-KVZ = 17 SA = 1 KPA = 2 KA = 4 VQ.Count = 1	
+KVZ = 42 SA = 2 KPA = 8 KA = 4 LQ = 28	
 	
-43,744		 K4			
-+ 43,754	K4		
+42,736		 K4			8	
++ 42,941	K4		
 	
-KVZ = 17 SA = 2 KPA = 2 KA = 4 VQ.Count = 0	
+KVZ = 42 SA = 2 KPA = 9 KA = 4 LQ = 27	
 	
-43,754		 K4			
+42,941		 K4			9	
++ 43,12	K4		
 	
-KVZ = 17 SA = 0 KPA = 2 KA = 4 VQ.Count = 0	
+KVZ = 42 SA = 2 KPA = 10 KA = 4 LQ = 26	
 	
-47,212		 K1			NZ = 18	
-+ 50,947	K1		
+43,071		 K1			NZ = 43	
++ 43,368	K1		
 	
-KVZ = 18 SA = 0 KPA = 2 KA = 4 VQ.Count = 1	
+KVZ = 43 SA = 2 KPA = 10 KA = 4 LQ = 27	
 	
-50,007		 K2			NB = 5	 KPA = 2	
-+ 51,277	K4		
+43,120		 K4			10	
+	
+KVZ = 43 SA = 0 KPA = 10 KA = 4 LQ = 27	
+	
+43,368		 K1			NZ = 44	
++ 43,768	K1		
+	
+KVZ = 44 SA = 0 KPA = 10 KA = 4 LQ = 28	
+	
+43,768		 K1			NZ = 45	
++ 44,497	K1		
+	
+KVZ = 45 SA = 0 KPA = 10 KA = 4 LQ = 29	
+	
+44,497		 K1			NZ = 46	
++ 45,145	K1		
+	
+KVZ = 46 SA = 0 KPA = 10 KA = 4 LQ = 30	
+	
+45,145		 K1			NZ = 47	
++ 45,205	K1		
+	
+KVZ = 47 SA = 0 KPA = 10 KA = 4 LQ = 31	
+	
+45,205		 K1			NZ = 48	
++ 45,623	K1		
+	
+KVZ = 48 SA = 0 KPA = 10 KA = 4 LQ = 32	
+	
+45,623		 K1			NZ = 49	
++ 46,265	K1		
+	
+KVZ = 49 SA = 0 KPA = 10 KA = 4 LQ = 33	
+	
+46,265		 K1			NZ = 50	
++ 47,096	K1		
+	
+KVZ = 50 SA = 0 KPA = 10 KA = 4 LQ = 34	
+	
+47,096		 K1			NZ = 51	
++ 48,829	K1		
+	
+KVZ = 51 SA = 0 KPA = 10 KA = 4 LQ = 35	
+	
+48,829		 K1			NZ = 52	
++ 49,507	K1		
+	
+KVZ = 52 SA = 0 KPA = 10 KA = 4 LQ = 36	
+	
+49,507		 K1			NZ = 53	
++ 50,901	K1		
+	
+KVZ = 53 SA = 0 KPA = 10 KA = 4 LQ = 37	
+	
+50,007		 K2			NB = 5	 KPA = 3	
++ 51,765	K4		
 + 59,493	K2		
 	
-KVZ = 18 SA = 1 KPA = 2 KA = 5 VQ.Count = 1	
+KVZ = 53 SA = 1 KPA = 3 KA = 5 LQ = 37	
 	
-50,947		 K1			NZ = 19	
-+ 54,969	K1		
+50,901		 K1			NZ = 54	
++ 54,106	K1		
 	
-KVZ = 19 SA = 1 KPA = 2 KA = 5 VQ.Count = 2	
+KVZ = 54 SA = 1 KPA = 3 KA = 5 LQ = 38	
 	
-51,277		 K4			
-+ 51,283	K4		
+51,765		 K4			3	
++ 51,775	K4		
 	
-KVZ = 19 SA = 2 KPA = 2 KA = 5 VQ.Count = 1	
+KVZ = 54 SA = 2 KPA = 4 KA = 5 LQ = 37	
 	
-51,283		 K4			
-+ 51,458	K4		
+51,775		 K4			4	
++ 51,781	K4		
 	
-KVZ = 19 SA = 2 KPA = 2 KA = 5 VQ.Count = 0	
+KVZ = 54 SA = 2 KPA = 5 KA = 5 LQ = 36	
 	
-51,458		 K4			
+51,781		 K4			5	
++ 51,955	K4		
 	
-KVZ = 19 SA = 0 KPA = 2 KA = 5 VQ.Count = 0	
+KVZ = 54 SA = 2 KPA = 6 KA = 5 LQ = 35	
 	
-54,969		 K1			NZ = 20	
-+ 65,097	K1		
+51,955		 K4			6	
++ 52,78	K4		
 	
-KVZ = 20 SA = 0 KPA = 2 KA = 5 VQ.Count = 1	
+KVZ = 54 SA = 2 KPA = 7 KA = 5 LQ = 34	
 	
-59,493		 K2			NB = 6	 KPA = 2	
-+ 60,469	K4		
+52,780		 K4			7	
++ 53,489	K4		
+	
+KVZ = 54 SA = 2 KPA = 8 KA = 5 LQ = 33	
+	
+53,489		 K4			8	
++ 53,806	K4		
+	
+KVZ = 54 SA = 2 KPA = 9 KA = 5 LQ = 32	
+	
+53,806		 K4			9	
++ 54,415	K4		
+	
+KVZ = 54 SA = 2 KPA = 10 KA = 5 LQ = 31	
+	
+54,106		 K1			NZ = 55	
++ 56,436	K1		
+	
+KVZ = 55 SA = 2 KPA = 10 KA = 5 LQ = 32	
+	
+54,415		 K4			10	
+	
+KVZ = 55 SA = 0 KPA = 10 KA = 5 LQ = 32	
+	
+56,436		 K1			NZ = 56	
++ 57,645	K1		
+	
+KVZ = 56 SA = 0 KPA = 10 KA = 5 LQ = 33	
+	
+57,645		 K1			NZ = 57	
++ 59,388	K1		
+	
+KVZ = 57 SA = 0 KPA = 10 KA = 5 LQ = 34	
+	
+59,388		 K1			NZ = 58	
++ 60,19	K1		
+	
+KVZ = 58 SA = 0 KPA = 10 KA = 5 LQ = 35	
+	
+59,493		 K2			NB = 6	 KPA = 3	
++ 60,825	K4		
 + 69,626	K2		
 	
-KVZ = 20 SA = 1 KPA = 7 KA = 6 VQ.Count = 1	
+KVZ = 58 SA = 1 KPA = 3 KA = 6 LQ = 35	
 	
-60,469		 K4			
-+ 61,293	K4		
+60,190		 K1			NZ = 59	
++ 60,517	K1		
 	
-KVZ = 20 SA = 2 KPA = 7 KA = 6 VQ.Count = 0	
+KVZ = 59 SA = 1 KPA = 3 KA = 6 LQ = 36	
 	
-61,293		 K4			
+60,517		 K1			NZ = 60	
++ 61,394	K1		
 	
-KVZ = 20 SA = 0 KPA = 7 KA = 6 VQ.Count = 0	
+KVZ = 60 SA = 1 KPA = 3 KA = 6 LQ = 37	
 	
-65,097		 K1			NZ = 21	
-+ 78,761	K1		
+60,825		 K4			3	
++ 61,391	K4		
 	
-KVZ = 21 SA = 0 KPA = 7 KA = 6 VQ.Count = 1	
+KVZ = 60 SA = 2 KPA = 4 KA = 6 LQ = 36	
 	
-69,626		 K2			NB = 7	 KPA = 7	
+61,391		 K4			4	
++ 61,58	K4		
+	
+KVZ = 60 SA = 2 KPA = 5 KA = 6 LQ = 35	
+	
+61,394		 K1			NZ = 61	
++ 62,906	K1		
+	
+KVZ = 61 SA = 2 KPA = 5 KA = 6 LQ = 36	
+	
+61,580		 K4			5	
++ 62,279	K4		
+	
+KVZ = 61 SA = 2 KPA = 6 KA = 6 LQ = 35	
+	
+62,279		 K4			6	
++ 63,098	K4		
+	
+KVZ = 61 SA = 2 KPA = 7 KA = 6 LQ = 34	
+	
+62,906		 K1			NZ = 62	
++ 63,929	K1		
+	
+KVZ = 62 SA = 2 KPA = 7 KA = 6 LQ = 35	
+	
+63,098		 K4			7	
++ 63,939	K4		
+	
+KVZ = 62 SA = 2 KPA = 8 KA = 6 LQ = 34	
+	
+63,929		 K1			NZ = 63	
++ 64,112	K1		
+	
+KVZ = 63 SA = 2 KPA = 8 KA = 6 LQ = 35	
+	
+63,939		 K4			8	
++ 64,744	K4		
+	
+KVZ = 63 SA = 2 KPA = 9 KA = 6 LQ = 34	
+	
+64,112		 K1			NZ = 64	
++ 64,807	K1		
+	
+KVZ = 64 SA = 2 KPA = 9 KA = 6 LQ = 35	
+	
+64,744		 K4			9	
++ 65,435	K4		
+	
+KVZ = 64 SA = 2 KPA = 10 KA = 6 LQ = 34	
+	
+64,807		 K1			NZ = 65	
++ 65,542	K1		
+	
+KVZ = 65 SA = 2 KPA = 10 KA = 6 LQ = 35	
+	
+65,435		 K4			10	
+	
+KVZ = 65 SA = 0 KPA = 10 KA = 6 LQ = 35	
+	
+65,542		 K1			NZ = 66	
++ 67,377	K1		
+	
+KVZ = 66 SA = 0 KPA = 10 KA = 6 LQ = 36	
+	
+67,377		 K1			NZ = 67	
++ 69,574	K1		
+	
+KVZ = 67 SA = 0 KPA = 10 KA = 6 LQ = 37	
+	
+69,574		 K1			NZ = 68	
++ 70,124	K1		
+	
+KVZ = 68 SA = 0 KPA = 10 KA = 6 LQ = 38	
+	
+69,626		 K2			NB = 7	 KPA = 6	
 + 70,161	K4		
 + 80,422	K2		
 	
-KVZ = 21 SA = 1 KPA = 7 KA = 7 VQ.Count = 1	
+KVZ = 68 SA = 1 KPA = 6 KA = 7 LQ = 38	
 	
-70,161		 K4			
-+ 70,871	K4		
+70,124		 K1			NZ = 69	
++ 70,207	K1		
 	
-KVZ = 21 SA = 2 KPA = 7 KA = 7 VQ.Count = 0	
+KVZ = 69 SA = 1 KPA = 6 KA = 7 LQ = 39	
 	
-70,871		 K4			
+70,161		 K4			6	
++ 70,175	K4		
 	
-KVZ = 21 SA = 0 KPA = 7 KA = 7 VQ.Count = 0	
+KVZ = 69 SA = 2 KPA = 7 KA = 7 LQ = 38	
 	
-78,761		 K1			NZ = 22	
-+ 79,602	K1		
+70,175		 K4			7	
++ 70,316	K4		
 	
-KVZ = 22 SA = 0 KPA = 7 KA = 7 VQ.Count = 1	
+KVZ = 69 SA = 2 KPA = 8 KA = 7 LQ = 37	
 	
-79,602		 K1			NZ = 23	
-+ 79,634	K1		
+70,207		 K1			NZ = 70	
++ 70,317	K1		
 	
-KVZ = 23 SA = 0 KPA = 7 KA = 7 VQ.Count = 2	
+KVZ = 70 SA = 2 KPA = 8 KA = 7 LQ = 38	
 	
-79,634		 K1			NZ = 24	
-+ 85,513	K1		
+70,316		 K4			8	
++ 70,946	K4		
 	
-KVZ = 24 SA = 0 KPA = 7 KA = 7 VQ.Count = 3	
+KVZ = 70 SA = 2 KPA = 9 KA = 7 LQ = 37	
 	
-80,422		 K2			NB = 8	 KPA = 7	
-+ 83,975	K4		
+70,317		 K1			NZ = 71	
++ 71,936	K1		
+	
+KVZ = 71 SA = 2 KPA = 9 KA = 7 LQ = 38	
+	
+70,946		 K4			9	
++ 70,977	K4		
+	
+KVZ = 71 SA = 2 KPA = 10 KA = 7 LQ = 37	
+	
+70,977		 K4			10	
+	
+KVZ = 71 SA = 0 KPA = 10 KA = 7 LQ = 37	
+	
+71,936		 K1			NZ = 72	
++ 72,763	K1		
+	
+KVZ = 72 SA = 0 KPA = 10 KA = 7 LQ = 38	
+	
+72,763		 K1			NZ = 73	
++ 73,174	K1		
+	
+KVZ = 73 SA = 0 KPA = 10 KA = 7 LQ = 39	
+	
+73,174		 K1			NZ = 74	
++ 73,323	K1		
+	
+KVZ = 74 SA = 0 KPA = 10 KA = 7 LQ = 40	
+	
+73,323		 K1			NZ = 75	
++ 73,723	K1		
+	
+KVZ = 75 SA = 0 KPA = 10 KA = 7 LQ = 41	
+	
+73,723		 K1			NZ = 76	
++ 74,673	K1		
+	
+KVZ = 76 SA = 0 KPA = 10 KA = 7 LQ = 42	
+	
+74,673		 K1			NZ = 77	
++ 75,483	K1		
+	
+KVZ = 77 SA = 0 KPA = 10 KA = 7 LQ = 43	
+	
+75,483		 K1			NZ = 78	
++ 76,111	K1		
+	
+KVZ = 78 SA = 0 KPA = 10 KA = 7 LQ = 44	
+	
+76,111		 K1			NZ = 79	
++ 77,018	K1		
+	
+KVZ = 79 SA = 0 KPA = 10 KA = 7 LQ = 45	
+	
+77,018		 K1			NZ = 80	
++ 78,199	K1		
+	
+KVZ = 80 SA = 0 KPA = 10 KA = 7 LQ = 46	
+	
+78,199		 K1			NZ = 81	
++ 78,804	K1		
+	
+KVZ = 81 SA = 0 KPA = 10 KA = 7 LQ = 47	
+	
+78,804		 K1			NZ = 82	
++ 83,693	K1		
+	
+KVZ = 82 SA = 0 KPA = 10 KA = 7 LQ = 48	
+	
+80,422		 K2			NB = 8	 KPA = 6	
++ 81,751	K4		
 + 89,815	K2		
 	
-KVZ = 24 SA = 1 KPA = 2 KA = 8 VQ.Count = 3	
+KVZ = 82 SA = 1 KPA = 6 KA = 8 LQ = 48	
 	
-83,975		 K4			
-+ 84,292	K4		
+81,751		 K4			6	
++ 82,033	K4		
 	
-KVZ = 24 SA = 2 KPA = 2 KA = 8 VQ.Count = 2	
+KVZ = 82 SA = 2 KPA = 7 KA = 8 LQ = 47	
 	
-84,292		 K4			
-+ 84,9	K4		
+82,033		 K4			7	
++ 82,538	K4		
 	
-KVZ = 24 SA = 2 KPA = 2 KA = 8 VQ.Count = 1	
+KVZ = 82 SA = 2 KPA = 8 KA = 8 LQ = 46	
 	
-84,900		 K4			
-+ 85,466	K4		
+82,538		 K4			8	
++ 82,944	K4		
 	
-KVZ = 24 SA = 2 KPA = 2 KA = 8 VQ.Count = 0	
+KVZ = 82 SA = 2 KPA = 9 KA = 8 LQ = 45	
 	
-85,466		 K4			
+82,944		 K4			9	
++ 83,757	K4		
 	
-KVZ = 24 SA = 0 KPA = 2 KA = 8 VQ.Count = 0	
+KVZ = 82 SA = 2 KPA = 10 KA = 8 LQ = 44	
 	
-85,513		 K1			NZ = 25	
-+ 85,964	K1		
+83,693		 K1			NZ = 83	
++ 83,827	K1		
 	
-KVZ = 25 SA = 0 KPA = 2 KA = 8 VQ.Count = 1	
+KVZ = 83 SA = 2 KPA = 10 KA = 8 LQ = 45	
 	
-85,964		 K1			NZ = 26	
-+ 89,203	K1		
+83,757		 K4			10	
 	
-KVZ = 26 SA = 0 KPA = 2 KA = 8 VQ.Count = 2	
+KVZ = 83 SA = 0 KPA = 10 KA = 8 LQ = 45	
 	
-89,203		 K1			NZ = 27	
-+ 91,666	K1		
+83,827		 K1			NZ = 84	
++ 84,012	K1		
 	
-KVZ = 27 SA = 0 KPA = 2 KA = 8 VQ.Count = 3	
+KVZ = 84 SA = 0 KPA = 10 KA = 8 LQ = 46	
+	
+84,012		 K1			NZ = 85	
++ 85,895	K1		
+	
+KVZ = 85 SA = 0 KPA = 10 KA = 8 LQ = 47	
+	
+85,895		 K1			NZ = 86	
++ 86,062	K1		
+	
+KVZ = 86 SA = 0 KPA = 10 KA = 8 LQ = 48	
+	
+86,062		 K1			NZ = 87	
++ 86,747	K1		
+	
+KVZ = 87 SA = 0 KPA = 10 KA = 8 LQ = 49	
+	
+86,747		 K1			NZ = 88	
++ 86,76	K1		
+	
+KVZ = 88 SA = 0 KPA = 10 KA = 8 LQ = 50	
+	
+86,760		 K1			NZ = 89	
++ 87,333	K1		
+	
+KVZ = 89 SA = 0 KPA = 10 KA = 8 LQ = 51	
+	
+87,333		 K1			NZ = 90	
++ 88,137	K1		
+	
+KVZ = 90 SA = 0 KPA = 10 KA = 8 LQ = 52	
+	
+88,137		 K1			NZ = 91	
++ 89,401	K1		
+	
+KVZ = 91 SA = 0 KPA = 10 KA = 8 LQ = 53	
+	
+89,401		 K1			NZ = 92	
++ 89,66	K1		
+	
+KVZ = 92 SA = 0 KPA = 10 KA = 8 LQ = 54	
+	
+89,660		 K1			NZ = 93	
++ 90,124	K1		
+	
+KVZ = 93 SA = 0 KPA = 10 KA = 8 LQ = 55	
 	
 89,815		 K2			NB = 9	 KPA = 2	
-+ 91,303	K4		
++ 91,503	K4		
 + 99,891	K2		
 	
-KVZ = 27 SA = 1 KPA = 2 KA = 9 VQ.Count = 3	
+KVZ = 93 SA = 1 KPA = 2 KA = 9 LQ = 55	
 	
-91,303		 K4			
-+ 91,492	K4		
+90,124		 K1			NZ = 94	
++ 91,262	K1		
 	
-KVZ = 27 SA = 2 KPA = 2 KA = 9 VQ.Count = 2	
+KVZ = 94 SA = 1 KPA = 2 KA = 9 LQ = 56	
 	
-91,492		 K4			
-+ 92,191	K4		
+91,262		 K1			NZ = 95	
++ 91,861	K1		
 	
-KVZ = 27 SA = 2 KPA = 2 KA = 9 VQ.Count = 1	
+KVZ = 95 SA = 1 KPA = 2 KA = 9 LQ = 57	
 	
-91,666		 K1			NZ = 28	
-+ 91,765	K1		
+91,503		 K4			2	
++ 91,624	K4		
 	
-KVZ = 28 SA = 2 KPA = 2 KA = 9 VQ.Count = 2	
+KVZ = 95 SA = 2 KPA = 3 KA = 9 LQ = 56	
 	
-91,765		 K1			NZ = 29	
-+ 99,143	K1		
+91,624		 K4			3	
++ 91,89	K4		
 	
-KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 3	
+KVZ = 95 SA = 2 KPA = 4 KA = 9 LQ = 55	
 	
-92,191		 K4			
-+ 93,01	K4		
+91,861		 K1			NZ = 96	
++ 92,261	K1		
 	
-KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 2	
+KVZ = 96 SA = 2 KPA = 4 KA = 9 LQ = 56	
 	
-93,010		 K4			
-+ 93,852	K4		
+91,890		 K4			4	
++ 92,837	K4		
 	
-KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 1	
+KVZ = 96 SA = 2 KPA = 5 KA = 9 LQ = 55	
 	
-93,852		 K4			
-+ 94,657	K4		
+92,261		 K1			NZ = 97	
++ 93,888	K1		
 	
-KVZ = 29 SA = 2 KPA = 2 KA = 9 VQ.Count = 0	
+KVZ = 97 SA = 2 KPA = 5 KA = 9 LQ = 56	
 	
-94,657		 K4			
+92,837		 K4			5	
++ 93,215	K4		
 	
-KVZ = 29 SA = 0 KPA = 2 KA = 9 VQ.Count = 0	
+KVZ = 97 SA = 2 KPA = 6 KA = 9 LQ = 55	
 	
-99,143		 K1			NZ = 30	
-+ 103,042	K1		
+93,215		 K4			6	
++ 93,938	K4		
 	
-KVZ = 30 SA = 0 KPA = 2 KA = 9 VQ.Count = 1	
+KVZ = 97 SA = 2 KPA = 7 KA = 9 LQ = 54	
 	
-99,891		 K2			NB = 10	 KPA = 2	
-+ 102,148	K4		
+93,888		 K1			NZ = 98	
++ 94,069	K1		
+	
+KVZ = 98 SA = 2 KPA = 7 KA = 9 LQ = 55	
+	
+93,938		 K4			7	
++ 94,511	K4		
+	
+KVZ = 98 SA = 2 KPA = 8 KA = 9 LQ = 54	
+	
+94,069		 K1			NZ = 99	
++ 95,161	K1		
+	
+KVZ = 99 SA = 2 KPA = 8 KA = 9 LQ = 55	
+	
+94,511		 K4			8	
++ 95,017	K4		
+	
+KVZ = 99 SA = 2 KPA = 9 KA = 9 LQ = 54	
+	
+95,017		 K4			9	
++ 95,516	K4		
+	
+KVZ = 99 SA = 2 KPA = 10 KA = 9 LQ = 53	
+	
+95,161		 K1			NZ = 100	
++ 97,594	K1		
+	
+KVZ = 100 SA = 2 KPA = 10 KA = 9 LQ = 54	
+	
+95,516		 K4			10	
+	
+KVZ = 100 SA = 0 KPA = 10 KA = 9 LQ = 54	
+	
+97,594		 K1			NZ = 101	
++ 97,626	K1		
+	
+KVZ = 101 SA = 0 KPA = 10 KA = 9 LQ = 55	
+	
+97,626		 K1			NZ = 102	
++ 97,836	K1		
+	
+KVZ = 102 SA = 0 KPA = 10 KA = 9 LQ = 56	
+	
+97,836		 K1			NZ = 103	
++ 99,204	K1		
+	
+KVZ = 103 SA = 0 KPA = 10 KA = 9 LQ = 57	
+	
+99,204		 K1			NZ = 104	
++ 100,218	K1		
+	
+KVZ = 104 SA = 0 KPA = 10 KA = 9 LQ = 58	
+	
+99,891		 K2			NB = 10	 KPA = 6	
++ 101,508	K4		
 + 110,43	K2		
 	
-KVZ = 30 SA = 1 KPA = 7 KA = 10 VQ.Count = 1	
+KVZ = 104 SA = 1 KPA = 6 KA = 10 LQ = 58	
 	
-102,148		 K4			
-+ 102,839	K4		
+100,218		 K1			NZ = 105	
++ 100,524	K1		
 	
-KVZ = 30 SA = 2 KPA = 7 KA = 10 VQ.Count = 0	
+KVZ = 105 SA = 1 KPA = 6 KA = 10 LQ = 59	
 	
-102,839		 K4			
+100,524		 K1			NZ = 106	
++ 100,88	K1		
 	
-KVZ = 30 SA = 0 KPA = 7 KA = 10 VQ.Count = 0	
+KVZ = 106 SA = 1 KPA = 6 KA = 10 LQ = 60	
 	
-103,042		 K1			NZ = 31	
-+ 103,319	K1		
+100,880		 K1			NZ = 107	
++ 101,548	K1		
 	
-KVZ = 31 SA = 0 KPA = 7 KA = 10 VQ.Count = 1	
+KVZ = 107 SA = 1 KPA = 6 KA = 10 LQ = 61	
 	
-103,319		 K1			NZ = 32	
-+ 114,985	K1		
+101,508		 K4			6	
++ 101,852	K4		
 	
-KVZ = 32 SA = 0 KPA = 7 KA = 10 VQ.Count = 2	
+KVZ = 107 SA = 2 KPA = 7 KA = 10 LQ = 60	
 	
-110,430		 K2			NB = 11	 KPA = 7	
-+ 111,87	K4		
+101,548		 K1			NZ = 108	
++ 101,588	K1		
+	
+KVZ = 108 SA = 2 KPA = 7 KA = 10 LQ = 61	
+	
+101,588		 K1			NZ = 109	
++ 104,354	K1		
+	
+KVZ = 109 SA = 2 KPA = 7 KA = 10 LQ = 62	
+	
+101,852		 K4			7	
++ 102,242	K4		
+	
+KVZ = 109 SA = 2 KPA = 8 KA = 10 LQ = 61	
+	
+102,242		 K4			8	
++ 102,982	K4		
+	
+KVZ = 109 SA = 2 KPA = 9 KA = 10 LQ = 60	
+	
+102,982		 K4			9	
++ 103,863	K4		
+	
+KVZ = 109 SA = 2 KPA = 10 KA = 10 LQ = 59	
+	
+103,863		 K4			10	
+	
+KVZ = 109 SA = 0 KPA = 10 KA = 10 LQ = 59	
+	
+104,354		 K1			NZ = 110	
++ 104,838	K1		
+	
+KVZ = 110 SA = 0 KPA = 10 KA = 10 LQ = 60	
+	
+104,838		 K1			NZ = 111	
++ 105,14	K1		
+	
+KVZ = 111 SA = 0 KPA = 10 KA = 10 LQ = 61	
+	
+105,140		 K1			NZ = 112	
++ 106,477	K1		
+	
+KVZ = 112 SA = 0 KPA = 10 KA = 10 LQ = 62	
+	
+106,477		 K1			NZ = 113	
++ 110,044	K1		
+	
+KVZ = 113 SA = 0 KPA = 10 KA = 10 LQ = 63	
+	
+110,044		 K1			NZ = 114	
++ 110,442	K1		
+	
+KVZ = 114 SA = 0 KPA = 10 KA = 10 LQ = 64	
+	
+110,430		 K2			NB = 11	 KPA = 2	
++ 113,262	K4		
 + 119,887	K2		
 	
-KVZ = 32 SA = 1 KPA = 7 KA = 11 VQ.Count = 2	
+KVZ = 114 SA = 1 KPA = 2 KA = 11 LQ = 64	
 	
-111,870		 K4			
-+ 111,884	K4		
+110,442		 K1			NZ = 115	
++ 110,997	K1		
 	
-KVZ = 32 SA = 2 KPA = 7 KA = 11 VQ.Count = 1	
+KVZ = 115 SA = 1 KPA = 2 KA = 11 LQ = 65	
 	
-111,884		 K4			
-+ 112,025	K4		
+110,997		 K1			NZ = 116	
++ 113,494	K1		
 	
-KVZ = 32 SA = 2 KPA = 7 KA = 11 VQ.Count = 0	
+KVZ = 116 SA = 1 KPA = 2 KA = 11 LQ = 66	
 	
-112,025		 K4			
+113,262		 K4			2	
++ 113,991	K4		
 	
-KVZ = 32 SA = 0 KPA = 7 KA = 11 VQ.Count = 0	
+KVZ = 116 SA = 2 KPA = 3 KA = 11 LQ = 65	
 	
-114,985		 K1			NZ = 33	
-+ 116,12	K1		
+113,494		 K1			NZ = 117	
++ 114,087	K1		
 	
-KVZ = 33 SA = 0 KPA = 7 KA = 11 VQ.Count = 1	
+KVZ = 117 SA = 2 KPA = 3 KA = 11 LQ = 66	
 	
-116,120		 K1			NZ = 34	
-+ 127,418	K1		
+113,991		 K4			3	
++ 114,174	K4		
 	
-KVZ = 34 SA = 0 KPA = 7 KA = 11 VQ.Count = 2	
+KVZ = 117 SA = 2 KPA = 4 KA = 11 LQ = 65	
 	
-119,887		 K2			NB = 12	 KPA = 7	
-+ 122,803	K4		
+114,087		 K1			NZ = 118	
++ 114,349	K1		
+	
+KVZ = 118 SA = 2 KPA = 4 KA = 11 LQ = 66	
+	
+114,174		 K4			4	
++ 114,595	K4		
+	
+KVZ = 118 SA = 2 KPA = 5 KA = 11 LQ = 65	
+	
+114,349		 K1			NZ = 119	
++ 116,334	K1		
+	
+KVZ = 119 SA = 2 KPA = 5 KA = 11 LQ = 66	
+	
+114,595		 K4			5	
++ 114,972	K4		
+	
+KVZ = 119 SA = 2 KPA = 6 KA = 11 LQ = 65	
+	
+114,972		 K4			6	
++ 115,221	K4		
+	
+KVZ = 119 SA = 2 KPA = 7 KA = 11 LQ = 64	
+	
+115,221		 K4			7	
++ 116,213	K4		
+	
+KVZ = 119 SA = 2 KPA = 8 KA = 11 LQ = 63	
+	
+116,213		 K4			8	
++ 116,86	K4		
+	
+KVZ = 119 SA = 2 KPA = 9 KA = 11 LQ = 62	
+	
+116,334		 K1			NZ = 120	
++ 116,572	K1		
+	
+KVZ = 120 SA = 2 KPA = 9 KA = 11 LQ = 63	
+	
+116,572		 K1			NZ = 121	
++ 116,856	K1		
+	
+KVZ = 121 SA = 2 KPA = 9 KA = 11 LQ = 64	
+	
+116,856		 K1			NZ = 122	
++ 117,372	K1		
+	
+KVZ = 122 SA = 2 KPA = 9 KA = 11 LQ = 65	
+	
+116,860		 K4			9	
++ 117,294	K4		
+	
+KVZ = 122 SA = 2 KPA = 10 KA = 11 LQ = 64	
+	
+117,294		 K4			10	
+	
+KVZ = 122 SA = 0 KPA = 10 KA = 11 LQ = 64	
+	
+117,372		 K1			NZ = 123	
++ 120,537	K1		
+	
+KVZ = 123 SA = 0 KPA = 10 KA = 11 LQ = 65	
+	
+119,887		 K2			NB = 12	 KPA = 6	
++ 121,58	K4		
 + 129,55	K2		
 	
-KVZ = 34 SA = 1 KPA = 5 KA = 12 VQ.Count = 2	
+KVZ = 123 SA = 1 KPA = 6 KA = 12 LQ = 65	
 	
-122,803		 K4			
-+ 123,432	K4		
+120,537		 K1			NZ = 124	
++ 121,589	K1		
 	
-KVZ = 34 SA = 2 KPA = 5 KA = 12 VQ.Count = 1	
+KVZ = 124 SA = 1 KPA = 6 KA = 12 LQ = 66	
 	
-123,432		 K4			
-+ 123,464	K4		
+121,580		 K4			6	
++ 122,209	K4		
 	
-KVZ = 34 SA = 2 KPA = 5 KA = 12 VQ.Count = 0	
+KVZ = 124 SA = 2 KPA = 7 KA = 12 LQ = 65	
 	
-123,464		 K4			
+121,589		 K1			NZ = 125	
++ 121,766	K1		
 	
-KVZ = 34 SA = 0 KPA = 5 KA = 12 VQ.Count = 0	
+KVZ = 125 SA = 2 KPA = 7 KA = 12 LQ = 66	
 	
-127,418		 K1			NZ = 35	
-+ 133,623	K1		
+121,766		 K1			NZ = 126	
++ 122,456	K1		
 	
-KVZ = 35 SA = 0 KPA = 5 KA = 12 VQ.Count = 1	
+KVZ = 126 SA = 2 KPA = 7 KA = 12 LQ = 67	
 	
-129,550		 K2			NB = 13	 KPA = 5	
-+ 132,465	K4		
+122,209		 K4			7	
++ 122,263	K4		
+	
+KVZ = 126 SA = 2 KPA = 8 KA = 12 LQ = 66	
+	
+122,263		 K4			8	
++ 123,072	K4		
+	
+KVZ = 126 SA = 2 KPA = 9 KA = 12 LQ = 65	
+	
+122,456		 K1			NZ = 127	
++ 122,493	K1		
+	
+KVZ = 127 SA = 2 KPA = 9 KA = 12 LQ = 66	
+	
+122,493		 K1			NZ = 128	
++ 124,223	K1		
+	
+KVZ = 128 SA = 2 KPA = 9 KA = 12 LQ = 67	
+	
+123,072		 K4			9	
++ 123,318	K4		
+	
+KVZ = 128 SA = 2 KPA = 10 KA = 12 LQ = 66	
+	
+123,318		 K4			10	
+	
+KVZ = 128 SA = 0 KPA = 10 KA = 12 LQ = 66	
+	
+124,223		 K1			NZ = 129	
++ 125,934	K1		
+	
+KVZ = 129 SA = 0 KPA = 10 KA = 12 LQ = 67	
+	
+125,934		 K1			NZ = 130	
++ 128,112	K1		
+	
+KVZ = 130 SA = 0 KPA = 10 KA = 12 LQ = 68	
+	
+128,112		 K1			NZ = 131	
++ 128,772	K1		
+	
+KVZ = 131 SA = 0 KPA = 10 KA = 12 LQ = 69	
+	
+128,772		 K1			NZ = 132	
++ 129,236	K1		
+	
+KVZ = 132 SA = 0 KPA = 10 KA = 12 LQ = 70	
+	
+129,236		 K1			NZ = 133	
++ 130,974	K1		
+	
+KVZ = 133 SA = 0 KPA = 10 KA = 12 LQ = 71	
+	
+129,550		 K2			NB = 13	 KPA = 2	
++ 133,46	K4		
 + 138,717	K2		
 	
-KVZ = 35 SA = 1 KPA = 5 KA = 13 VQ.Count = 1	
+KVZ = 133 SA = 1 KPA = 2 KA = 13 LQ = 71	
 	
-132,465		 K4			
-+ 132,747	K4		
+130,974		 K1			NZ = 134	
++ 131,964	K1		
 	
-KVZ = 35 SA = 2 KPA = 5 KA = 13 VQ.Count = 0	
+KVZ = 134 SA = 1 KPA = 2 KA = 13 LQ = 72	
 	
-132,747		 K4			
+131,964		 K1			NZ = 135	
++ 132,202	K1		
 	
-KVZ = 35 SA = 0 KPA = 5 KA = 13 VQ.Count = 0	
+KVZ = 135 SA = 1 KPA = 2 KA = 13 LQ = 73	
 	
-133,623		 K1			NZ = 36	
-+ 146,083	K1		
+132,202		 K1			NZ = 136	
++ 134,378	K1		
 	
-KVZ = 36 SA = 0 KPA = 5 KA = 13 VQ.Count = 1	
+KVZ = 136 SA = 1 KPA = 2 KA = 13 LQ = 74	
+	
+133,460		 K4			2	
++ 134,395	K4		
+	
+KVZ = 136 SA = 2 KPA = 3 KA = 13 LQ = 73	
+	
+134,378		 K1			NZ = 137	
++ 136,151	K1		
+	
+KVZ = 137 SA = 2 KPA = 3 KA = 13 LQ = 74	
+	
+134,395		 K4			3	
++ 135,282	K4		
+	
+KVZ = 137 SA = 2 KPA = 4 KA = 13 LQ = 73	
+	
+135,282		 K4			4	
++ 135,377	K4		
+	
+KVZ = 137 SA = 2 KPA = 5 KA = 13 LQ = 72	
+	
+135,377		 K4			5	
++ 135,884	K4		
+	
+KVZ = 137 SA = 2 KPA = 6 KA = 13 LQ = 71	
+	
+135,884		 K4			6	
++ 136,769	K4		
+	
+KVZ = 137 SA = 2 KPA = 7 KA = 13 LQ = 70	
+	
+136,151		 K1			NZ = 138	
++ 137,235	K1		
+	
+KVZ = 138 SA = 2 KPA = 7 KA = 13 LQ = 71	
+	
+136,769		 K4			7	
++ 137,1	K4		
+	
+KVZ = 138 SA = 2 KPA = 8 KA = 13 LQ = 70	
+	
+137,100		 K4			8	
++ 137,524	K4		
+	
+KVZ = 138 SA = 2 KPA = 9 KA = 13 LQ = 69	
+	
+137,235		 K1			NZ = 139	
++ 138,06	K1		
+	
+KVZ = 139 SA = 2 KPA = 9 KA = 13 LQ = 70	
+	
+137,524		 K4			9	
++ 138,321	K4		
+	
+KVZ = 139 SA = 2 KPA = 10 KA = 13 LQ = 69	
+	
+138,060		 K1			NZ = 140	
++ 139,745	K1		
+	
+KVZ = 140 SA = 2 KPA = 10 KA = 13 LQ = 70	
+	
+138,321		 K4			10	
+	
+KVZ = 140 SA = 0 KPA = 10 KA = 13 LQ = 70	
 	
 138,717		 K2			NB = 14	 KPA = 5	
-+ 141,52	K4		
++ 141,134	K4		
 + 149,255	K2		
 	
-KVZ = 36 SA = 1 KPA = 5 KA = 14 VQ.Count = 1	
+KVZ = 140 SA = 1 KPA = 5 KA = 14 LQ = 70	
 	
-141,520		 K4			
-+ 142,025	K4		
+139,745		 K1			NZ = 141	
++ 141,04	K1		
 	
-KVZ = 36 SA = 2 KPA = 5 KA = 14 VQ.Count = 0	
+KVZ = 141 SA = 1 KPA = 5 KA = 14 LQ = 71	
 	
-142,025		 K4			
+141,040		 K1			NZ = 142	
++ 141,421	K1		
 	
-KVZ = 36 SA = 0 KPA = 5 KA = 14 VQ.Count = 0	
+KVZ = 142 SA = 1 KPA = 5 KA = 14 LQ = 72	
 	
-146,083		 K1			NZ = 37	
-+ 161,3	K1		
+141,134		 K4			5	
++ 141,83	K4		
 	
-KVZ = 37 SA = 0 KPA = 5 KA = 14 VQ.Count = 1	
+KVZ = 142 SA = 2 KPA = 6 KA = 14 LQ = 71	
 	
-149,255		 K2			NB = 15	 KPA = 5	
-+ 151,399	K4		
+141,421		 K1			NZ = 143	
++ 142,652	K1		
+	
+KVZ = 143 SA = 2 KPA = 6 KA = 14 LQ = 72	
+	
+141,830		 K4			6	
++ 141,994	K4		
+	
+KVZ = 143 SA = 2 KPA = 7 KA = 14 LQ = 71	
+	
+141,994		 K4			7	
++ 142,975	K4		
+	
+KVZ = 143 SA = 2 KPA = 8 KA = 14 LQ = 70	
+	
+142,652		 K1			NZ = 144	
++ 143,709	K1		
+	
+KVZ = 144 SA = 2 KPA = 8 KA = 14 LQ = 71	
+	
+142,975		 K4			8	
++ 143,525	K4		
+	
+KVZ = 144 SA = 2 KPA = 9 KA = 14 LQ = 70	
+	
+143,525		 K4			9	
++ 144,49	K4		
+	
+KVZ = 144 SA = 2 KPA = 10 KA = 14 LQ = 69	
+	
+143,709		 K1			NZ = 145	
++ 145,289	K1		
+	
+KVZ = 145 SA = 2 KPA = 10 KA = 14 LQ = 70	
+	
+144,490		 K4			10	
+	
+KVZ = 145 SA = 0 KPA = 10 KA = 14 LQ = 70	
+	
+145,289		 K1			NZ = 146	
++ 145,317	K1		
+	
+KVZ = 146 SA = 0 KPA = 10 KA = 14 LQ = 71	
+	
+145,317		 K1			NZ = 147	
++ 145,647	K1		
+	
+KVZ = 147 SA = 0 KPA = 10 KA = 14 LQ = 72	
+	
+145,647		 K1			NZ = 148	
++ 147,45	K1		
+	
+KVZ = 148 SA = 0 KPA = 10 KA = 14 LQ = 73	
+	
+147,450		 K1			NZ = 149	
++ 147,905	K1		
+	
+KVZ = 149 SA = 0 KPA = 10 KA = 14 LQ = 74	
+	
+147,905		 K1			NZ = 150	
++ 148,201	K1		
+	
+KVZ = 150 SA = 0 KPA = 10 KA = 14 LQ = 75	
+	
+148,201		 K1			NZ = 151	
++ 148,319	K1		
+	
+KVZ = 151 SA = 0 KPA = 10 KA = 14 LQ = 76	
+	
+148,319		 K1			NZ = 152	
++ 149,046	K1		
+	
+KVZ = 152 SA = 0 KPA = 10 KA = 14 LQ = 77	
+	
+149,046		 K1			NZ = 153	
++ 149,328	K1		
+	
+KVZ = 153 SA = 0 KPA = 10 KA = 14 LQ = 78	
+	
+149,255		 K2			NB = 15	 KPA = 2	
++ 151,141	K4		
 + 159,279	K2		
 	
-KVZ = 37 SA = 1 KPA = 5 KA = 15 VQ.Count = 1	
+KVZ = 153 SA = 1 KPA = 2 KA = 15 LQ = 78	
 	
-151,399		 K4			
-+ 151,805	K4		
+149,328		 K1			NZ = 154	
++ 149,842	K1		
 	
-KVZ = 37 SA = 2 KPA = 5 KA = 15 VQ.Count = 0	
+KVZ = 154 SA = 1 KPA = 2 KA = 15 LQ = 79	
 	
-151,805		 K4			
+149,842		 K1			NZ = 155	
++ 150,228	K1		
 	
-KVZ = 37 SA = 0 KPA = 5 KA = 15 VQ.Count = 0	
+KVZ = 155 SA = 1 KPA = 2 KA = 15 LQ = 80	
+	
+150,228		 K1			NZ = 156	
++ 151,693	K1		
+	
+KVZ = 156 SA = 1 KPA = 2 KA = 15 LQ = 81	
+	
+151,141		 K4			2	
++ 151,912	K4		
+	
+KVZ = 156 SA = 2 KPA = 3 KA = 15 LQ = 80	
+	
+151,693		 K1			NZ = 157	
++ 151,862	K1		
+	
+KVZ = 157 SA = 2 KPA = 3 KA = 15 LQ = 81	
+	
+151,862		 K1			NZ = 158	
++ 152,718	K1		
+	
+KVZ = 158 SA = 2 KPA = 3 KA = 15 LQ = 82	
+	
+151,912		 K4			3	
++ 152,223	K4		
+	
+KVZ = 158 SA = 2 KPA = 4 KA = 15 LQ = 81	
+	
+152,223		 K4			4	
++ 152,827	K4		
+	
+KVZ = 158 SA = 2 KPA = 5 KA = 15 LQ = 80	
+	
+152,718		 K1			NZ = 159	
++ 152,784	K1		
+	
+KVZ = 159 SA = 2 KPA = 5 KA = 15 LQ = 81	
+	
+152,784		 K1			NZ = 160	
++ 153,278	K1		
+	
+KVZ = 160 SA = 2 KPA = 5 KA = 15 LQ = 82	
+	
+152,827		 K4			5	
++ 153,421	K4		
+	
+KVZ = 160 SA = 2 KPA = 6 KA = 15 LQ = 81	
+	
+153,278		 K1			NZ = 161	
++ 155,327	K1		
+	
+KVZ = 161 SA = 2 KPA = 6 KA = 15 LQ = 82	
+	
+153,421		 K4			6	
++ 154,295	K4		
+	
+KVZ = 161 SA = 2 KPA = 7 KA = 15 LQ = 81	
+	
+154,295		 K4			7	
++ 155,155	K4		
+	
+KVZ = 161 SA = 2 KPA = 8 KA = 15 LQ = 80	
+	
+155,155		 K4			8	
++ 155,662	K4		
+	
+KVZ = 161 SA = 2 KPA = 9 KA = 15 LQ = 79	
+	
+155,327		 K1			NZ = 162	
++ 157,59	K1		
+	
+KVZ = 162 SA = 2 KPA = 9 KA = 15 LQ = 80	
+	
+155,662		 K4			9	
++ 156,144	K4		
+	
+KVZ = 162 SA = 2 KPA = 10 KA = 15 LQ = 79	
+	
+156,144		 K4			10	
+	
+KVZ = 162 SA = 0 KPA = 10 KA = 15 LQ = 79	
+	
+157,590		 K1			NZ = 163	
++ 158,467	K1		
+	
+KVZ = 163 SA = 0 KPA = 10 KA = 15 LQ = 80	
+	
+158,467		 K1			NZ = 164	
++ 158,624	K1		
+	
+KVZ = 164 SA = 0 KPA = 10 KA = 15 LQ = 81	
+	
+158,624		 K1			NZ = 165	
++ 159,072	K1		
+	
+KVZ = 165 SA = 0 KPA = 10 KA = 15 LQ = 82	
+	
+159,072		 K1			NZ = 166	
++ 159,566	K1		
+	
+KVZ = 166 SA = 0 KPA = 10 KA = 15 LQ = 83	
 	
 159,279		 K2			NB = 16	 KPA = 5	
-+ 161,18	K4		
++ 159,957	K4		
 + 169,886	K2		
 	
-KVZ = 37 SA = 1 KPA = 1 KA = 16 VQ.Count = 0	
+KVZ = 166 SA = 1 KPA = 5 KA = 16 LQ = 83	
 	
-161,180		 K4			
+159,566		 K1			NZ = 167	
++ 159,935	K1		
 	
-KVZ = 37 SA = 0 KPA = 1 KA = 16 VQ.Count = 0	
+KVZ = 167 SA = 1 KPA = 5 KA = 16 LQ = 84	
 	
-161,300		 K1			NZ = 38	
-+ 162,569	K1		
+159,935		 K1			NZ = 168	
++ 161,54	K1		
 	
-KVZ = 38 SA = 0 KPA = 1 KA = 16 VQ.Count = 1	
+KVZ = 168 SA = 1 KPA = 5 KA = 16 LQ = 85	
 	
-162,569		 K1			NZ = 39	
-+ 164,592	K1		
+159,957		 K4			5	
++ 160,015	K4		
 	
-KVZ = 39 SA = 0 KPA = 1 KA = 16 VQ.Count = 2	
+KVZ = 168 SA = 2 KPA = 6 KA = 16 LQ = 84	
 	
-164,592		 K1			NZ = 40	
-+ 168,09	K1		
+160,015		 K4			6	
++ 160,77	K4		
 	
-KVZ = 40 SA = 0 KPA = 1 KA = 16 VQ.Count = 3	
+KVZ = 168 SA = 2 KPA = 7 KA = 16 LQ = 83	
 	
-168,090		 K1			NZ = 41	
-+ 189,601	K1		
+160,770		 K4			7	
++ 161,08	K4		
 	
-KVZ = 41 SA = 0 KPA = 1 KA = 16 VQ.Count = 4	
+KVZ = 168 SA = 2 KPA = 8 KA = 16 LQ = 82	
+	
+161,080		 K4			8	
++ 161,777	K4		
+	
+KVZ = 168 SA = 2 KPA = 9 KA = 16 LQ = 81	
+	
+161,540		 K1			NZ = 169	
++ 168,818	K1		
+	
+KVZ = 169 SA = 2 KPA = 9 KA = 16 LQ = 82	
+	
+161,777		 K4			9	
++ 162,054	K4		
+	
+KVZ = 169 SA = 2 KPA = 10 KA = 16 LQ = 81	
+	
+162,054		 K4			10	
+	
+KVZ = 169 SA = 0 KPA = 10 KA = 16 LQ = 81	
+	
+168,818		 K1			NZ = 170	
++ 169,279	K1		
+	
+KVZ = 170 SA = 0 KPA = 10 KA = 16 LQ = 82	
+	
+169,279		 K1			NZ = 171	
++ 169,423	K1		
+	
+KVZ = 171 SA = 0 KPA = 10 KA = 16 LQ = 83	
+	
+169,423		 K1			NZ = 172	
++ 174,77	K1		
+	
+KVZ = 172 SA = 0 KPA = 10 KA = 16 LQ = 84	
 	
 169,886		 K2			NB = 17	 KPA = 1	
-+ 171,532	K4		
++ 172,719	K4		
 + 179,21	K2		
 	
-KVZ = 41 SA = 1 KPA = 1 KA = 17 VQ.Count = 4	
+KVZ = 172 SA = 1 KPA = 1 KA = 17 LQ = 84	
 	
-171,532		 K4			
-+ 172,345	K4		
+172,719		 K4			1	
++ 173,273	K4		
 	
-KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 3	
+KVZ = 172 SA = 2 KPA = 2 KA = 17 LQ = 83	
 	
-172,345		 K4			
-+ 172,465	K4		
+173,273		 K4			2	
++ 173,426	K4		
 	
-KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 2	
+KVZ = 172 SA = 2 KPA = 3 KA = 17 LQ = 82	
 	
-172,465		 K4			
-+ 172,732	K4		
+173,426		 K4			3	
++ 173,985	K4		
 	
-KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 1	
+KVZ = 172 SA = 2 KPA = 4 KA = 17 LQ = 81	
 	
-172,732		 K4			
-+ 173,679	K4		
+173,985		 K4			4	
++ 174,562	K4		
 	
-KVZ = 41 SA = 2 KPA = 1 KA = 17 VQ.Count = 0	
+KVZ = 172 SA = 2 KPA = 5 KA = 17 LQ = 80	
 	
-173,679		 K4			
+174,562		 K4			5	
++ 174,933	K4		
 	
-KVZ = 41 SA = 0 KPA = 1 KA = 17 VQ.Count = 0	
+KVZ = 172 SA = 2 KPA = 6 KA = 17 LQ = 79	
 	
-179,210		 K2			NB = 18	 KPA = 1	
-+ 180,187	K4		
+174,770		 K1			NZ = 173	
++ 175,298	K1		
+	
+KVZ = 173 SA = 2 KPA = 6 KA = 17 LQ = 80	
+	
+174,933		 K4			6	
++ 175,87	K4		
+	
+KVZ = 173 SA = 2 KPA = 7 KA = 17 LQ = 79	
+	
+175,298		 K1			NZ = 174	
++ 175,913	K1		
+	
+KVZ = 174 SA = 2 KPA = 7 KA = 17 LQ = 80	
+	
+175,870		 K4			7	
++ 176,408	K4		
+	
+KVZ = 174 SA = 2 KPA = 8 KA = 17 LQ = 79	
+	
+175,913		 K1			NZ = 175	
++ 176,035	K1		
+	
+KVZ = 175 SA = 2 KPA = 8 KA = 17 LQ = 80	
+	
+176,035		 K1			NZ = 176	
++ 177,533	K1		
+	
+KVZ = 176 SA = 2 KPA = 8 KA = 17 LQ = 81	
+	
+176,408		 K4			8	
++ 176,513	K4		
+	
+KVZ = 176 SA = 2 KPA = 9 KA = 17 LQ = 80	
+	
+176,513		 K4			9	
++ 176,675	K4		
+	
+KVZ = 176 SA = 2 KPA = 10 KA = 17 LQ = 79	
+	
+176,675		 K4			10	
+	
+KVZ = 176 SA = 0 KPA = 10 KA = 17 LQ = 79	
+	
+177,533		 K1			NZ = 177	
++ 177,908	K1		
+	
+KVZ = 177 SA = 0 KPA = 10 KA = 17 LQ = 80	
+	
+177,908		 K1			NZ = 178	
++ 179,359	K1		
+	
+KVZ = 178 SA = 0 KPA = 10 KA = 17 LQ = 81	
+	
+179,210		 K2			NB = 18	 KPA = 5	
++ 180,705	K4		
 + 188,74	K2		
 	
-KVZ = 41 SA = 1 KPA = 1 KA = 18 VQ.Count = 0	
+KVZ = 178 SA = 1 KPA = 5 KA = 18 LQ = 81	
 	
-180,187		 K4			
+179,359		 K1			NZ = 179	
++ 181,468	K1		
 	
-KVZ = 41 SA = 0 KPA = 1 KA = 18 VQ.Count = 0	
+KVZ = 179 SA = 1 KPA = 5 KA = 18 LQ = 82	
+	
+180,705		 K4			5	
++ 181,663	K4		
+	
+KVZ = 179 SA = 2 KPA = 6 KA = 18 LQ = 81	
+	
+181,468		 K1			NZ = 180	
++ 182,439	K1		
+	
+KVZ = 180 SA = 2 KPA = 6 KA = 18 LQ = 82	
+	
+181,663		 K4			6	
++ 181,758	K4		
+	
+KVZ = 180 SA = 2 KPA = 7 KA = 18 LQ = 81	
+	
+181,758		 K4			7	
++ 182,549	K4		
+	
+KVZ = 180 SA = 2 KPA = 8 KA = 18 LQ = 80	
+	
+182,439		 K1			NZ = 181	
++ 182,922	K1		
+	
+KVZ = 181 SA = 2 KPA = 8 KA = 18 LQ = 81	
+	
+182,549		 K4			8	
++ 182,94	K4		
+	
+KVZ = 181 SA = 2 KPA = 9 KA = 18 LQ = 80	
+	
+182,922		 K1			NZ = 182	
++ 183,738	K1		
+	
+KVZ = 182 SA = 2 KPA = 9 KA = 18 LQ = 81	
+	
+182,940		 K4			9	
++ 183,739	K4		
+	
+KVZ = 182 SA = 2 KPA = 10 KA = 18 LQ = 80	
+	
+183,738		 K1			NZ = 183	
++ 184,009	K1		
+	
+KVZ = 183 SA = 2 KPA = 10 KA = 18 LQ = 81	
+	
+183,739		 K4			10	
+	
+KVZ = 183 SA = 0 KPA = 10 KA = 18 LQ = 81	
+	
+184,009		 K1			NZ = 184	
++ 184,351	K1		
+	
+KVZ = 184 SA = 0 KPA = 10 KA = 18 LQ = 82	
+	
+184,351		 K1			NZ = 185	
++ 184,378	K1		
+	
+KVZ = 185 SA = 0 KPA = 10 KA = 18 LQ = 83	
+	
+184,378		 K1			NZ = 186	
++ 184,455	K1		
+	
+KVZ = 186 SA = 0 KPA = 10 KA = 18 LQ = 84	
+	
+184,455		 K1			NZ = 187	
++ 184,941	K1		
+	
+KVZ = 187 SA = 0 KPA = 10 KA = 18 LQ = 85	
+	
+184,941		 K1			NZ = 188	
++ 184,995	K1		
+	
+KVZ = 188 SA = 0 KPA = 10 KA = 18 LQ = 86	
+	
+184,995		 K1			NZ = 189	
++ 185,281	K1		
+	
+KVZ = 189 SA = 0 KPA = 10 KA = 18 LQ = 87	
+	
+185,281		 K1			NZ = 190	
++ 185,903	K1		
+	
+KVZ = 190 SA = 0 KPA = 10 KA = 18 LQ = 88	
+	
+185,903		 K1			NZ = 191	
++ 186,978	K1		
+	
+KVZ = 191 SA = 0 KPA = 10 KA = 18 LQ = 89	
+	
+186,978		 K1			NZ = 192	
++ 188,063	K1		
+	
+KVZ = 192 SA = 0 KPA = 10 KA = 18 LQ = 90	
+	
+188,063		 K1			NZ = 193	
++ 188,152	K1		
+	
+KVZ = 193 SA = 0 KPA = 10 KA = 18 LQ = 91	
+	
+188,152		 K1			NZ = 194	
++ 192,229	K1		
+	
+KVZ = 194 SA = 0 KPA = 10 KA = 18 LQ = 92	
 	
 188,740		 K2			NB = 19	 KPA = 1	
-+ 189,99	K4		
++ 190,403	K4		
 + 198,927	K2		
 	
-KVZ = 41 SA = 1 KPA = 1 KA = 19 VQ.Count = 0	
+KVZ = 194 SA = 1 KPA = 1 KA = 19 LQ = 92	
 	
-189,601		 K1			NZ = 42	
-+ 215,355	K1		
+190,403		 K4			1	
++ 191,058	K4		
 	
-KVZ = 42 SA = 1 KPA = 1 KA = 19 VQ.Count = 1	
+KVZ = 194 SA = 2 KPA = 2 KA = 19 LQ = 91	
 	
-189,990		 K4			
-+ 190,368	K4		
+191,058		 K4			2	
++ 191,342	K4		
 	
-KVZ = 42 SA = 2 KPA = 1 KA = 19 VQ.Count = 0	
+KVZ = 194 SA = 2 KPA = 3 KA = 19 LQ = 90	
 	
-190,368		 K4			
+191,342		 K4			3	
++ 191,668	K4		
 	
-KVZ = 42 SA = 0 KPA = 1 KA = 19 VQ.Count = 0	
+KVZ = 194 SA = 2 KPA = 4 KA = 19 LQ = 89	
 	
-198,927		 K2			NB = 20	 KPA = 1	
-+ 200,488	K4		
+191,668		 K4			4	
++ 191,724	K4		
+	
+KVZ = 194 SA = 2 KPA = 5 KA = 19 LQ = 88	
+	
+191,724		 K4			5	
++ 192,543	K4		
+	
+KVZ = 194 SA = 2 KPA = 6 KA = 19 LQ = 87	
+	
+192,229		 K1			NZ = 195	
++ 192,479	K1		
+	
+KVZ = 195 SA = 2 KPA = 6 KA = 19 LQ = 88	
+	
+192,479		 K1			NZ = 196	
++ 192,678	K1		
+	
+KVZ = 196 SA = 2 KPA = 6 KA = 19 LQ = 89	
+	
+192,543		 K4			6	
++ 193,01	K4		
+	
+KVZ = 196 SA = 2 KPA = 7 KA = 19 LQ = 88	
+	
+192,678		 K1			NZ = 197	
++ 194,422	K1		
+	
+KVZ = 197 SA = 2 KPA = 7 KA = 19 LQ = 89	
+	
+193,010		 K4			7	
++ 193,34	K4		
+	
+KVZ = 197 SA = 2 KPA = 8 KA = 19 LQ = 88	
+	
+193,340		 K4			8	
++ 194,016	K4		
+	
+KVZ = 197 SA = 2 KPA = 9 KA = 19 LQ = 87	
+	
+194,016		 K4			9	
++ 194,763	K4		
+	
+KVZ = 197 SA = 2 KPA = 10 KA = 19 LQ = 86	
+	
+194,422		 K1			NZ = 198	
++ 194,592	K1		
+	
+KVZ = 198 SA = 2 KPA = 10 KA = 19 LQ = 87	
+	
+194,592		 K1			NZ = 199	
++ 194,758	K1		
+	
+KVZ = 199 SA = 2 KPA = 10 KA = 19 LQ = 88	
+	
+194,758		 K1			NZ = 200	
++ 194,973	K1		
+	
+KVZ = 200 SA = 2 KPA = 10 KA = 19 LQ = 89	
+	
+194,763		 K4			10	
+	
+KVZ = 200 SA = 0 KPA = 10 KA = 19 LQ = 89	
+	
+194,973		 K1			NZ = 201	
++ 196,117	K1		
+	
+KVZ = 201 SA = 0 KPA = 10 KA = 19 LQ = 90	
+	
+196,117		 K1			NZ = 202	
++ 198,955	K1		
+	
+KVZ = 202 SA = 0 KPA = 10 KA = 19 LQ = 91	
+	
+198,927		 K2			NB = 20	 KPA = 4	
++ 200,177	K4		
 + 208,25	K2		
 	
-KVZ = 42 SA = 1 KPA = 6 KA = 20 VQ.Count = 0	
+KVZ = 202 SA = 1 KPA = 4 KA = 20 LQ = 91	
 	
-200,488		 K4			
+198,955		 K1			NZ = 203	
++ 200,405	K1		
 	
-KVZ = 42 SA = 0 KPA = 6 KA = 20 VQ.Count = 0	
+KVZ = 203 SA = 1 KPA = 4 KA = 20 LQ = 92	
+	
+200,177		 K4			4	
++ 200,963	K4		
+	
+KVZ = 203 SA = 2 KPA = 5 KA = 20 LQ = 91	
 	
 	
 ==============================================================
 ============Статистические результаты моделирования===========
 ==============================================================
 	
-Время моделирования: 200,49
+Время моделирования: 200,18
+Статистические характеристики длины очереди: 
+МО = 56
+Дисперсия = 570,86
+
+KNP = 0

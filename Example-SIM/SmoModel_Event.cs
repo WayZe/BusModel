@@ -24,6 +24,7 @@ namespace Model_Lab
                 var rec = new PassRec();                            //новая запись 
                 rec.Z = ZP;                                         //передаём в созданный объект, объект заявки
                 Model.VQ.Add(rec);                                  //добавляем в очередь
+				Model.LQ.Value = Model.VQ.Count.Value;
 
                 var ev1 = new K1();                                 // создание объекта события
                 ZP.NZ += 1;
@@ -48,10 +49,11 @@ namespace Model_Lab
             protected override void HandleEvent(ModelEventArgs args)
             {
                 
-                Model.KA += 1;
-                Model.Tracer.EventTrace(this, "NB = " + ZB.NB, " KPA = " + ZB.KPA);
-                Model.SA = 1;
 				Random rnd = new Random();
+                Model.KPA = rnd.Next(Model.ml, Model.mp);
+                Model.KA += 1;
+                Model.Tracer.EventTrace(this, "NB = " + ZB.NB, " KPA = " + Model.KPA);
+                Model.SA = 1;
 				int KolPassOut = rnd.Next(Model.VL, Model.VP);
 				if (KolPassOut > ZB.KPA)
 					KolPassOut = ZB.KPA;
@@ -69,7 +71,6 @@ namespace Model_Lab
 				var ev2 = new K2();                                 // создание объекта события
                 Bus Z = new Bus();
                 Z.NB = this.ZB.NB + 1;
-                Model.KPA = rnd.Next(Model.ml, Model.mp);
                 Z.KPA = Model.KPA;
                 ev2.ZB = Z;
 				double dt2 = Model.T + Model.GenBusAppear.GenerateValue();
@@ -105,7 +106,7 @@ namespace Model_Lab
   //          }
   //      }
 
-		// класс для события 4 - приход автобуса на остановку
+		// класс для события 4 - посадка в автобус
         public class K4 : TimeModelEvent<SmoModel>
         {
             #region Атрибуты события
@@ -114,7 +115,7 @@ namespace Model_Lab
             // алгоритм обработки события            
             protected override void HandleEvent(ModelEventArgs args)
             {
-                Model.Tracer.EventTrace(this);
+				Model.Tracer.EventTrace(this, Model.KPA);
 
                 if (Model.VQ.Count.Value != 0)
                 {
@@ -122,6 +123,8 @@ namespace Model_Lab
 					{
 						Model.SA = 2;
 						Model.VQ.RemoveAt(0);
+						Model.LQ.Value -= 1;
+						Model.KPA += 1;
 						double dt4 = Model.GenPassIn.GenerateValue();
 						var ev4 = new K4();                                 // создание объекта события
 						Model.PlanEvent(ev4, dt4);                          // планирование события 3
@@ -131,13 +134,17 @@ namespace Model_Lab
 					{
 						Model.SA = 0;
 						if (Model.NVAR == 2)
+						{
+							Model.KNP += Model.VQ.Count;
 							Model.VQ.Clear();
+						}
 					}
                 }
                 else
                 {
                     Model.SA = 0;
                 }
+
                 Model.Tracer.AnyTrace("");
                 Model.TraceModel();
                 Model.Tracer.AnyTrace("");
