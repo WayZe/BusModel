@@ -48,6 +48,8 @@ namespace Model_Lab
         // Количество автобусов, пришедших на остановку
         int KA;
 
+		TIntVar LQ;
+		int KNP = 0;
         #endregion
 
         #region Дополнительные структуры
@@ -91,9 +93,9 @@ namespace Model_Lab
         #endregion
 
         #region Cборщики статистики
-
+        
         // 	Интенсивность числа полных циклов  ?????????????????????? 
-        Variance<double>[] Variance_INTC;
+        Variance<int> Variance_LQ;
 
         // МО и дисперсия количества читателей, обслуживаемых библиотекарем за один заход
         // Variance<double>[] Variance_KZS;
@@ -121,6 +123,9 @@ namespace Model_Lab
             : base(parent, name)
         {
             VQ = InitModelObject<SimpleModelList<PassRec>>();
+			LQ = InitModelObject<TIntVar>();
+			Variance_LQ = InitModelObject<Variance<int>>();
+			Variance_LQ.ConnectOnSet(LQ);
             GenPassAppear = InitModelObject<ExpStream>("Генератор времени появления пассажиров");
             GenBusAppear = InitModelObject<UniformStream>("Генератор времени прибытия автобуса на остановку");
             GenPassOut = InitModelObject<UniformStream>("Генератор времени высадки пассажира");

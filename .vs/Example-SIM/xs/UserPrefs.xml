@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{A34A204D-94F0-4900-9B14-54BC09F5DC94}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Example-SIM/SmoModel_Event.cs">
     <Files>
-      <File FileName="Example-SIM/SmoModel_Event.cs" Line="102" Column="20" />
-      <File FileName="Example-SIM/SmoModel_Experiment.cs" Line="51" Column="17" />
-      <File FileName="Example-SIM/SmoModel_Class.cs" Line="31" Column="15" />
+      <File FileName="Example-SIM/SmoModel_Event.cs" Line="64" Column="42" />
+      <File FileName="Example-SIM/SmoModel_Experiment.cs" Line="85" Column="51" />
+      <File FileName="Example-SIM/SmoModel_Class.cs" Line="52" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

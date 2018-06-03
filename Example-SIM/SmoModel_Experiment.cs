@@ -32,7 +32,7 @@ namespace Model_Lab
         public override void SetNextVariant(int variantCount)
         {
             #region Параметры модели
-            LAMBD = 1.0 / 5;
+            LAMBD = 1.0;
             SA = 0;
 			B = 10;
 			T = 10.0;
@@ -83,21 +83,24 @@ namespace Model_Lab
             TraceModelHeader();
 
             #region Планирование начальных событий
-
+            
             var ev1 = new K1();                                 // создание объекта события
             Pass Z1 = new Pass();
             Z1.NZ = 1;
             ev1.ZP = Z1;                                        // передача библиотекаря в событие
             PlanEvent(ev1, 0.0);                          // планирование события 3
+			Tracer.PlanEventTrace(ev1);
+
             Random rnd = new Random();
             var ev2 = new K2();                                 // создание объекта события
             Bus Z2 = new Bus();
             Z2.NB = 1;
-            KPA = rnd.Next(1, B);
+			KPA = 0;
             Z2.KPA = KPA;
             ev2.ZB = Z2;                                      // передача библиотекаря в событие
             double dt2 = T + GenBusAppear.GenerateValue();
             PlanEvent(ev2, dt2);                          // планирование события 3
+			Tracer.PlanEventTrace(ev2);
 
             #endregion
         }
@@ -112,7 +115,12 @@ namespace Model_Lab
             Tracer.AnyTrace("");
             Tracer.TraceOut("Время моделирования: " + string.Format("{0:0.00}", Time));
 
-            //Tracer.TraceOut(VQ);
+			Tracer.TraceOut("Статистические характеристики длины очереди: ");
+			Tracer.TraceOut("МО = " + Variance_LQ.Mx.ToString("#.###"));
+			Tracer.TraceOut("Дисперсия = " + Variance_LQ.Stat.ToString("#.###"));
+
+			Tracer.TraceOut("");
+			Tracer.TraceOut("KNP = " + KNP);
 
         }
 
@@ -164,7 +172,7 @@ namespace Model_Lab
         //Печать строки состояния
         void TraceModel()
         {
-            Tracer.AnyTrace("KVZ = " + KVZ + " SA = " + SA + " KPA = " + KPA + " KA = " + KA + " VQ.Count = " + VQ.Count.Value);
+            Tracer.AnyTrace("KVZ = " + KVZ + " SA = " + SA + " KPA = " + KPA + " KA = " + KA + " LQ = " + VQ.Count.Value);
         }
 
     }
