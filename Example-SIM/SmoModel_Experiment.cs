@@ -32,7 +32,7 @@ namespace Model_Lab
         public override void SetNextVariant(int variantCount)
         {
             #region Параметры модели
-            LAMBD = 1.0;
+            LAMBD = 1.0/2;
             SA = 0;
 			B = 10;
 			T = 10.0;
@@ -172,9 +172,8 @@ namespace Model_Lab
         //Печать строки состояния
         void TraceModel()
         {
-            Tracer.AnyTrace("KVZ = " + KVZ + " SA = " + SA + " KPA = " + KPA + " KA = " + KA + " LQ = " + VQ.Count.Value);
-        }
-
+			Tracer.AnyTrace("KVZ = " + KVZ + " SA = " + SA + " KPA = " + KPA + " KA = " + KA + " LQ = " + LQ.Value);
+        }      
     }
 }
 
