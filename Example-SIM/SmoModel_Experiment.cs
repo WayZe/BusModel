@@ -34,13 +34,13 @@ namespace Model_Lab
             #region Параметры модели
             LAMBD = 1.0/2;
             SA = 0;
-			B = 10;
+			B = 25;
 			T = 10.0;
 			A = 1.0;
             TP = 200;
             NVAR = 1;
-            ml = 1;
-            mp = 8;
+            ml = 20;
+            mp = 25;
             bcl = 0.0;
             bcp = 1.0;
             pcl = 0.0;

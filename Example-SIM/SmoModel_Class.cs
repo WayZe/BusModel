@@ -35,6 +35,8 @@ namespace Model_Lab
         int VL, VP;
         // Номер варианта
         int NVAR;
+        // Количество оставшихся пассажиров в автобусе после высадки
+        int KOP;
         #endregion
 
         #region Переменные состояния модели

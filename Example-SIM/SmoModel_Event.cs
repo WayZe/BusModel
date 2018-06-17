@@ -52,12 +52,15 @@ namespace Model_Lab
 				Random rnd = new Random();
                 Model.KPA = rnd.Next(Model.ml, Model.mp);
                 Model.KA += 1;
-                Model.Tracer.EventTrace(this, "NB = " + ZB.NB);
+                Model.Tracer.EventTrace(this, "NB = " + ZB.NB + " KPA = " + Model.KPA);
                 Model.SA = 1;
 				int KolPassOut = rnd.Next(Model.VL, Model.VP);
-				if (KolPassOut > ZB.KPA)
-					KolPassOut = ZB.KPA;
+                
+                //           if (KolPassOut > ZB.KPA)
+                //KolPassOut = ZB.KPA;
 
+                Model.KOP = KolPassOut;
+              // /* Model.KOP = */Model.KPA -= KolPassOut;
 
                 // ВЫСАДКА ПАССАЖИРОВ
 				double dt3 = 0;
@@ -88,9 +91,10 @@ namespace Model_Lab
 			// алгоритм обработки события            
             protected override void HandleEvent(ModelEventArgs args)
             {
-				Model.Tracer.EventTrace(this);
+                Model.KPA -= Model.KOP;
+                Model.Tracer.EventTrace(this, "KPA = " + Model.KPA);
 
-				if (Model.VQ.Count != 0)
+                if (Model.VQ.Count != 0)
         		{
         			Model.SA = 2;
         			Model.VQ.RemoveAt(0);
