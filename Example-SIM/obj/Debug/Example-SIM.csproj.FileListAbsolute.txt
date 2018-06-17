@@ -71,3 +71,4 @@ D:\Langs\C#\BusModel\Example-SIM\obj\Debug\Example-SIM.csproj.CoreCompileInputs.
 D:\Langs\C#\BusModel\Example-SIM\obj\Debug\Example-SIM.csproj.CopyComplete
 D:\Langs\C#\BusModel\Example-SIM\obj\Debug\Example-SIM.exe
 D:\Langs\C#\BusModel\Example-SIM\obj\Debug\Example-SIM.pdb
+D:\Langs\C#\BusModel\Example-SIM\obj\Debug\Example-SIM.csprojAssemblyReference.cache

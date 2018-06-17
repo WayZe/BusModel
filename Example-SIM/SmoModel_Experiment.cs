@@ -119,7 +119,16 @@ namespace Model_Lab
 			Tracer.TraceOut("МО = " + Variance_LQ.Mx.ToString("#.###"));
 			Tracer.TraceOut("Дисперсия = " + Variance_LQ.Stat.ToString("#.###"));
 
-			Tracer.TraceOut("");
+            for (int i = 0; i < iPassOut; i++)
+            {
+                TQ.Value = times[i];
+            }
+
+            Tracer.TraceOut("Статистические характеристики времени нахождения пассажиров в очереди: ");
+            Tracer.TraceOut("МО = " + Variance_TQ.Mx.ToString("#.###"));
+            Tracer.TraceOut("Дисперсия = " + Variance_TQ.Stat.ToString("#.###"));
+
+            Tracer.TraceOut("");
 			Tracer.TraceOut("KNP = " + KNP);
 
         }

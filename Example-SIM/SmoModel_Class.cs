@@ -35,12 +35,20 @@ namespace Model_Lab
         int VL, VP;
         // Номер варианта
         int NVAR;
+
+
         // Количество оставшихся пассажиров в автобусе после высадки
         int KOP;
+        // Список времени нахождения в очереди каждого пассажира
+        List<double> times = new List<double>();
+        // Счетчик вошедших пассажиров
+        int iPassIn = -1;
+        // Счетчик вышедших пассажиров
+        int iPassOut = -1;
         #endregion
 
         #region Переменные состояния модели
-        
+
         // Количество пришедших на остановку пассажиров
         int KVZ;
         // Состояние автобуса
@@ -51,6 +59,7 @@ namespace Model_Lab
         int KA;
 
 		TIntVar LQ;
+        TRealVar TQ;
 		int KNP = 0;
         #endregion
 
@@ -100,7 +109,7 @@ namespace Model_Lab
         Variance<int> Variance_LQ;
 
         // МО и дисперсия количества читателей, обслуживаемых библиотекарем за один заход
-        // Variance<double>[] Variance_KZS;
+        Variance<double> Variance_TQ;
 
         #endregion
 
@@ -124,10 +133,15 @@ namespace Model_Lab
         public SmoModel(Model parent, string name)
             : base(parent, name)
         {
+            TQ = InitModelObject<TRealVar>();
+            Variance_TQ = InitModelObject<Variance<double>>();
+            Variance_TQ.ConnectOnSet(TQ);
+
             VQ = InitModelObject<SimpleModelList<PassRec>>();
 			LQ = InitModelObject<TIntVar>();
 			Variance_LQ = InitModelObject<Variance<int>>();
 			Variance_LQ.ConnectOnSet(LQ);
+
             GenPassAppear = InitModelObject<ExpStream>("Генератор времени появления пассажиров");
             GenBusAppear = InitModelObject<UniformStream>("Генератор времени прибытия автобуса на остановку");
             GenPassOut = InitModelObject<UniformStream>("Генератор времени высадки пассажира");

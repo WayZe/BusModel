@@ -26,6 +26,9 @@ namespace Model_Lab
                 Model.VQ.Add(rec);                                  //добавляем в очередь
 				Model.LQ.Value = Model.VQ.Count.Value;
 
+                Model.times.Add(Time);
+                Model.iPassIn++;
+
                 var ev1 = new K1();                                 // создание объекта события
                 ZP.NZ += 1;
                 ev1.ZP = ZP;                                        // передача библиотекаря в событие
@@ -98,7 +101,10 @@ namespace Model_Lab
         		{
         			Model.SA = 2;
         			Model.VQ.RemoveAt(0);
-					Model.KPA += 1;
+                    Model.iPassOut++;
+                    Model.times[Model.iPassOut] = Time - Model.times[Model.iPassOut];
+
+                    Model.KPA += 1;
 					Model.LQ.Value -= 1;
         			double dt4 = Model.GenPassIn.GenerateValue();
         			var ev4 = new K4();                                 // создание объекта события
@@ -133,7 +139,9 @@ namespace Model_Lab
 					{
 						Model.SA = 2;
 						Model.VQ.RemoveAt(0);
-						Model.LQ.Value -= 1;
+                        Model.iPassOut++;
+                        Model.times[Model.iPassOut] = Time - Model.times[Model.iPassOut];
+                        Model.LQ.Value -= 1;
 						Model.KPA += 1;
 						double dt4 = Model.GenPassIn.GenerateValue();
 						var ev4 = new K4();                                 // создание объекта события
@@ -145,7 +153,12 @@ namespace Model_Lab
 						Model.SA = 0;
 						if (Model.NVAR == 2)
 						{
-							Model.KNP += Model.VQ.Count;
+                            while (Model.times.Count != Model.iPassOut)
+                            {
+                                Model.iPassOut++;
+                                Model.times[Model.iPassOut] = Time - Model.times[Model.iPassOut];
+                            }
+                            Model.KNP += Model.VQ.Count;
 							Model.VQ.Clear();
 						}
 					}
